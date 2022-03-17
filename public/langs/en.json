@@ -1,5 +1,13 @@
 {
-  "react": {
-    "title": "The start of a new era !"
+  "activity": {
+    "title": "Activities",
+    "category": {
+      "restaurant": {
+        "title": "Restaurants"
+      },
+      "hotel": {
+        "title": "Hotel"
+      }
+    }
   }
 }
