@@ -11,5 +11,6 @@ export const LogoWrapper = styled.figure<LogoProps>`
 `;
 
 export const LogoImg = styled.img<LogoProps>`
+  display: flex;
   width: 100%;
 `;
