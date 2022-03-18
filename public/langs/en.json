@@ -1,4 +1,11 @@
 {
+  "logo": {
+    "text": "Logo of the website InVisible in $t(logo.colors.{{color}}).",
+    "colors":  {
+      "white": "white",
+      "black": "black."
+    }
+  },
   "activity": {
     "title": "Activities",
     "category": {
@@ -6,7 +13,7 @@
         "title": "Restaurants"
       },
       "hotel": {
-        "title": "Hotel"
+        "title": "Hotels"
       }
     }
   }

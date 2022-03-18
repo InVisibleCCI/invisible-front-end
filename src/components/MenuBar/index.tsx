@@ -3,6 +3,7 @@ import { MenuBarWrapper } from './styles';
 import { Menubar as PRMenuBar } from 'primereact/menubar';
 import { MenuItemProps, menuItemsFromElements } from 'components/MenuItem';
 import { useTranslation } from 'react-i18next';
+import Logo from 'components/Logo';
 
 interface Props {
   children: Array<React.ReactElement<MenuItemProps>>,
@@ -14,6 +15,8 @@ const MenuBar: React.FunctionComponent<Props> = ({children}) => {
     <MenuBarWrapper>
       <PRMenuBar
         model={menuItemsFromElements(children)}
+        start={<Logo color={'black'} size={'small'} />}
+        end={<div></div>}
       />
     </MenuBarWrapper>
   );

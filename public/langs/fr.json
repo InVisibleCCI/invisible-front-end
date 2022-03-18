@@ -1,12 +1,19 @@
 {
+  "logo": {
+    "text": "Logo du site Invisible en $t(logo.colors.{{color}}).",
+    "colors":  {
+      "white": "blanc",
+      "black": "noir"
+    }
+  },
   "activity": {
-    "title": "Activitées",
+    "title": "Activités",
     "category": {
       "restaurant": {
         "title": "Restaurants"
       },
       "hotel": {
-        "title": "Hôtel"
+        "title": "Hôtels"
       }
     }
   }

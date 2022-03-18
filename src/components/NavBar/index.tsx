@@ -3,7 +3,7 @@ import { NavWrapper } from './styles';
 import MenuBar from 'components/MenuBar';
 import MenuItem from 'components/MenuItem';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface Props {
 }
@@ -18,16 +18,19 @@ const NavBar: React.FunctionComponent = (props) => {
         <MenuItem
           label={t('activity.title')}
           onClick={() => navigate('/activities')}
+          active={useLocation().pathname === '/activities'}
         />
 
         <MenuItem
           label={t('activity.category.hotel.title')}
           onClick={() => navigate('/hotels')}
+          active={useLocation().pathname === '/hotels'}
         />
 
         <MenuItem
           label={t('activity.category.restaurant.title')}
           onClick={() => navigate('/restaurants')}
+          active={useLocation().pathname === '/restaurants'}
         />
 
       </MenuBar>

@@ -1,15 +1,20 @@
 import React from 'react';
 import reportWebVitals from './reportWebVitals';
-import './i18n';
+import PrimeReact from 'primereact/api';
 import Layout from './components/Layout';
 import Routes from 'routes';
-import { GlobalStyles } from 'styles';
+import { GlobalStyles } from 'utils/styles';
 import ReactDOM from 'react-dom';
 import { ProgressSpinner } from 'primereact/progressspinner';
 
-import 'primereact/resources/themes/rhea/theme.css';
+import './i18n';
+
+import 'primereact/resources/themes/fluent-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+
+
+PrimeReact.ripple = true;
 
 
 ReactDOM.render(
