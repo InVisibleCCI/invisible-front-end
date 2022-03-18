@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 type LogoColor = 'white' | 'black';
 
 interface Props {
+  onClick?: () => void,
   color: LogoColor,
   size?: 'small' | 'large',
   withText?: boolean
@@ -26,13 +27,14 @@ const imagesFromType: { [I in LogoColor]: { logo: string, logoWithText: string }
 };
 
 const Logo: React.FunctionComponent<Props> = ({
+  onClick,
   color,
   withText,
   size
 }) => {
   const { t } = useTranslation();
   return (
-  <LogoWrapper>
+  <LogoWrapper onClick={onClick}>
     <LogoImg
       src={withText ? imagesFromType[color].logoWithText : imagesFromType[color].logo}
       alt={t('logo.text', {color})}

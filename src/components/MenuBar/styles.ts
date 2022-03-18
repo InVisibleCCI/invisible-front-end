@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LogoImg, LogoWrapper } from 'components/Logo/styles';
 
 export const MenuBarWrapper = styled.div`
   & > .p-menubar {
@@ -11,6 +12,10 @@ export const MenuBarWrapper = styled.div`
     & > .p-menubar-start {
       margin-left: 96px;
       width: 200px;
+
+      ${LogoImg} {
+        cursor: pointer;
+      }
     }
     
     & > .p-menubar-root-list {
