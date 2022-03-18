@@ -1,5 +1,21 @@
 {
-  "react": {
-    "title": "The start of a new era !"
+  "logo": {
+    "text": "Logo of the website InVisible in $t(logo.colors.{{color}}).",
+    "colors":  {
+      "white": "white",
+      "black": "black",
+      "blue": "blue"
+    }
+  },
+  "activity": {
+    "title": "Activities",
+    "category": {
+      "restaurant": {
+        "title": "Restaurants"
+      },
+      "hotel": {
+        "title": "Hotels"
+      }
+    }
   }
 }
