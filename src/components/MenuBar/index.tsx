@@ -20,7 +20,7 @@ const MenuBar: React.FunctionComponent<Props> = ({children}) => {
         model={menuItemsFromElements(children)}
         start={
           <Logo
-            color={'black'}
+            color={'blue'}
             size={'small'}
             onClick={() => navigate('/')}
           />

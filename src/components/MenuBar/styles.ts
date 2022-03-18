@@ -13,7 +13,7 @@ export const MenuBarWrapper = styled.div`
       margin-left: 96px;
       width: 200px;
 
-      ${LogoImg} {
+      ${LogoWrapper} {
         cursor: pointer;
       }
     }

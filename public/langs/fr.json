@@ -3,7 +3,8 @@
     "text": "Logo du site Invisible en $t(logo.colors.{{color}}).",
     "colors":  {
       "white": "blanc",
-      "black": "noir"
+      "black": "noir",
+      "blue": "bleu"
     }
   },
   "activity": {

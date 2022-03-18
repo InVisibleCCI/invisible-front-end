@@ -5,11 +5,11 @@ interface LogoProps {
 }
 
 export const LogoWrapper = styled.figure<LogoProps>`
-  display: flex;
+  width: ${(props) => props.size === 'small' ? 50 : 100}%;
+  height: ${(props) => props.size === 'small' ? 50 : 100}%;
   margin: auto;
 `;
 
 export const LogoImg = styled.img<LogoProps>`
-  width: ${(props) => props.size === 'small' ? 50 : 100}%;
-  height: ${(props) => props.size === 'small' ? 50 : 100}%;
+  width: 100%;
 `;
