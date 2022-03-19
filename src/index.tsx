@@ -1,28 +1,30 @@
-import React from 'react';
-import reportWebVitals from './reportWebVitals';
-import PrimeReact from 'primereact/api';
-import Layout from './components/Layout';
-import Routes from 'routes';
-import { GlobalStyles } from 'utils/styles';
-import ReactDOM from 'react-dom';
-import { ProgressSpinner } from 'primereact/progressspinner';
-
-import './i18n';
-
-import 'primereact/resources/themes/fluent-light/theme.css';
-import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import PrimeReact from 'primereact/api';
+import { ProgressSpinner } from 'primereact/progressspinner';
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/fluent-light/theme.css';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import Routes from 'routes';
+import { SessionContext } from 'types/contexts/SessionContext';
+import { GlobalStyles } from 'utils/styles';
+import Layout from './components/Layout';
+import './i18n';
+import reportWebVitals from './reportWebVitals';
+
+
 
 
 PrimeReact.ripple = true;
 
 
+
 ReactDOM.render(
   <React.Suspense fallback={< ProgressSpinner />}>
-    <GlobalStyles />
-    <Layout>
-      <Routes />
-    </Layout>
+      <GlobalStyles />
+      <Layout>
+        <Routes />
+      </Layout>
   </React.Suspense>,
   document.getElementById('root')
 );
