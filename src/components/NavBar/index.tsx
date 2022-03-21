@@ -32,9 +32,7 @@ const NavBar: React.FunctionComponent = (props) => {
           onClick={() => navigate('/restaurants')}
           active={useLocation().pathname === '/restaurants'}
         />
-
       </MenuBar>
-
     </NavWrapper>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuBarWrapper } from './styles';
+import { EndTamer, MenuBarWrapper } from './styles';
 import { Menubar as PRMenuBar } from 'primereact/menubar';
 import { MenuItemProps, menuItemsFromElements } from 'components/MenuItem';
 import { useTranslation } from 'react-i18next';
@@ -20,15 +20,15 @@ const MenuBar: React.FunctionComponent<Props> = ({children}) => {
         model={menuItemsFromElements(children)}
         start={
           <Logo
-            color={'blue'}
+            color={'orange'}
             size={'small'}
             onClick={() => navigate('/')}
           />
         }
         end={
-          <div>
+          <EndTamer>
 
-          </div>
+          </EndTamer>
         }
       />
     </MenuBarWrapper>

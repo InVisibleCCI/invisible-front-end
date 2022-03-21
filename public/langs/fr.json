@@ -17,5 +17,8 @@
         "title": "Hôtels"
       }
     }
+  },
+  "notFound": {
+    "title": "La page que vous cherchez n'existe pas."
   }
 }
