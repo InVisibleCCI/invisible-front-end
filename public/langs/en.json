@@ -17,13 +17,15 @@
         "title": "Hotels"
       }
     }
-  }, 
+  },
   "search": {
     "input": {
       "main": "With InVisible, search activities nearby !",
       "search": "New search"
-    }, 
+    },
     "moreResult": "More results"
-
+  },
+  "notFound": {
+    "title": "The page you are looking for can’t be found."
   }
 }

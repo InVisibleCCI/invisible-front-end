@@ -22,7 +22,9 @@
     "input": {
       "main": "Avec InVisible trouvez une activité près de chez vous !",
       "search": "Nouvelle recherche ?"
-    }, 
+    },
     "moreResult": "Plus de résultat"
+  "notFound": {
+    "title": "La page que vous cherchez n'existe pas."
   }
 }

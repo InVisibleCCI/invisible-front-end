@@ -11,6 +11,7 @@ export const colors = {
   purple: '#7F20A0',
   green: '#20A091',
   orange: '#EF9935',
+  black: '#FFFFFF'
 }
 
 export const GlobalStyles = createGlobalStyle`
