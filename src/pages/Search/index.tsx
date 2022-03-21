@@ -1,10 +1,11 @@
 import algoliasearch from 'algoliasearch/lite';
 import { debounce } from 'lodash';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
 import { useNavigate } from 'react-router-dom';
-import { useSessionContext } from 'types/contexts/SessionContext';
-import DesktopResults from "./components/DesktopResult"
+import { useSessionContext } from 'utils/types/contexts/SessionContext';
+import DesktopResults from "./components/DesktopResult";
 
 interface Props {
 }
@@ -16,6 +17,7 @@ const Search: React.FunctionComponent<Props> = () => {
   const navigate = useNavigate();
 
   const { lastSearch, setLastSearch } = useSessionContext();
+  const { t } = useTranslation();
 
   const launchSearch = (value) => {
     setLastSearch(value)
@@ -38,16 +40,16 @@ const Search: React.FunctionComponent<Props> = () => {
 
   return <InstantSearch searchClient={searchClient} indexName="dev">
     <SearchBox
-      translations={{ placeholder: 'Nouvelle recherche ?' }}
+      translations={{ placeholder: t('search.input.main') }}
       searchAsYouType
       onChange={(e) => {
         e.preventDefault();
         launchSearch(e.target.value);
         debounceOnChangeSearchBox(e.target.value);
       }}
-    defaultRefinement={lastSearch && lastSearch}
+      defaultRefinement={lastSearch && lastSearch}
     />
-    <DesktopResults/>
+    <DesktopResults />
 
   </InstantSearch>
 }

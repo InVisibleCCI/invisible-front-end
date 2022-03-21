@@ -1,9 +1,11 @@
-import React, { Props } from 'react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
-import { useSessionContext } from "types/contexts/SessionContext";
+import { useSessionContext } from "utils/types/contexts/SessionContext";
 
 const SearchInput: React.FunctionComponent = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const { lastSearch, setLastSearch } = useSessionContext();
 
@@ -26,7 +28,7 @@ const SearchInput: React.FunctionComponent = () => {
         <input
             onKeyPress={handleKeyPress}
             onChange={(e) => setLastSearch(e.target.value)}
-            placeholder="Avec InVisible trouvez une activité près de chez vous !"
+            placeholder={t('search.input.main')}
         />
         <button onClick={search} id="button-search">Rechercher </button>
     </div>;

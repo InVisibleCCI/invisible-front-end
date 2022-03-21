@@ -3,10 +3,9 @@ import PrimeReact from 'primereact/api';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/fluent-light/theme.css';
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from 'routes';
-import { SessionContext } from 'types/contexts/SessionContext';
 import { GlobalStyles } from 'utils/styles';
 import Layout from './components/Layout';
 import './i18n';
@@ -21,10 +20,10 @@ PrimeReact.ripple = true;
 
 ReactDOM.render(
   <React.Suspense fallback={< ProgressSpinner />}>
-      <GlobalStyles />
-      <Layout>
-        <Routes />
-      </Layout>
+    <GlobalStyles />
+    <Layout>
+      <Routes />
+    </Layout>
   </React.Suspense>,
   document.getElementById('root')
 );

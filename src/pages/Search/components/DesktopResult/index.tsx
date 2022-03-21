@@ -1,31 +1,31 @@
-import React, { Props } from 'react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { connectInfiniteHits, InfiniteHits } from 'react-instantsearch-dom';
+import EventCard from '../../../../components/EventCard';
 import NoResult from '../NoResult';
-import EventCard from '../../../../components/EventCard'
 
 const DesktopResults = (props) => {
     const { hits: events, refine } = props;
+    const { t } = useTranslation();
 
     return (
-        <React.Fragment>
-            <div id="results-page">
-                <div id="map-container">
-                    {/* <LeafletMap stores={stores} /> */}
-                </div>
-                <div id="results-container">
-                    {events && events.length > 0 ?
-                        <InfiniteHits
-                            hitComponent={EventCard}
-                            translations={{
-                                loadMore: 'Plus de résultats',
-                            }}
-                        />
-                        :
-                        <NoResult />
-                    }
-                </div>
+        <div id="results-page">
+            <div id="map-container">
+                {/* <LeafletMap stores={stores} /> */}
             </div>
-        </React.Fragment >
+            <div id="results-container">
+                {events && events.length > 0 ?
+                    <InfiniteHits
+                        hitComponent={EventCard}
+                        translations={{
+                            loadMore: t('search.moreResult'),
+                        }}
+                    />
+                    :
+                    <NoResult />
+                }
+            </div>
+        </div>
     );
 }
 export default connectInfiniteHits(DesktopResults);
