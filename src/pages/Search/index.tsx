@@ -1,9 +1,10 @@
 import algoliasearch from 'algoliasearch/lite';
 import { debounce } from 'lodash';
 import React from 'react';
-import { Hits, InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSessionContext } from 'types/contexts/SessionContext';
+import DesktopResults from "./components/DesktopResult"
 
 interface Props {
 }
@@ -46,7 +47,7 @@ const Search: React.FunctionComponent<Props> = () => {
       }}
     defaultRefinement={lastSearch && lastSearch}
     />
-    <Hits />
+    <DesktopResults/>
 
   </InstantSearch>
 }
