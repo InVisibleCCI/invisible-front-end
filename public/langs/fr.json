@@ -17,5 +17,12 @@
         "title": "Hôtels"
       }
     }
+  },
+  "search": {
+    "input": {
+      "main": "Avec InVisible trouvez une activité près de chez vous !",
+      "search": "Nouvelle recherche ?"
+    }, 
+    "moreResult": "Plus de résultat"
   }
 }
