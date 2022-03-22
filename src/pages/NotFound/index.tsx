@@ -1,17 +1,13 @@
 import React from 'react';
 import { NotFoundText, NotFoundTextWrapper, NotFoundTitle, NotFoundWrapper } from './styles';
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-interface Props {
-}
-
-const NotFound: React.FunctionComponent<Props> = ({}) => {
+const NotFound: React.FunctionComponent = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <NotFoundWrapper>
+
       <NotFoundTextWrapper>
         <NotFoundTitle>
           404

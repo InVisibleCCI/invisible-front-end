@@ -15,6 +15,18 @@
       },
       "hotel": {
         "title": "Hotels"
+      },
+      "accommodation": {
+        "title": "Accomodation"
+      },
+      "cruise": {
+        "title": "Cruises"
+      },
+      "welfare": {
+        "title": "Welfare"
+      },
+      "art": {
+        "title": "Arts and culture"
       }
     }
   },

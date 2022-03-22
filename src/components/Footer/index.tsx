@@ -1,15 +1,29 @@
 import React from 'react';
-import { FooterColumn, FooterInfo, FooterLink, FooterSection, FooterWrapper, Icon, IconWrapper, TopFooter } from './styles';
+import {
+  BottomFooter,
+  BottomFooterLink,
+  FooterColumn,
+  FooterInfo,
+  FooterLink,
+  FooterSection,
+  FooterWrapper,
+  Icon,
+  IconWrapper,
+  TopFooter
+} from './styles';
 import { AiFillFacebook } from '@react-icons/all-files/ai/AiFillFacebook';
 import { AiFillInstagram } from '@react-icons/all-files/ai/AiFillInstagram';
 import { AiFillLinkedin } from '@react-icons/all-files/ai/AiFillLinkedin';
 import { AiFillTwitterSquare } from '@react-icons/all-files/ai/AiFillTwitterSquare';
-import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Logo from 'components/Logo';
 
 interface Props {
 }
 
 const Footer: React.FunctionComponent<Props> = ({}) => {
+
+  const { t } = useTranslation();
 
   return (
     <FooterWrapper>
@@ -34,62 +48,83 @@ const Footer: React.FunctionComponent<Props> = ({}) => {
       <FooterSection>
         <FooterColumn>
           <FooterLink>
-            Lorem Ipsum
+            Rechercher une activité
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
+            Centre d'aide
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
+            Mon compte
           </FooterLink>
         </FooterColumn>
 
         <FooterColumn>
           <FooterLink>
-            Lorem Ipsum
+            {t('activity.title')}
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
+            {t('activity.category.accommodation.title')}
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
+            {t('activity.category.restaurant.title')}
+          </FooterLink>
+
+          <FooterLink>
+            {t('activity.category.cruise.title')}
+          </FooterLink>
+
+          <FooterLink>
+            {t('activity.category.welfare.title')}
+          </FooterLink>
+
+          <FooterLink>
+            {t('activity.category.art.title')}
           </FooterLink>
         </FooterColumn>
 
         <FooterColumn>
           <FooterLink>
-            Lorem Ipsum
+            A propos
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
+            Contact
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
+            L' équipe
           </FooterLink>
 
           <FooterLink>
-            Lorem Ipsum
+            Blog
           </FooterLink>
 
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
         </FooterColumn>
       </FooterSection>
+
+      <Logo
+        color={'white'}
+        withText
+        size={'small'}
+      />
+
+      <BottomFooter>
+        <BottomFooterLink>
+          Mentions légales
+        </BottomFooterLink>
+
+        <BottomFooterLink>
+          Conditions générales de ventes
+        </BottomFooterLink>
+
+        <BottomFooterLink>
+          Politique de confidentialité
+        </BottomFooterLink>
+      </BottomFooter>
     </FooterInfo>
   </FooterWrapper>
   );

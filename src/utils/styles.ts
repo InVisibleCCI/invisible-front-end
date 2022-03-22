@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
-  textColor: '#000000',
+  textColor: '#FFFFFF',
   pink: '#FF7E7E',
   flirt: '#A02074',
   magenta: '#CF0063',

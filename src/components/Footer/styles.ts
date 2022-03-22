@@ -1,22 +1,28 @@
 import styled from 'styled-components';
 import { colors } from 'utils/styles';
+import { LogoWrapper } from 'components/Logo/styles';
 
 export const FooterWrapper = styled.footer`
   width: 100%;
   height: 474px;
+  color: white;
+
+  ${LogoWrapper} {
+    margin: -20px 0 0 auto;
+    justify-content: center;
+  }
 `;
 
 export const TopFooter = styled.header`
   height: 87px;
-  background-color: ${colors.pink};
+  background-color: ${colors.magenta};
 `
 
 export const IconWrapper = styled.div`
   height: 100%;
-  width: 30%;
+  width: 35%;
   margin: auto;
-  text-align: center;
-  color: white;
+  padding-top: 10px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -32,21 +38,31 @@ export const FooterInfo = styled.div`
 `;
 
 export const FooterSection = styled.section`
-  border: 2px solid white;
-  padding: 20px;
-  width: 60%;
   margin: auto;
+  padding-top: 40px;
+  max-width: 80%;
+  height: 60%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 export const FooterColumn = styled.article`
-  width: 50%;
   display: flex;
+  flex-flow: column;
 `;
 
 export const FooterLink = styled.a`
-  color: white;
+  padding-top: 5px;
+`;
+
+
+export const BottomFooter = styled.footer`
+  margin: 35px auto 0 auto;
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const BottomFooterLink = styled.a`
 `;
 

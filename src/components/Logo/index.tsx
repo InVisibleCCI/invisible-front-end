@@ -47,6 +47,7 @@ const Logo: React.FunctionComponent<Props> = ({
       src={withText ? imagesFromType[color].logoWithText : imagesFromType[color].logo}
       alt={t('logo.text', {color})}
       size={size}
+      withText
     />
   </LogoWrapper>
   );

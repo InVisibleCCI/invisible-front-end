@@ -19,27 +19,25 @@ export const MenuBarWrapper = styled.div`
     }
     
     & > .p-menubar-start {
-      width: 200px;
-
       ${LogoWrapper} {
         cursor: pointer;
       }
     }
     
     & > .p-menubar-root-list {
-      width: 40%;
+      padding: 0;
+      width: 50%;
       font-size: 24px;
-      margin: auto;
+      margin: 0 auto;
       justify-content: space-between;
 
-      .p-menuitem-link {
+      .p-menuitem-link:focus {
         box-shadow: none;
       }
     }
     
     .p-menubar-end {
-      flex: 0;
-      width: 200px;
+      width: 210px;
       border: 2px solid black;
     }
   }

@@ -15,6 +15,18 @@
       },
       "hotel": {
         "title": "Hôtels"
+      },
+      "accommodation": {
+        "title": "Hébergements"
+      },
+      "cruise": {
+        "title": "Croisières"
+      },
+      "welfare": {
+        "title": "Bien-être"
+      },
+      "art": {
+        "title": "Arts et culture"
       }
     }
   },
@@ -24,6 +36,7 @@
       "search": "Nouvelle recherche ?"
     },
     "moreResult": "Plus de résultat"
+  },
   "notFound": {
     "title": "La page que vous cherchez n'existe pas."
   }
