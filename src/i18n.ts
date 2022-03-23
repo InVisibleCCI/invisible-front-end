@@ -14,10 +14,6 @@ i18n
       loadPath: '/langs/{{lng}}.json',
       allowMultiLoading: false
     },
-
-    interpolation: {
-      escapeValue: false,
-    }
   })
 
 export default i18n;

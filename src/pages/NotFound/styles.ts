@@ -13,6 +13,7 @@ export const NotFoundWrapper = styled.div`
 export const NotFoundTitle = styled.h1`
   margin: 0;
   height: 50%;
+  min-font-size: 24px;
   font-size: 200px;
   letter-spacing: 1rem;
 `;

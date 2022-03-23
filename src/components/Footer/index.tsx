@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import {
   BottomFooter,
   BottomFooterLink,
@@ -12,30 +11,20 @@ import {
   IconWrapper,
   TopFooter
 } from './styles';
-=======
-import { FooterColumn, FooterInfo, FooterLink, FooterSection, FooterWrapper, Icon, IconWrapper, TopFooter } from './styles';
->>>>>>> 4a1229bfee8e62bffc255ce9ac36fbbbfdf39300
 import { AiFillFacebook } from '@react-icons/all-files/ai/AiFillFacebook';
 import { AiFillInstagram } from '@react-icons/all-files/ai/AiFillInstagram';
 import { AiFillLinkedin } from '@react-icons/all-files/ai/AiFillLinkedin';
 import { AiFillTwitterSquare } from '@react-icons/all-files/ai/AiFillTwitterSquare';
-<<<<<<< HEAD
 import { useTranslation } from 'react-i18next';
 import Logo from 'components/Logo';
-=======
-import { useNavigate } from 'react-router-dom';
->>>>>>> 4a1229bfee8e62bffc255ce9ac36fbbbfdf39300
 
 interface Props {
 }
 
 const Footer: React.FunctionComponent<Props> = ({}) => {
 
-<<<<<<< HEAD
   const { t } = useTranslation();
 
-=======
->>>>>>> 4a1229bfee8e62bffc255ce9ac36fbbbfdf39300
   return (
     <FooterWrapper>
     <TopFooter>
@@ -59,7 +48,6 @@ const Footer: React.FunctionComponent<Props> = ({}) => {
       <FooterSection>
         <FooterColumn>
           <FooterLink>
-<<<<<<< HEAD
             Rechercher une activité
           </FooterLink>
 
@@ -95,45 +83,11 @@ const Footer: React.FunctionComponent<Props> = ({}) => {
 
           <FooterLink>
             {t('activity.category.art.title')}
-=======
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
           </FooterLink>
         </FooterColumn>
 
         <FooterColumn>
           <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
->>>>>>> 4a1229bfee8e62bffc255ce9ac36fbbbfdf39300
-          </FooterLink>
-        </FooterColumn>
-
-        <FooterColumn>
-          <FooterLink>
-<<<<<<< HEAD
             A propos
           </FooterLink>
 
@@ -171,28 +125,6 @@ const Footer: React.FunctionComponent<Props> = ({}) => {
           Politique de confidentialité
         </BottomFooterLink>
       </BottomFooter>
-=======
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-
-          <FooterLink>
-            Lorem Ipsum
-          </FooterLink>
-        </FooterColumn>
-      </FooterSection>
->>>>>>> 4a1229bfee8e62bffc255ce9ac36fbbbfdf39300
     </FooterInfo>
   </FooterWrapper>
   );
