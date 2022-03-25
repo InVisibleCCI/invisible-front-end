@@ -39,5 +39,9 @@
   },
   "notFound": {
     "title": "La page que vous cherchez n'existe pas."
+  },
+  "card": {
+    "distance": "A {{distance}} km.",
+    "comment": "({{commentNumber}} commentaires)"
   }
 }

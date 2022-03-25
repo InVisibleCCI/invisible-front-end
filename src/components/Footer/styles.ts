@@ -5,7 +5,7 @@ import { LogoWrapper } from 'components/Logo/styles';
 export const FooterWrapper = styled.footer`
   width: 100%;
   height: 474px;
-  color: white;
+  color: ${colors.white};
 
   ${LogoWrapper} {
     margin: -20px 0 0 auto;

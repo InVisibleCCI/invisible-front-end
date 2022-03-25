@@ -4,6 +4,7 @@ import Search from 'pages/Search';
 import React, { useState } from 'react';
 import { Route, Routes as DOMRoutes } from 'react-router-dom';
 import { SessionContext } from 'utils/types/contexts/SessionContext';
+import Activity from 'pages/Activity';
 
 const Routes: React.FunctionComponent = () => {
 
@@ -11,10 +12,9 @@ const Routes: React.FunctionComponent = () => {
 
   return <SessionContext.Provider value={{ lastSearch, setLastSearch }}>
     <DOMRoutes>
-      <Route path="/search" element={<Search />}>
-      </Route>
-      <Route path="/" element={<Main />}>
-      </Route>
+      <Route path="/" element={<Main />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/activity/:id" element={<Activity />} />
       <Route path="*" element={<NotFound />} />
     </DOMRoutes>
   </SessionContext.Provider>

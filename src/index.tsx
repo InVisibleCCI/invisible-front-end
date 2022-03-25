@@ -11,12 +11,7 @@ import Layout from './components/Layout';
 import './i18n';
 import reportWebVitals from './reportWebVitals';
 
-
-
-
 PrimeReact.ripple = true;
-
-
 
 ReactDOM.render(
   <React.Suspense fallback={< ProgressSpinner />}>

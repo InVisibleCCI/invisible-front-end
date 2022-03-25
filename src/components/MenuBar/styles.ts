@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { LogoWrapper } from 'components/Logo/styles';
+import { fontSize } from 'utils/styles';
 
 export const MenuBarWrapper = styled.div`
   & > .p-menubar {
@@ -11,7 +12,7 @@ export const MenuBarWrapper = styled.div`
       margin-right: 40px;
 
       & > i {
-        font-size: 28px;
+        font-size: ${fontSize.mediumTitle};
       }
     }
     
@@ -24,7 +25,7 @@ export const MenuBarWrapper = styled.div`
     & > .p-menubar-root-list {
       padding: 0;
       width: 50%;
-      font-size: 24px;
+      font-size: ${fontSize.smallTitle};
       margin: 0 auto;
       justify-content: space-between;
 

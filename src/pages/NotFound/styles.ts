@@ -3,7 +3,7 @@ import { colors } from 'utils/styles';
 
 export const NotFoundWrapper = styled.div`
   width: 100%;
-  height: 84.5vh;
+  height: 86vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
