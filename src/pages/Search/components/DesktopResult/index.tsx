@@ -2,7 +2,10 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { connectInfiniteHits, InfiniteHits } from 'react-instantsearch-dom';
 import EventCard from '../../../../components/EventCard';
-import NoResult from '../NoResult';
+import NoResult from '../NoResult'; 
+
+// Display result from Algolia, if no result display NoResult component
+// This component use AlgoliaHooks : connectInfiniteHits
 
 const DesktopResults = (props) => {
     const { hits: events, refine } = props;

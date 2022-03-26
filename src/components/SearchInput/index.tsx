@@ -3,12 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 import { useSessionContext } from "utils/types/contexts/SessionContext";
 
+// Component who display static SearchBar (not Algolia) and lauch search
+
 const SearchInput: React.FunctionComponent = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
     const { lastSearch, setLastSearch } = useSessionContext();
 
+    // This method use lastSearch (retrieve in SessionContext) to navigate to search page
+    // With search string
+    
     const search = () => {
         let searchString = "/search";
         if (lastSearch) {

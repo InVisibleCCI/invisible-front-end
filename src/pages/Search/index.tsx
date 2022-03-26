@@ -10,14 +10,19 @@ import DesktopResults from "./components/DesktopResult";
 interface Props {
 }
 
+// This component display SearchPage it uses AlgoliaComponents
 const Search: React.FunctionComponent<Props> = () => {
 
+  // searchClient defines client with env params
   const searchClient = algoliasearch(`${process.env.REACT_APP_ALGOLIA_APP_ID}`, `${process.env.REACT_APP_ALGOLIA_API_KEY}`);
 
   const navigate = useNavigate();
 
   const { lastSearch, setLastSearch } = useSessionContext();
   const { t } = useTranslation();
+
+    // This method use lastSearch (retrieve in SessionContext) to navigate to search page with search string. 
+    // This method is called on "onChange" from Searchbox (algolia component)
 
   const launchSearch = (value) => {
     setLastSearch(value)
@@ -30,14 +35,7 @@ const Search: React.FunctionComponent<Props> = () => {
       navigate(`/search?term=${value}`);
     }
   }
-
-  const onChangeSearchBox = (value) => {
-    // HtmlService.scrollToTop();
-    // sessionContext.setLastSearch(value);
-  }
-
-  const debounceOnChangeSearchBox = React.useCallback(debounce(onChangeSearchBox, 400), []);
-
+  // InstantSearch and Searchbox are AlgoliaComponents
   return <InstantSearch searchClient={searchClient} indexName="dev">
     <SearchBox
       translations={{ placeholder: t('search.input.main') }}
@@ -45,12 +43,10 @@ const Search: React.FunctionComponent<Props> = () => {
       onChange={(e) => {
         e.preventDefault();
         launchSearch(e.target.value);
-        debounceOnChangeSearchBox(e.target.value);
       }}
       defaultRefinement={lastSearch && lastSearch}
     />
     <DesktopResults />
-
   </InstantSearch>
 }
 
