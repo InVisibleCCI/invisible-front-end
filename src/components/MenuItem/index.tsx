@@ -1,5 +1,4 @@
 import React from 'react';
-import { PrimeIcons } from 'primereact/api';
 
 export interface MenuItemProps {
   label?: string,
@@ -9,7 +8,7 @@ export interface MenuItemProps {
   onClick?: () => void,
 }
 
-const MenuItem: React.FunctionComponent<MenuItemProps> = ({children}) =>
+const MenuItem: React.FunctionComponent<MenuItemProps> = ({ children }) =>
   <>
     {children}
   </>;
@@ -18,7 +17,7 @@ export const menuItemsFromElements = (children: Array<React.ReactElement<MenuIte
   children.map(menuItemToComponent)
 
 
-const menuItemToComponent = (node: {props: MenuItemProps}) => ({
+const menuItemToComponent = (node: { props: MenuItemProps }) => ({
   label: node.props.label,
   icon: node.props.icon,
   command: node.props.onClick,

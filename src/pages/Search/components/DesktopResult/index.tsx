@@ -8,7 +8,7 @@ import NoResult from '../NoResult';
 // This component use AlgoliaHooks : connectInfiniteHits
 
 const DesktopResults = (props) => {
-    const { hits: events, refine } = props;
+    const { hits: events } = props;
     const { t } = useTranslation();
 
     return (

@@ -5,10 +5,7 @@ import MenuItem from 'components/MenuItem';
 import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-interface Props {
-}
-
-const NavBar: React.FunctionComponent = (props) => {
+const NavBar: React.FunctionComponent = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 

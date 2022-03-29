@@ -1,4 +1,3 @@
-import { Props } from "react"
 import React from "react"
 
 const NoResult: React.FunctionComponent = () => {

@@ -1,5 +1,5 @@
+import { LogoWrapper } from 'components/Logo/styles';
 import styled from 'styled-components';
-import { LogoImg, LogoWrapper } from 'components/Logo/styles';
 
 export const MenuBarWrapper = styled.div`
   & > .p-menubar {

@@ -1,8 +1,7 @@
 import React from 'react';
-import { ContentWrapper, LayoutWrapper } from './styles';
+import { BrowserRouter } from 'react-router-dom';
 import NavBar from '../NavBar';
-import { BrowserRouter, Route } from 'react-router-dom';
-import Routes from 'routes';
+import { ContentWrapper, LayoutWrapper } from './styles';
 
 interface Props {
 }
@@ -10,10 +9,10 @@ interface Props {
 const Layout: React.FunctionComponent<Props> = ({ children }) =>
   <LayoutWrapper>
     <BrowserRouter>
-        <ContentWrapper>
-          <NavBar />
-          {children}
-        </ContentWrapper>
+      <ContentWrapper>
+        <NavBar />
+        {children}
+      </ContentWrapper>
     </BrowserRouter>
   </LayoutWrapper>
 
