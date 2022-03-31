@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { User } from 'classes/User'
+import { GenericToast } from 'components/Generics/GenericToast'
 import Layout from 'components/Layout'
 import { ProgressSpinner } from 'primereact/progressspinner'
 import React, { useEffect, useState } from 'react'
@@ -31,6 +32,7 @@ const App: React.FunctionComponent = () => {
             <Layout>
                 <Routes />
             </Layout>
+            <GenericToast />
         </SessionContext.Provider>
     </React.Suspense>
 }

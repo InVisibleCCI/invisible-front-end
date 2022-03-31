@@ -1,13 +1,16 @@
-import { Button } from "primereact/button"
-import React from 'react'; 
+import { Button } from "primereact/button";
+import React from 'react';
+import { GenericButtonWrapper } from "./styles";
 
 interface Props {
     type?: 'submit' | 'reset' | 'button' | undefined;
-    label : string   
+    label: string
 }
 
 
-export const GenericButton: React.FunctionComponent<Props> = ({type, label}) => {
+export const GenericButton: React.FunctionComponent<Props> = ({ type, label }) => {
 
-    return <Button type={type}> {label} </Button>
+    return <GenericButtonWrapper>
+        <Button type={type}> {label} </Button>
+    </GenericButtonWrapper>
 }
