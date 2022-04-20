@@ -14,6 +14,7 @@ const App: React.FunctionComponent = () => {
     const [currentUser, setCurrentUser] = useState<User>();
     const authService = new AuthService();
 
+    // Read the doc : https://codinaaranxa.atlassian.net/wiki/spaces/IW/pages/2392065/Faire+des+appels+API#Comment-axios-est-il-configur%C3%A9-?
     const setupAxios = () => {
         axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
     }

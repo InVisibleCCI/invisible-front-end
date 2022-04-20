@@ -13,11 +13,14 @@ export class AuthService extends GenericApiService {
         super('users/')
     }
 
+    // Get user from backend
     me(): Promise<User> {
         const url = `${this.baseUrl}me/`;
         return axios.get(url).then(r => r.data)
     }
 
+    // This method uses credentials values (get by connection form) to get token and refresh token. If user wants "remember me", refresh token will be stored in local storage
+    // We uses "currentUser" behavior subject to pass user through the application
     login(credentials: IConnectionFormValues): Promise<any> {
         const url = "token/"
         return axios.post(url, _.omit(credentials, 'remember_me')).then(result => {
@@ -41,6 +44,7 @@ export class AuthService extends GenericApiService {
         )
     }
 
+    // This method get refresh token in local storage. If we have it we try to get token to authentify user. After we set up axios authorization header with new token
     initUser() {
         const refreshToken = sessionStorage.getItem('refreshToken') ?
             sessionStorage.getItem('refreshToken') : localStorage.getItem('refreshToken');

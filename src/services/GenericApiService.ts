@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Read the doc : https://codinaaranxa.atlassian.net/wiki/spaces/IW/pages/2392065/Faire+des+appels+API
 export interface IApiService{
     read(id: string): Promise<any>;
     list(pagination: any, filters: any, sorter: any): Promise<any>;
