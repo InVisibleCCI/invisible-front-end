@@ -36,7 +36,7 @@ export class AuthService extends GenericApiService {
             })
         }).catch(error => {
             if (error.response.status === 401) {
-                ToastService.displayToast("error", "Impossible de vous connecter", "Ces identifiants sont incorrects")
+                ToastService.displayToast("error", "Impossible de vous connecter", error.response.data.detail)
             } else {
                 ToastService.displayToast("error", `Erreur ${error.response.status}`, 'Une erreur interne est survenue')
             }
@@ -52,7 +52,7 @@ export class AuthService extends GenericApiService {
             axios.post('token/refresh/', { refresh: refreshToken }).then(result => {
                 axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.access;
                 this.me().then(user => AuthService.currentUser$.next(user))
-            }).catch(error =>  ToastService.displayToast("error", `Erreur ${error.response.status}`, 'Une erreur interne est survenue'))
+            }).catch(error => ToastService.displayToast("error", `Erreur ${error.response.status}`, 'Une erreur interne est survenue'))
         }
     }
 
@@ -61,5 +61,14 @@ export class AuthService extends GenericApiService {
         localStorage.removeItem('refreshToken');
         sessionStorage.removeItem('refreshToken');
         AuthService.currentUser$.next(null);
+    }
+
+    resetPassword(payload) {
+        const url = `${this.baseUrl}change-password/`;
+        axios.post(url, payload).then(res =>
+            ToastService.displayToast("success", "Changement de mot de passe réussi", `Votre mot de passe a bien été modifié`)
+        ).catch(
+            error => ToastService.displayToast("error", "Une erreur est survenue", error.response)
+        )
     }
 }
