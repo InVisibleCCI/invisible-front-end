@@ -1,5 +1,5 @@
+import { LogoWrapper } from 'components/Logo/styles';
 import styled from 'styled-components';
-import { LogoImg, LogoWrapper } from 'components/Logo/styles';
 
 export const MenuBarWrapper = styled.div`
   & > .p-menubar {
@@ -8,6 +8,7 @@ export const MenuBarWrapper = styled.div`
     height: 111px;
     border: 2px solid black;
     border-collapse: collapse;
+    padding: 20px;
     
     & > .p-menubar-start {
       margin-left: 96px;
@@ -24,10 +25,6 @@ export const MenuBarWrapper = styled.div`
       width: 35%;
       justify-content: space-between;
       text-align: center;
-    }
-    
-    .p-menubar-end {
-      border: 2px solid black;
     }
   }
 `;

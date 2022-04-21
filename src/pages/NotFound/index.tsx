@@ -1,9 +1,6 @@
 import React from 'react';
 
-interface Props {
-}
-
-const NotFound: React.FunctionComponent<Props> = ({}) =>
+const NotFound: React.FunctionComponent = () =>
   <div>404</div>;
 
 export default NotFound;

@@ -25,5 +25,11 @@
     }, 
     "moreResult": "More results"
 
+  },
+  "user" : {
+    "defaultAvatar" : "user avatar default image", 
+    "registerLink" : "Sign up", 
+    "connectionLink" : "Sign in", 
+    "signOutLink": "Sign out"
   }
 }

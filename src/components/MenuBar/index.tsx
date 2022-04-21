@@ -1,17 +1,16 @@
-import React from 'react';
-import { MenuBarWrapper } from './styles';
-import { Menubar as PRMenuBar } from 'primereact/menubar';
-import { MenuItemProps, menuItemsFromElements } from 'components/MenuItem';
-import { useTranslation } from 'react-i18next';
 import Logo from 'components/Logo';
+import { MenuItemProps, menuItemsFromElements } from 'components/MenuItem';
+import { Menubar as PRMenuBar } from 'primereact/menubar';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { MenuBarWrapper } from './styles';
+import UserManagement from './UserManagement';
 
 interface Props {
   children: Array<React.ReactElement<MenuItemProps>>,
 }
 
-const MenuBar: React.FunctionComponent<Props> = ({children}) => {
-  const { t } = useTranslation();
+const MenuBar: React.FunctionComponent<Props> = ({ children }) => {
   const navigate = useNavigate();
 
   return (
@@ -25,11 +24,7 @@ const MenuBar: React.FunctionComponent<Props> = ({children}) => {
             onClick={() => navigate('/')}
           />
         }
-        end={
-          <div>
-
-          </div>
-        }
+        end={<UserManagement />}
       />
     </MenuBarWrapper>
   );

@@ -1,5 +1,4 @@
 import algoliasearch from 'algoliasearch/lite';
-import { debounce } from 'lodash';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
@@ -21,8 +20,8 @@ const Search: React.FunctionComponent<Props> = () => {
   const { lastSearch, setLastSearch } = useSessionContext();
   const { t } = useTranslation();
 
-    // This method use lastSearch (retrieve in SessionContext) to navigate to search page with search string. 
-    // This method is called on "onChange" from Searchbox (algolia component)
+  // This method use lastSearch (retrieve in SessionContext) to navigate to search page with search string. 
+  // This method is called on "onChange" from Searchbox (algolia component)
 
   const launchSearch = (value) => {
     setLastSearch(value)

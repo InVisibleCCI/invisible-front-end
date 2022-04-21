@@ -24,5 +24,11 @@
       "search": "Nouvelle recherche ?"
     }, 
     "moreResult": "Plus de résultat"
+  },
+  "user" : {
+    "defaultAvatar" : "image avatar par défault", 
+    "registerLink" : "Inscription", 
+    "connectionLink" : "Connexion", 
+    "signOutLink": "Déconnexion"
   }
 }
