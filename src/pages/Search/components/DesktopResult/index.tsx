@@ -6,8 +6,11 @@ import NoResult from '../NoResult';
 import {EventCardWrapper} from "./styles";
 import { LeafletMap } from "../../../../components/Leaflet";
 
+// Display result from Algolia, if no result display NoResult component
+// This component use AlgoliaHooks : connectInfiniteHits
+
 const DesktopResults = (props) => {
-    const { hits: events, refine } = props;
+    const { hits: events } = props;
     const { t } = useTranslation();
 
     return (

@@ -15,7 +15,7 @@ export const LeafletMap = ({ events }) => {
     let boundsTmp = []
     events.forEach(event => {
       if (event.address.latitude != undefined && event.address.longitude != undefined) {
-        boundsTmp.push([event.address.latitude, event.address.longitude])
+        // boundsTmp.push([event.address.latitude, event.address.longitude])
       }
     })
     setBounds(boundsTmp)

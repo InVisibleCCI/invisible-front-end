@@ -29,11 +29,9 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
         <EventImageWrapper url={event.images[0].src} />
 
         <EventTextWrapper color={color}>
-            {/* TODO add isLiked={event.isFavorite} when ok in DB*/}
-            <LikeButton isLiked={false} />
-
+            <LikeButton eventId={event.objectID} />
             <EventInfosWrapper>
-                <h3 className={"card-title"}>{event.name}</h3>
+                <h3 className={"card-title"}>{event.name}</h3>                
                 {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
                 <p className={"distance"}>{event.address.city} à XX km</p>
             </EventInfosWrapper>
