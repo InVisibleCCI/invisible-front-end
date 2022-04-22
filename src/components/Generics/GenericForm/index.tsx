@@ -59,9 +59,7 @@ export const GenericForm: React.FunctionComponent<Props> = ({ service, registerM
             {
                 service.builderForm().map(field => {
                     return (
-                        <div key={field.payloadName} className={`${field.type === "checkbox" && "checkbox-invisible"} field`}>
-                            {console.log(field.payloadName, registerMode && field.payloadName !== "new_password_bis" )}
-                            
+                        <div key={field.payloadName} className={`${field.type === "checkbox" && "checkbox-invisible"} field`}>                            
                             <span className="p-float-label">
                                 {field.type === "inputText" &&
                                     <InputText

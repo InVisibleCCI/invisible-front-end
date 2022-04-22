@@ -7,4 +7,5 @@ export class User {
    email : string;
    date_joined : Date;
    avatar: Image; 
+   favorites : any
 }
