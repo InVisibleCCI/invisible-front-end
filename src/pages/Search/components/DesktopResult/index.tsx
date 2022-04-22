@@ -5,6 +5,7 @@ import EventCard from '../../../../components/EventCard';
 import NoResult from '../NoResult';
 import {EventCardWrapper} from "./styles";
 import { LeafletMap } from "../../../../components/Leaflet";
+import { Event } from "../../../../classes/Event";
 
 // Display result from Algolia, if no result display NoResult component
 // This component use AlgoliaHooks : connectInfiniteHits

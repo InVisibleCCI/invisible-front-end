@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
   textColor: '#000000',
+  lightgray:"#FAFAFA",
   pink: '#FF7E7E',
   flirt: '#A02074',
   magenta: '#CF0063',
@@ -11,7 +12,6 @@ export const colors = {
   purple: '#7F20A0',
   green: '#20A091',
   orange: '#EF9935',
-  lightgray:"#FAFAFA", 
   pinkHover : '#FF8C7E'
 }
 

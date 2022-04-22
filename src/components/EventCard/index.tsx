@@ -20,12 +20,13 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
     function RandomColor(obj)
     {
         const keys = Object.keys(obj);
-        return obj[keys[ Math.floor((keys.length -1) * Math.random()) + 1]];
+        return obj[keys[ Math.floor((keys.length -2) * Math.random()) + 2]];
     }
 
     let color = RandomColor(colors);
 
     return <EventCardWrapper>
+      {console.log(event)}
         <EventImageWrapper url={event.images[0].src} />
 
         <EventTextWrapper color={color}>
