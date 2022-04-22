@@ -12,7 +12,7 @@ const ResetPasswordForm: React.FunctionComponent<Props> = () => {
             <div className="form-demo">
                 <div className="flex justify-content-center">
                     <div className="card">
-                        <GenericForm service={ResetPasswordFormService} />
+                        <GenericForm service={ResetPasswordFormService} registerMode={true} />
                     </div>
                 </div>
             </div>

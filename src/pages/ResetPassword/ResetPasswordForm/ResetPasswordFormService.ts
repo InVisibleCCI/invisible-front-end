@@ -1,17 +1,10 @@
+import { IFieldType } from "components/Generics/GenericForm/interfaces/IFormType";
 import { AuthService } from "services/AuthService";
 
 export interface IResetPasswordFormValues {
     new_password: string;
     new_password_bis: string;
 }
-
-export interface IFieldType {
-    payloadName: string;
-    type: string;
-    label: string;
-}
-
-
 export class ResetPasswordFormService {
     static labelButton = "Modifier mon mot de passe";
 
@@ -25,7 +18,9 @@ export class ResetPasswordFormService {
     static validateForm(dataFromForm: IResetPasswordFormValues) {
         let errors: any = {};
 
-
+        if (dataFromForm.new_password !== dataFromForm.new_password_bis) {
+            errors.new_password = "Les mots de passe ne correspondent pas";
+        }
         return errors;
 
     }
@@ -42,7 +37,7 @@ export class ResetPasswordFormService {
 
                 payloadName: "new_password_bis",
                 type: "password",
-                label: "Répétez le mot de passe*"
+                label: "Répétez le mot de passe*",
             },
 
         ]
@@ -60,6 +55,5 @@ export class ResetPasswordFormService {
             new_password: data.new_password
         }
         userApiService.resetPassword(payload)
-        window.location.pathname = "/connection"
     }
 }

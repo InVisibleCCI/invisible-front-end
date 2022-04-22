@@ -1,3 +1,5 @@
+
+import { IFieldType } from "components/Generics/GenericForm/interfaces/IFormType";
 import { AuthService } from "services/AuthService";
 
 export interface IConnectionFormValues {
@@ -5,14 +7,6 @@ export interface IConnectionFormValues {
     password: string;
     remember_me: boolean
 }
-
-export interface IFieldType {
-    payloadName: string;
-    type: string;
-    label: string;
-}
-
-
 export class ConnectionFormService {
     static labelButton = "Se connecter";
 

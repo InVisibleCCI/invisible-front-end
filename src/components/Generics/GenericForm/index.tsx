@@ -6,9 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { classNames } from 'primereact/utils';
 import React, { useState } from 'react';
-import { BehaviorSubject } from 'rxjs';
 import { GenericButton } from '../GenericButton';
-import { GenericFormService } from './GenericFormService';
 import { GenericFormWrapper } from './style';
 
 interface Props {
@@ -41,27 +39,29 @@ export const GenericForm: React.FunctionComponent<Props> = ({ service, registerM
         return isFormFieldValid(name) && <small className="p-error">{formik.errors[name]}</small>;
     };
 
-    const passwordHeader = <h6>Pick a password</h6>;
+    const passwordHeader = <h6>Choisir un mot de passe</h6>;
     const passwordFooter = (
         <React.Fragment>
             <Divider />
             <p className="mt-2">Suggestions</p>
             <ul className="pl-2 ml-2 mt-0" style={{ lineHeight: '1.5' }}>
-                <li>At least one lowercase</li>
-                <li>At least one uppercase</li>
-                <li>At least one numeric</li>
-                <li>Minimum 8 characters</li>
+                <li>Doit contenir une minuscule</li>
+                <li>Doit contenir une majuscule</li>
+                <li>Doir contenir au moins un chiffre</li>
+                <li>Minimum 8 caractères </li>
             </ul>
         </React.Fragment>
     );
 
 
-    return <GenericFormWrapper> 
+    return <GenericFormWrapper>
         <form onSubmit={formik.handleSubmit} className="p-fluid">
             {
                 service.builderForm().map(field => {
                     return (
                         <div key={field.payloadName} className={`${field.type === "checkbox" && "checkbox-invisible"} field`}>
+                            {console.log(field.payloadName, registerMode && field.payloadName !== "new_password_bis" )}
+                            
                             <span className="p-float-label">
                                 {field.type === "inputText" &&
                                     <InputText
@@ -80,9 +80,9 @@ export const GenericForm: React.FunctionComponent<Props> = ({ service, registerM
                                         onChange={formik.handleChange}
                                         toggleMask
                                         className={classNames({ 'p-invalid': isFormFieldValid(field.payloadName) })}
-                                        header={registerMode && passwordHeader} footer={registerMode && passwordFooter}
-                                        feedback={registerMode}
-                                        />
+                                        header={(registerMode && field.payloadName !== "new_password_bis") && passwordHeader} footer={(registerMode && field.payloadName !== "new_password_bis") && passwordFooter}
+                                        feedback={(registerMode && field.payloadName !== "new_password_bis")}
+                                    />
                                 }
 
                                 {

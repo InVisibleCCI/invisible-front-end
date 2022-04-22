@@ -67,8 +67,10 @@ export class AuthService extends GenericApiService {
 
     resetPassword(payload) {
         const url = `${this.baseUrl}change-password/`;
-        axios.post(url, payload).then(res =>
+        axios.post(url, payload).then(res => {
+            window.location.pathname = "/connection"
             ToastService.displayToast("success", "Changement de mot de passe réussi", `Votre mot de passe a bien été modifié`)
+        }
         ).catch(
             error => ToastService.displayToast("error", "Une erreur est survenue", error.response)
         )

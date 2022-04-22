@@ -1,5 +1,5 @@
+import { IFieldType } from "components/Generics/GenericForm/interfaces/IFormType";
 import { AuthService } from "services/AuthService";
-import { IFieldType } from "../ConnectionForm/ConnectionFormService";
 
 export interface IResetEmailFormValues {
     email: string;
