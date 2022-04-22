@@ -19,7 +19,7 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
    */
     function RandomColor(obj)
     {
-        var keys = Object.keys(obj);
+        const keys = Object.keys(obj);
         return obj[keys[ Math.floor((keys.length -1) * Math.random()) + 1]];
     }
 
