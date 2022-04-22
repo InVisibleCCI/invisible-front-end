@@ -115,14 +115,11 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
 
     }
     return <section style={styles.card}>
-        {console.log(event)}
-
         <div style={styles.image}></div>
 
         <div style={styles.textZone}>
             <span style={styles.likeButton}>
-                {/* TODO add isLiked={event.isFavorite} when ok in DB*/}
-                <LikeButton isLiked={false} />
+                <LikeButton eventId={event.objectID} />
             </span>
             <div style={styles.infos}>
                 <h3 style={styles.title}>{event.name}</h3>
