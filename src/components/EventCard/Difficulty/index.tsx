@@ -1,5 +1,6 @@
 import React from "react"
 import {DifficultyNull, DifficultyOne, DifficultyTwo, DifficultyThree} from "../../Svg/Difficulty";
+import { EventDifficultyWrapper } from "./styles"
 
 export interface DifficultyProps {
     difficulty?: number,
@@ -13,7 +14,7 @@ export interface DifficultyProps {
 const Difficulty: React.FunctionComponent<DifficultyProps> = ({ difficulty }) => {
 
 
-    return <React.Fragment>
+    return <EventDifficultyWrapper>
         {
             difficulty == null && <DifficultyNull />
         }
@@ -25,10 +26,9 @@ const Difficulty: React.FunctionComponent<DifficultyProps> = ({ difficulty }) =>
         }
         {
             difficulty == 3 && <DifficultyThree />
-
         }
 
-    </React.Fragment>
+    </EventDifficultyWrapper>
 }
 
 export default Difficulty

@@ -1,5 +1,6 @@
 import { LikeFilled, LikeOutlined } from "components/Svg/Like";
 import React, { useState } from "react";
+import {EventLikeWrapper} from "./styles";
 
 export interface LikeButtonProps {
     isLiked: boolean,
@@ -14,12 +15,12 @@ export const LikeButton: React.FunctionComponent<LikeButtonProps> = (props) => {
 
     const [isLiked, setIsLiked] = useState<boolean>(props.isLiked);
 
-    return <React.Fragment>
+    return <EventLikeWrapper>
         {
-            isLiked ? <LikeFilled onClick={e => setIsLiked(false)} /> :
-                <LikeOutlined onClick={e => setIsLiked(true)} />
+            isLiked ? <LikeFilled onClick={() => setIsLiked(false)} /> :
+                <LikeOutlined onClick={() => setIsLiked(true)} />
         }
-    </React.Fragment>;
+    </EventLikeWrapper>;
 }
 
 export default LikeButton
