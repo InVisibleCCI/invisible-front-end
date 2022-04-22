@@ -35,7 +35,7 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
             <EventInfosWrapper>
                 <h3 className={"card-title"}>{event.name}</h3>
                 {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
-                <p className={"distance"}>Strasbourg à 4.5 km</p>
+                <p className={"distance"}>{event.address.city} à XX km</p>
             </EventInfosWrapper>
 
           <Difficulty difficulty={event.difficulty} />

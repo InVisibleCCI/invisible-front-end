@@ -4,6 +4,7 @@ import { connectInfiniteHits, InfiniteHits } from 'react-instantsearch-dom';
 import EventCard from '../../../../components/EventCard';
 import NoResult from '../NoResult';
 import {EventCardWrapper} from "./styles";
+import { LeafletMap } from "../../../../components/Leaflet";
 
 const DesktopResults = (props) => {
     const { hits: events, refine } = props;
@@ -13,7 +14,7 @@ const DesktopResults = (props) => {
         <EventCardWrapper>
             <div id="results-page">
                 <div id="map-container">
-                    {/* <LeafletMap stores={stores} /> */}
+                     <LeafletMap events={events} />
                 </div>
                 <div id="results-container">
                     {events && events.length > 0 ?
