@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import { AuthService } from "services/AuthService";
 
 export interface IResetPasswordFormValues {
@@ -19,7 +18,7 @@ export class ResetPasswordFormService {
     static getInitialValue(): IResetPasswordFormValues {
         return {
             new_password: '',
-            new_password_bis: '', 
+            new_password_bis: '',
         }
     }
 
@@ -31,7 +30,7 @@ export class ResetPasswordFormService {
 
     }
 
-    static builderForm(): IFieldType[] {        
+    static builderForm(): IFieldType[] {
         return [
             {
 
@@ -53,14 +52,14 @@ export class ResetPasswordFormService {
     static onSubmit(data) {
         const currentUrlParams = window.location.pathname.split('/');
         const temporaryPassword = currentUrlParams[2];
-        const securityMailPassword = currentUrlParams[3];          
+        const securityMailPassword = currentUrlParams[3];
         const userApiService = new AuthService();
         let payload = {
-            old_password:temporaryPassword, 
-            security_email_token:securityMailPassword, 
-            new_password:data.new_password
+            old_password: temporaryPassword,
+            security_email_token: securityMailPassword,
+            new_password: data.new_password
         }
         userApiService.resetPassword(payload)
-        window.location.pathname="/connection"
+        window.location.pathname = "/connection"
     }
 }

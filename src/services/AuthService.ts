@@ -1,8 +1,10 @@
 import axios from "axios";
 import { User } from "classes/User";
+import { GenericFormService } from "components/Generics/GenericForm/GenericFormService";
 import { ToastService } from "components/Generics/GenericToast/ToastService";
 import _ from "lodash";
 import { IConnectionFormValues } from "pages/Connection/ConnectionForm/ConnectionFormService";
+import { ResetEmailFormService } from "pages/Connection/ResetEmailForm/ResetEmailFormService";
 import { BehaviorSubject } from 'rxjs';
 import { GenericApiService } from "./GenericApiService";
 
@@ -69,6 +71,17 @@ export class AuthService extends GenericApiService {
             ToastService.displayToast("success", "Changement de mot de passe réussi", `Votre mot de passe a bien été modifié`)
         ).catch(
             error => ToastService.displayToast("error", "Une erreur est survenue", error.response)
+        )
+    }
+
+    sendMailToGetNewPassword(payload) {
+        const url = `${this.baseUrl}send-reset-password-mail/`;
+        axios.post(url, payload).then(res => {
+            ToastService.displayToast("success", "Demande de nouveau mot de passe", `Un email vous a été envoyé afin de renouveller votre mot de passe`)
+            GenericFormService.onSubmit$.next({formServiceName:ResetEmailFormService.formName, IsSubmitted:true})
+        }
+        ).catch(
+            error => ToastService.displayToast("error", "Une erreur est survenue", "")
         )
     }
 }

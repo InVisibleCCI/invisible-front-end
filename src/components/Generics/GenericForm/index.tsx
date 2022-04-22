@@ -6,7 +6,9 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { classNames } from 'primereact/utils';
 import React, { useState } from 'react';
+import { BehaviorSubject } from 'rxjs';
 import { GenericButton } from '../GenericButton';
+import { GenericFormService } from './GenericFormService';
 import { GenericFormWrapper } from './style';
 
 interface Props {
@@ -54,7 +56,7 @@ export const GenericForm: React.FunctionComponent<Props> = ({ service, registerM
     );
 
 
-    return <GenericFormWrapper>
+    return <GenericFormWrapper> 
         <form onSubmit={formik.handleSubmit} className="p-fluid">
             {
                 service.builderForm().map(field => {
