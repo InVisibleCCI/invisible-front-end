@@ -3,6 +3,7 @@ import { LikeFilled, LikeOutlined } from "components/Svg/Like";
 import React, { useEffect, useState } from "react";
 import { UserFavoritesService } from "services/UserFavoritesService";
 import { useSessionContext } from 'utils/types/contexts/SessionContext';
+import {EventLikeWrapper} from "./styles";
 
 export interface LikeButtonProps {
     eventId: string,
@@ -43,12 +44,12 @@ export const LikeButton: React.FunctionComponent<LikeButtonProps> = ({ eventId }
     }, [currentUser])
 
 
-    return <React.Fragment>
+    return <EventLikeWrapper>
         {
             isLiked ? <LikeFilled onClick={e => onClickLikeButton()} /> :
                 <LikeOutlined onClick={e => onClickLikeButton()} />
         }
-    </React.Fragment>;
+    </EventLikeWrapper>;
 }
 
 export default LikeButton
