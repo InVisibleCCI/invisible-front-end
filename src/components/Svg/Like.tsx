@@ -1,5 +1,11 @@
 import React from "react";
 
+/** Return the like button
+ * filled
+ *
+ * @param onClick
+ * @constructor
+ */
 export const LikeFilled = ({ onClick }) => {
 
     return <svg onClick={onClick} width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http:www.w3.org/2000/svg">
@@ -8,6 +14,11 @@ export const LikeFilled = ({ onClick }) => {
 
 }
 
+/** Return the like button unfilled
+ *
+ * @param onClick
+ * @constructor
+ */
 export const LikeOutlined = ({ onClick }) => {
 
     return <svg onClick={onClick} width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http:www.w3.org/2000/svg">

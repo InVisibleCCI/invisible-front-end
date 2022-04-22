@@ -1,5 +1,9 @@
 import React from "react";
 
+/** Return the Difficulty icon, 0 difficulty
+ *
+ * @constructor
+ */
 export const DifficultyNull = () => {
 
     return <span>
@@ -11,6 +15,10 @@ export const DifficultyNull = () => {
     </span>;
 }
 
+/** Return the Difficulty icon, 1 difficulty
+ *
+ * @constructor
+ */
 export const DifficultyOne = () => {
 
     return <span>
@@ -22,6 +30,10 @@ export const DifficultyOne = () => {
     </span>;
 }
 
+/** Return the Difficulty icon, 2 difficulty
+ *
+ * @constructor
+ */
 export const DifficultyTwo = () => {
 
     return <span>
@@ -33,6 +45,10 @@ export const DifficultyTwo = () => {
     </span>;
 }
 
+/** Return the Difficulty icon, 3 difficulty
+ *
+ * @constructor
+ */
 export const DifficultyThree = () => {
 
     return <span>

@@ -1,6 +1,10 @@
 import React from "react";
 import { StarWrapper } from "./styles";
 
+/** Return the SV for the rating star
+ *
+ * @constructor
+ */
 export const StarReview = () => {
 
   return <StarWrapper>

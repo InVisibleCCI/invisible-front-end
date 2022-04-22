@@ -5,10 +5,18 @@ import {StarReview} from "../Svg/Star";
 import {EventCardWrapper, EventImageWrapper, EventInfosWrapper, EventTextWrapper} from "./styles";
 import { colors } from "../../utils/styles";
 
-// import colors from '../../utils/styles';
-
+/** Template to display the search result as cards
+ *
+ * @param event
+ * @constructor
+ */
 const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
 
+  /** Pick the value of a random key of the object, excluding the first one
+   *
+   * @param obj
+   * @constructor
+   */
     function RandomColor(obj)
     {
         var keys = Object.keys(obj);
