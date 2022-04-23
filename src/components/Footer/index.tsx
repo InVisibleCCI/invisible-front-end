@@ -113,15 +113,10 @@ const Footer: React.FunctionComponent<Props> = ({}) => {
       />
 
       <BottomFooter>
-        <BottomFooterLink>
+        <BottomFooterLink url={'/legal-notices'}>
           Mentions légales
         </BottomFooterLink>
-
-        <BottomFooterLink>
-          Conditions générales de ventes
-        </BottomFooterLink>
-
-        <BottomFooterLink>
+        <BottomFooterLink url={'/privacy-policy'}>
           Politique de confidentialité
         </BottomFooterLink>
       </BottomFooter>

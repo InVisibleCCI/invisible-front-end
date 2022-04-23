@@ -64,6 +64,14 @@ export const BottomFooter = styled.footer`
   justify-content: space-around;
 `;
 
-export const BottomFooterLink = styled.a`
+interface IBottomLinksProps{
+  url?:string; 
+}
+
+export const BottomFooterLink = styled.a.attrs((props:IBottomLinksProps) => ({
+  href:props.url
+}))<IBottomLinksProps>`
+text-decoration: none; 
+color:${colors.white}
 `;
 
