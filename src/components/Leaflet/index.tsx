@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import  { Map, TileLayer, Tooltip } from 'react-leaflet';
+// import  { Map, TileLayer, Tooltip } from 'react-leaflet';
 import { Marker } from "react-leaflet";
 import { Popup } from "react-leaflet";
 import MarkerClusterGroup from 'react-leaflet-markercluster';
@@ -37,7 +37,7 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
       if (!event.address.latitude || !event.address.longitude) { return }
       return (
         <Marker key={event.objectID} position={[event.address.latitude, event.address.longitude]}>
-          <Tooltip className="tooltip-map">{event.name}</Tooltip>
+          {/* <Tooltip className="tooltip-map">{event.name}</Tooltip> */}
         </Marker>
       )
     })
@@ -57,11 +57,11 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
           {/*</MarkerClusterGroup>*/}
       {/*  </Map>*/}
       {/*}*/}
-      <Map bounds={bounds} center={[48.5734053, 7.7521113]} zoom={13} scrollWheelZoom={false}>
-        <TileLayer
+      {/* <Map bounds={bounds} center={[48.5734053, 7.7521113]} zoom={13} scrollWheelZoom={false}> */}
+        {/* <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        /> */}
           <MarkerClusterGroup maxClusterRadius={60} >
             {ListMarkers()}
           </MarkerClusterGroup>
@@ -70,7 +70,7 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
         {/*    A pretty CSS3 popup. <br /> Easily customizable.*/}
         {/*  </Popup>*/}
         {/*</Marker>*/}
-      </Map>
+      {/* </Map> */}
     </LeafletMapWrapper>
   )
 }

@@ -6,7 +6,6 @@ export const MenuBarWrapper = styled.div`
     top: 0;
     position: sticky;
     height: 111px;
-    border: 2px solid black;
     border-collapse: collapse;
     padding: 20px;
     

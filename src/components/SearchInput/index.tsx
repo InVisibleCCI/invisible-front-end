@@ -1,7 +1,9 @@
+import { InputText } from 'primereact/inputtext';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from "react-router-dom";
 import { useSessionContext } from "utils/types/contexts/SessionContext";
+import { SearchInputWrapper } from './style';
 
 // Component who display static SearchBar (not Algolia) and lauch search
 
@@ -13,7 +15,7 @@ const SearchInput: React.FunctionComponent = () => {
 
     // This method use lastSearch (retrieve in SessionContext) to navigate to search page
     // With search string
-    
+
     const search = () => {
         let searchString = "/search";
         if (lastSearch) {
@@ -29,14 +31,19 @@ const SearchInput: React.FunctionComponent = () => {
         }
     }
 
-    return <div>
-        <input
-            onKeyPress={handleKeyPress}
-            onChange={(e) => setLastSearch(e.target.value)}
-            placeholder={t('search.input.main')}
-        />
-        <button onClick={search} id="button-search">Rechercher </button>
-    </div>;
+    return <SearchInputWrapper>
+        <div>
+            <span className="p-input-icon-right">
+                <i className="pi pi-search" />
+                <InputText
+                    value={lastSearch}
+                    onChange={(e) => setLastSearch(e.target.value)}
+                    placeholder={t('search.input.main')}
+                    onKeyDown={handleKeyPress}
+                />
+            </span>
+        </div>
+    </SearchInputWrapper>
 }
 
 export default SearchInput

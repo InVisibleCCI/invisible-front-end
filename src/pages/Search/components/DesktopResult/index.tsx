@@ -18,7 +18,7 @@ const DesktopResults = (props) => {
         <EventCardWrapper>
             <div id="results-page">
                 <div id="map-container">
-                     <LeafletMap events={events} />
+                     {/* <LeafletMap events={events} /> */}
                 </div>
                 <div id="results-container">
                     {events && events.length > 0 ?
