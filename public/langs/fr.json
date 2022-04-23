@@ -15,6 +15,18 @@
       },
       "hotel": {
         "title": "Hôtels"
+      },
+      "accommodation": {
+        "title": "Hébergements"
+      },
+      "cruise": {
+        "title": "Croisières"
+      },
+      "welfare": {
+        "title": "Bien-être"
+      },
+      "art": {
+        "title": "Arts et culture"
       }
     }
   },
@@ -22,7 +34,7 @@
     "input": {
       "main": "Avec InVisible trouvez une activité près de chez vous !",
       "search": "Nouvelle recherche ?"
-    }, 
+    },
     "moreResult": "Plus de résultat"
   },
   "user" : {
@@ -30,5 +42,12 @@
     "registerLink" : "Inscription", 
     "connectionLink" : "Connexion", 
     "signOutLink": "Déconnexion"
+  },
+  "notFound": {
+    "title": "La page que vous cherchez n'existe pas."
+  },
+  "card": {
+    "distance": "A {{distance}} km.",
+    "comment": "({{commentNumber}} commentaires)"
   }
 }
