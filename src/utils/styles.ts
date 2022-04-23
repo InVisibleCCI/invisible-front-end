@@ -29,6 +29,7 @@ export const colors = {
   white: '#FFFFFF',
   grey: '#EFEFEF',
   black: '#000000',
+  middleGrey:"#C2C2C2"
 }
 
 export const fontSize = {
@@ -44,6 +45,7 @@ export const GlobalStyles = createGlobalStyle`
   html, body #root {
     width: 100%;
     height: 100%;
+    scroll-behavior: smooth;
   }
   
   body {
@@ -51,6 +53,8 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Roboto';
     font-size: ${fontSize.text};
     color: ${colors.textColor};
+    
+
 
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Montserrat Alternates';

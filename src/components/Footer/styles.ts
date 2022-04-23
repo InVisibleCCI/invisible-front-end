@@ -20,7 +20,7 @@ export const TopFooter = styled.div`
 
 export const IconWrapper = styled.div`
   height: 100%;
-  width: 35%;
+  width: 20%;
   margin: auto;
   padding-top: 10px;
   display: flex;

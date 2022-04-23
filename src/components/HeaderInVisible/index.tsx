@@ -1,8 +1,8 @@
 import { GenericButton } from 'components/Generics/GenericButton'
 import SearchInput from 'components/SearchInput'
 import React from 'react'
-import { HeaderInVisibleWrapper } from './style'
 import logoWhite from '../Logo/img/logo-blanc.png'
+import { HeaderInVisibleWrapper } from './style'
 
 export const HeaderInVisible = () => {
     return <HeaderInVisibleWrapper>
@@ -12,7 +12,9 @@ export const HeaderInVisible = () => {
             <SearchInput />
             <div id="more-container">
                 <p> Pas d'envie particulière ? Laissez vous guider </p>
-                <GenericButton label='Découvrir les offres' type='button' color='black' backgroundColor='white' borderColor='white' backgroundColorHover='white' borderColorHover='white' />
+                <a href="#section-tags-container">
+                    <GenericButton label='Découvrir les offres' type='button' color='black' backgroundColor='white' borderColor='white' backgroundColorHover='white' borderColorHover='white' />
+                </a>
             </div>
         </header>
     </HeaderInVisibleWrapper>

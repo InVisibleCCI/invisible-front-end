@@ -45,5 +45,8 @@ export const HeaderInVisibleWrapper = styled.header`
         font-family: "Roboto"
 
     }
+    a{
+        text-decoration:none;
+    }
 
 `;

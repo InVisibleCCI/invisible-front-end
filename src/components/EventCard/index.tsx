@@ -14,7 +14,7 @@ interface Props {
  * @param event
  * @constructor
  */
-const EventCard: React.FunctionComponent<Props> = ({ hit, eventCardSize }) => {
+const EventCard: React.FunctionComponent<Props> = ({ hit, eventCardSize='small' }) => {
 
     /** Pick the value of a random key of the object, excluding the first one
      *
