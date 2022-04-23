@@ -4,6 +4,8 @@ import LikeButton from './LikeButton';
 import {StarReview} from "../Svg/Star";
 import {EventCardWrapper, EventImageWrapper, EventInfosWrapper, EventTextWrapper} from "./styles";
 import { colors } from "../../utils/styles";
+import { MapService } from "../Leaflet/MapService";
+import { useNavigate } from "react-router-dom";
 
 /** Template to display the search result as cards
  *
@@ -11,8 +13,9 @@ import { colors } from "../../utils/styles";
  * @constructor
  */
 const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
+  const navigate = useNavigate();
 
-  /** Pick the value of a random key of the object, excluding the first one
+  /** Pick the value of a random key of the object, excluding the 2 first ones
    *
    * @param obj
    * @constructor
@@ -25,27 +28,30 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
 
     let color = RandomColor(colors);
 
-    return <EventCardWrapper aria-label={"Nouvelle activitée"}>
-        {/*{console.log(event)}*/}
-        {/*{console.log(event.images[0].alt_text)}*/}
-        <EventImageWrapper url={event.images[0].src} alt={event.images[0].alt_text}/>
+    return (
+      <div onMouseEnter={() => MapService.currentEventHoverSubject$.next(event.objectID)} onClick={() => navigate(`/activity/${event.objectID}`)}>
+        <EventCardWrapper aria-label={"Nouvelle activitée"}>
+           <EventImageWrapper url={event.images[0].src} alt={event.images[0].alt_text}/>
 
-        <EventTextWrapper color={color}>
-            <EventInfosWrapper>
-                <h3 className={"card-title"}>{event.name}</h3>
-                {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
-                <p className={"distance"}>{event.address.city} à XX km</p>
-            </EventInfosWrapper>
-            <LikeButton eventId={event.objectID} />
+            <EventTextWrapper color={color}>
+                <EventInfosWrapper>
+                    <h4 className={"card-title"}>{event.name}</h4>
+                    {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
+                    <p className={"distance"}>{event.address.city} à XX km</p>
+                </EventInfosWrapper>
 
-          <Difficulty difficulty={event.difficulty} />
+                <LikeButton eventId={event.objectID} />
 
-            <span className={"reviews"}>
-                <StarReview />
-                4.5
-            </span>
-        </EventTextWrapper>
-    </EventCardWrapper>
+                <Difficulty difficulty={event.difficulty} />
+
+                <div className={"reviews"}>
+                    <StarReview />
+                    4.5
+                </div>
+            </EventTextWrapper>
+      </EventCardWrapper>
+    </div>
+    );
 }
 
 export default EventCard
