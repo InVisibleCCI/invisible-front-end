@@ -5,7 +5,8 @@ import { GenericApiService } from "./GenericApiService";
 export interface IHomePageEvent{
     near_location:Event[], 
     user_favorites:Event[], 
-    exclusives:Event[]
+    exclusives:Event[], 
+    most_visited:Event[]
 
 }
 export class EventApiService extends GenericApiService {

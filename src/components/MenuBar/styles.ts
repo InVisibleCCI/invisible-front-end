@@ -6,7 +6,7 @@ export const MenuBarWrapper = styled.div`
   & > .p-menubar {
     display: flex;
     border: none;
-    height: 111px;
+    height: 80px;
     
     .p-menubar-button {
       margin-right: 40px;

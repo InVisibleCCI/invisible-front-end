@@ -39,8 +39,8 @@ const Main: React.FunctionComponent<Props> = () => {
       {eventsHomePage && <section className='container'>
         {currentUser && eventsHomePage.user_favorites.length > 0 && <EventBand title='Vous avez mis en favori' events={eventsHomePage.user_favorites} />}
         {eventsHomePage.near_location.length > 0 && <EventBand title='Les mieux notés près de chez vous' events={eventsHomePage.near_location} />}
-        {/* TODO : implements trackers to populate homepage when no user and no location */}
-        {/* <EventBand title='Les plus visités' events={eventsHomePage.user_favorites}/> */}
+
+        <EventBand title='Les plus populaires' events={eventsHomePage.most_visited}/>
         {eventsHomePage.exclusives.length > 0 && <EventBand eventCardSize='large' title="Découvrez nos expériences exclusives" events={eventsHomePage.exclusives} />}
       </section>}
 

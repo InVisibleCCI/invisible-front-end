@@ -1,27 +1,36 @@
-import React from 'react';
-import { ActivityContentWrapper, ActivityInfo, ActivityWrapper, CommentWrapper } from './styles';
-import GalleriaItem from 'pages/Activity/component/GalleriaItem';
-import Galleria from 'pages/Activity/component/Galleria';
-import SearchInput from 'components/SearchInput';
-import { ScrollTop } from 'primereact/scrolltop';
-import { ScrollPanel } from 'primereact/scrollpanel';
-import Card from 'components/Card';
-import { useTranslation } from 'react-i18next';
 import { AiFillStar } from '@react-icons/all-files/ai/AiFillStar';
-import { colors } from 'utils/styles';
+import { NavigationTrackerTypeEnum } from 'classes/enums/NavigationTrackerTypeEnum';
+import Card from 'components/Card';
+import SearchInput from 'components/SearchInput';
 import ActivityCard from 'pages/Activity/component/ActivityCard';
+import Galleria from 'pages/Activity/component/Galleria';
+import GalleriaItem from 'pages/Activity/component/GalleriaItem';
+import { ScrollPanel } from 'primereact/scrollpanel';
+import { ScrollTop } from 'primereact/scrolltop';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { NavigationTrackerApiService } from 'services/NavigationTrackerApiService';
+import { colors } from 'utils/styles';
+import { ActivityContentWrapper, ActivityInfo, ActivityWrapper, CommentWrapper } from './styles';
 
 interface Props {
 }
 
-const Activity: React.FunctionComponent<Props> = ({}) => {
+const Activity: React.FunctionComponent<Props> = ({ }) => {
 
   const { t } = useTranslation();
+  const { id } = useParams();
+  const trackerService = new NavigationTrackerApiService();
+
+  useEffect(() => {
+    trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
+  }, [])
 
   return (
-  <ActivityWrapper>
-    <SearchInput />
-    <ActivityContentWrapper>
+    <ActivityWrapper>
+      <SearchInput />
+      <ActivityContentWrapper>
         <Galleria>
           <GalleriaItem
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
@@ -33,39 +42,39 @@ const Activity: React.FunctionComponent<Props> = ({}) => {
             alt="Image tirée de google image"
           />
         </Galleria>
-      <ScrollPanel>
-        <ActivityInfo>
-          <ActivityCard
-            title={"Journée au Spa"}
-            distance={23}
-            description={"Integer tincidunt ligula vel libero dictum egestas. Aenean eget diam a turpis tincidunt dictum. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra."}
-            review={4.3}
-            commentNumber={243}
-          />
+        <ScrollPanel>
+          <ActivityInfo>
+            <ActivityCard
+              title={"Journée au Spa"}
+              distance={23}
+              description={"Integer tincidunt ligula vel libero dictum egestas. Aenean eget diam a turpis tincidunt dictum. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra."}
+              review={4.3}
+              commentNumber={243}
+            />
 
-          <Card
-            size={'medium'}
-            color={colors.grey}
-            title={
-              <>
-                <h4>{"Spa & coton"}</h4>
-              </>
-            }
-            children={
-              <>
-              </>
-            }
-            footer={
-              <AiFillStar />
-            }
-          />
-          <CommentWrapper>
-          </CommentWrapper>
-        </ActivityInfo>
-        <ScrollTop target="parent" icon="pi pi-arrow-up" />
-      </ScrollPanel>
-  </ActivityContentWrapper>
-  </ActivityWrapper>
+            <Card
+              size={'medium'}
+              color={colors.grey}
+              title={
+                <>
+                  <h4>{"Spa & coton"}</h4>
+                </>
+              }
+              children={
+                <>
+                </>
+              }
+              footer={
+                <AiFillStar />
+              }
+            />
+            <CommentWrapper>
+            </CommentWrapper>
+          </ActivityInfo>
+          <ScrollTop target="parent" icon="pi pi-arrow-up" />
+        </ScrollPanel>
+      </ActivityContentWrapper>
+    </ActivityWrapper>
   );
 }
 
