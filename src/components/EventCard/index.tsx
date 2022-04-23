@@ -25,17 +25,18 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
 
     let color = RandomColor(colors);
 
-    return <EventCardWrapper>
-      {console.log(event)}
-        <EventImageWrapper url={event.images[0].src} />
+    return <EventCardWrapper aria-label={"Nouvelle activitée"}>
+        {/*{console.log(event)}*/}
+        {/*{console.log(event.images[0].alt_text)}*/}
+        <EventImageWrapper url={event.images[0].src} alt={event.images[0].alt_text}/>
 
         <EventTextWrapper color={color}>
-            <LikeButton eventId={event.objectID} />
             <EventInfosWrapper>
-                <h3 className={"card-title"}>{event.name}</h3>                
+                <h3 className={"card-title"}>{event.name}</h3>
                 {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
                 <p className={"distance"}>{event.address.city} à XX km</p>
             </EventInfosWrapper>
+            <LikeButton eventId={event.objectID} />
 
           <Difficulty difficulty={event.difficulty} />
 

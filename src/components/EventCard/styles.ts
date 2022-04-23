@@ -7,9 +7,13 @@ export const EventCardWrapper = styled.section`
 `;
 
 interface EventImageWrapperProps {
-  url: string
+  url: string;
+  alt: string;
 }
-export const EventImageWrapper = styled.div<EventImageWrapperProps>`
+export const EventImageWrapper = styled.div.attrs((props: EventImageWrapperProps) => ({
+  role: "img",
+  'aria-label': `Image: ${props.alt}. Prochaine activité;`,
+}))<EventImageWrapperProps>`
     position: absolute;
     width: 292px;
     height: 200px;
@@ -31,6 +35,7 @@ export const EventTextWrapper = styled.div<EventTextWrapperProps>`
     width: 292px;
     height: 167px;
     top: 174px;
+    z-index: 1;
     
     /* color */
     background: ${props => props.color};

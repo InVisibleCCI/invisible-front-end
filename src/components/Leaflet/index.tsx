@@ -46,17 +46,6 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
 
   return (
     <LeafletMapWrapper>
-      {/*{stores && bounds &&*/}
-      {/*  <Map bounds={bounds} center={position} zoom={13}>*/}
-      {/*    <TileLayer*/}
-      {/*      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"*/}
-      {/*      attribution="<a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a>"*/}
-      {/*    />*/}
-          {/*<MarkerClusterGroup maxClusterRadius={60} >*/}
-          {/*  {ListMarkers()}*/}
-          {/*</MarkerClusterGroup>*/}
-      {/*  </Map>*/}
-      {/*}*/}
       <Map bounds={bounds} center={[48.5734053, 7.7521113]} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -65,11 +54,6 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
           <MarkerClusterGroup maxClusterRadius={60} >
             {ListMarkers()}
           </MarkerClusterGroup>
-        {/*<Marker position={[48.5734053, 7.7521113]}>*/}
-        {/*  <Popup>*/}
-        {/*    A pretty CSS3 popup. <br /> Easily customizable.*/}
-        {/*  </Popup>*/}
-        {/*</Marker>*/}
       </Map>
     </LeafletMapWrapper>
   )
