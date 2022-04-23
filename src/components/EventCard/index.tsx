@@ -1,5 +1,5 @@
 import React from "react";
-import { colors } from "../../utils/styles";
+import { cardColor } from "../../utils/styles";
 import { StarReview } from "../Svg/Star";
 import Difficulty from './Difficulty';
 import LikeButton from './LikeButton';
@@ -26,7 +26,7 @@ const EventCard: React.FunctionComponent<Props> = ({ hit, eventCardSize }) => {
         return obj[keys[Math.floor((keys.length - 2) * Math.random()) + 2]];
     }
 
-    let color = randomColor(colors);
+    let color = randomColor(cardColor);
 
     return <EventCardWrapper cardSize={eventCardSize}>
         <span role="img" aria-label={hit.images[0].alt}>

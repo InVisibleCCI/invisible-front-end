@@ -6,10 +6,12 @@ import ResetPassword from "pages/ResetPassword";
 import Search from 'pages/Search';
 import React from 'react';
 import { Route, Routes as DOMRoutes } from 'react-router-dom';
+import Activity from 'pages/Activity';
 
 const Routes: React.FunctionComponent = () => {
 
   return <DOMRoutes>
+   <Route path="/activity/:id" element={<Activity />} />
     <Route path="/reset-password/:temporaryPassword/:securityMailToken" element={<ResetPassword />}></Route>
     <Route path="/connection" element={<Connection />}></Route>
     <Route path="/register" element={<Register />}></Route>
@@ -18,6 +20,7 @@ const Routes: React.FunctionComponent = () => {
     </Route>
     <Route path="*" element={<NotFound />} />
   </DOMRoutes>
+     
 }
 
 
