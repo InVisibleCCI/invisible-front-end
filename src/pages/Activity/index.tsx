@@ -28,6 +28,10 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
   const { id } = useParams();
   const trackerService = new NavigationTrackerApiService();
 
+  const roundAverageMark = (mark) => {
+    return mark.toFixed(2)
+  }
+
   useEffect(() => {
     if (!id) {
       return;
@@ -62,7 +66,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
               title={event.name}
               distance={event.address.city}
               description={event.description}
-              review={event.average_mark}
+              review={roundAverageMark(event.average_mark)}
               commentNumber={event.reviews_count}
             />
 
