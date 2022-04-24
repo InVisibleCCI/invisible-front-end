@@ -45,10 +45,10 @@ const MerchantCard: React.FunctionComponent<Props> = ({
           <>
             <ReviewWrapper>
               <AiFillStar/>
-              {review}
+              {/*{review}*/}
             </ReviewWrapper>
             <CommentNumberWrapper>
-              {t('card.comment', {commentNumber: commentNumber})}
+              {/*{t('card.comment', {commentNumber: commentNumber})}*/}
             </CommentNumberWrapper>
           </>
         }

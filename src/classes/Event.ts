@@ -1,4 +1,5 @@
 import {Image} from "./Image";
+import {Review} from "./Review";
 import {AccessibilityCategory} from "./AccessibilityCategory";
 import {Address} from "./Address";
 import {Category} from "./Category";
@@ -12,4 +13,6 @@ export class Event {
   objectID: string;
   images: Image[];
   card_color : string;
+  average_mar: number;
+  reviews?: Review[];
 }
