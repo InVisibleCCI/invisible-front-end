@@ -1,41 +1,58 @@
 import styled from 'styled-components';
 
-export const EventCardWrapper = styled.section`
-    width: 312px;
-    height: 361px;
+interface EventCardWrapperProps{
+    cardSize: "small"|"large";
+}
+
+export const EventCardWrapper = styled.section<EventCardWrapperProps>`
+    width: ${props => props.cardSize === "small" ? "312px" :"604px"};
+    height: ${props => props.cardSize === "small" ? "361px" :"637px"};
     position: relative;
+    .description{
+        position: absolute; 
+        bottom: 10px;
+        height:64px;
+        overflow:hidden;
+        padding: 10px 10px 10px 0;
+        left:15px;
+
+    }
 `;
 
 interface EventImageWrapperProps {
   url: string;
   alt: string;
+  cardSize: "small" | "large"
 }
 export const EventImageWrapper = styled.div.attrs((props: EventImageWrapperProps) => ({
   role: "img",
   'aria-label': `Image: ${props.alt}. Prochaine activité;`,
 }))<EventImageWrapperProps>`
     position: absolute;
-    width: 292px;
-    height: 200px;
+
+    width: ${props => props.cardSize === "small" ? "292px" :"594px"};
+    height: ${props => props.cardSize === "small" ? "200px" :"460px"};
 
     // image
     background-image: url(${props => props.url});
     background-size: 292px;
+    background-repeat: no-repeat;
+    background-size:cover;
 
     filter: drop-shadow(-3px 6px 12px rgba(0, 0, 0, 0.25));
     border-radius: 16px;
 `;
 
 interface EventTextWrapperProps {
-  color: string
+  color: string; 
+  cardSize: "small"|"large";
 }
 export const EventTextWrapper = styled.div<EventTextWrapperProps>`
     /* position */
     position: absolute;
-    width: 292px;
-    height: 167px;
-    top: 174px;
-    z-index: 1;
+    width: ${props => props.cardSize === "small" ? "292px" :"594px"};
+    height: ${props => props.cardSize === "small" ? "167px" :"189px"};
+    top: ${props => props.cardSize === "small" ? "174px" :"437px"};
     
     /* color */
     background: ${props => props.color};
@@ -44,6 +61,7 @@ export const EventTextWrapper = styled.div<EventTextWrapperProps>`
     border-radius: 0px 0px 16px 16px;
     
     margin: 10px 0px;
+    color: white;
     
     .reviews {
         position: absolute;
@@ -89,4 +107,5 @@ export const EventInfosWrapper = styled.div`
         
         color: #FFF;
     }
+
 `;

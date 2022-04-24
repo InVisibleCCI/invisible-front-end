@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 // Read the doc : https://codinaaranxa.atlassian.net/wiki/spaces/IW/pages/2392065/Faire+des+appels+API
 export interface IApiService{
@@ -10,6 +11,8 @@ export interface IApiService{
 }
 
 export class GenericApiService implements IApiService {
+    static setupAxios$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
+    
     constructor(protected baseUrl: string) {
 
     }

@@ -1,30 +1,41 @@
 import { LogoWrapper } from 'components/Logo/styles';
 import styled from 'styled-components';
+import { fontSize } from 'utils/styles';
 
 export const MenuBarWrapper = styled.div`
   & > .p-menubar {
-    top: 0;
-    position: sticky;
-    height: 111px;
-    border: 2px solid black;
-    border-collapse: collapse;
-    padding: 20px;
+    display: flex;
+    border: none;
+    height: 80px;
+    
+    .p-menubar-button {
+      margin-right: 40px;
+
+      & > i {
+        font-size: ${fontSize.mediumTitle};
+      }
+    }
     
     & > .p-menubar-start {
-      margin-left: 96px;
-      width: 200px;
-
       ${LogoWrapper} {
         cursor: pointer;
       }
     }
     
     & > .p-menubar-root-list {
-      font-size: 24px;
-      margin: auto;
-      width: 35%;
+      padding: 0;
+      width: 50%;
+      font-size: ${fontSize.smallTitle};
+      margin: 0 auto;
       justify-content: space-between;
-      text-align: center;
+
+      .p-menuitem-link:focus {
+        box-shadow: none;
+      }
     }
   }
+`;
+
+export const EndTamer = styled.div`
+  width: 20%;
 `;

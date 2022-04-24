@@ -14,7 +14,7 @@ const MenuItem: React.FunctionComponent<MenuItemProps> = ({ children }) =>
   </>;
 
 export const menuItemsFromElements = (children: Array<React.ReactElement<MenuItemProps>>): Array<MenuItemProps> =>
-  children.map(menuItemToComponent)
+  children.map(menuItemToComponent);
 
 
 const menuItemToComponent = (node: { props: MenuItemProps }) => ({
@@ -22,7 +22,7 @@ const menuItemToComponent = (node: { props: MenuItemProps }) => ({
   icon: node.props.icon,
   command: node.props.onClick,
   url: node.props.url,
-})
+});
 
 export default MenuItem;
 

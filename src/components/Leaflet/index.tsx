@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import  { Map, TileLayer, Tooltip } from 'react-leaflet';
 import { Marker } from "react-leaflet";
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-import { LeafletMapWrapper } from "./styles";
-import { Event} from "../../classes/Event";
-import { MapService } from "./MapService";
+import { Event } from "../../classes/Event";
 import { IconMapFactory } from './IconMapFactory';
+import { MapService } from "./MapService";
+import { LeafletMapWrapper } from "./styles";
 
 export interface EventProps {
   events: Event[],
@@ -22,7 +22,7 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
   const [currentEventHover, setCurrentEventHover] = useState<string>();
 
   // Refresh the current event useState on render
-  useEffect( () => {}, [currentEventHover])
+  useEffect(() => { }, [currentEventHover])
 
   // Updated  by the current hovered event
   useEffect(() => {
@@ -73,10 +73,10 @@ export const LeafletMap: React.FunctionComponent<EventProps> = ({ events }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-          <MarkerClusterGroup maxClusterRadius={60} >
-            {ListMarkers()}
-          </MarkerClusterGroup>
+        <MarkerClusterGroup maxClusterRadius={60} >
+          {ListMarkers()}
+        </MarkerClusterGroup>
       </Map>
     </LeafletMapWrapper>
   );
-}
+  }

@@ -1,7 +1,7 @@
 import Logo from 'components/Logo';
 import { MenuItemProps, menuItemsFromElements } from 'components/MenuItem';
 import { Menubar as PRMenuBar } from 'primereact/menubar';
-import React from 'react';
+import { default as React} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MenuBarWrapper } from './styles';
 import UserManagement from './UserManagement';
@@ -19,12 +19,16 @@ const MenuBar: React.FunctionComponent<Props> = ({ children }) => {
         model={menuItemsFromElements(children)}
         start={
           <Logo
-            color={'blue'}
+            color={'orange'}
             size={'small'}
             onClick={() => navigate('/')}
           />
         }
-        end={<UserManagement />}
+        end={
+          // <EndTamer>
+            <UserManagement />
+          // </EndTamer>
+        }
       />
     </MenuBarWrapper>
   );
