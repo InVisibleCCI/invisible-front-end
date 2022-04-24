@@ -44,10 +44,13 @@ const EventCard: React.FunctionComponent = ({ hit: event }: any) => {
 
                 <Difficulty difficulty={event.difficulty} />
 
-                <div className={"reviews"}>
-                    <StarReview />
-                    4.5
-                </div>
+                {event.avergae_mark !== 0 &&
+                    <div className={"reviews"}>
+                        <StarReview />
+                      {event.average_mark}
+                    </div>
+                }
+
             </EventTextWrapper>
       </EventCardWrapper>
     </div>
