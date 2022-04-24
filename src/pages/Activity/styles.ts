@@ -31,7 +31,14 @@ export const ActivityContentWrapper = styled.section`
 export const ActivityInfo = styled.article`
 `;
 
-export const CommentWrapper = styled.article`
+export const CommentWrapper = styled.section`
+  background-color: #FFF;
+  border-radius: 20px;
+  padding: 5px;
+  
+  h3 {
+    font-size: 20px
+  }
 `;
 
 

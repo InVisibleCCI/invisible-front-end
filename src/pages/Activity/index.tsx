@@ -15,6 +15,7 @@ import { colors } from 'utils/styles';
 import { ActivityContentWrapper, ActivityInfo, ActivityWrapper, CommentWrapper } from './styles';
 import {EventApiService} from "../../services/EventApiService";
 import { Event } from "../../classes/Event"
+import CommentsCard from "./component/CommentsCard";
 
 interface Props {
 }
@@ -83,6 +84,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
             />
             <CommentWrapper>
               {/*c'est pour moi ici*/}
+              <CommentsCard reviews={event.reviews ?? []}/>
             </CommentWrapper>
           </ActivityInfo>
           <ScrollTop target="parent" icon="pi pi-arrow-up" />
