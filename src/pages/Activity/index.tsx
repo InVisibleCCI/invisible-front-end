@@ -4,10 +4,10 @@ import Card from 'components/Card';
 import SearchInput from 'components/SearchInput';
 import ActivityCard from 'pages/Activity/component/ActivityCard';
 import Galleria from 'pages/Activity/component/Galleria';
-import GalleriaItem from 'pages/Activity/component/GalleriaItem';
+import GalleriaItem, {GalleriaItemProps} from 'pages/Activity/component/GalleriaItem';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { ScrollTop } from 'primereact/scrolltop';
-import React, {useEffect, useState} from 'react';
+import React, {JSXElementConstructor, ReactElement, useEffect, useState} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { NavigationTrackerApiService } from 'services/NavigationTrackerApiService';
@@ -35,29 +35,34 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
     trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
   }, [])
 
+  const ListGalleria = (event):ReactElement<GalleriaItemProps, string | JSXElementConstructor<any>>[] => {
+      return event.images.map(image => {
+        return (
+          <GalleriaItem
+            src={image.src}
+            alt={image.alt_text}
+          />
+        )
+      })
+
+  }
+
   return (
     <ActivityWrapper>
       <SearchInput />
+      { event &&
       <ActivityContentWrapper>
         <Galleria>
-          <GalleriaItem
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-            alt="Image tirée de wikipédia"
-          />
-
-          <GalleriaItem
-            src="https://media.istockphoto.com/photos/colorful-background-of-pastel-powder-explosionrainbow-color-dust-on-picture-id1180542165?k=20&m=1180542165&s=612x612&w=0&h=43hlhk8qdGYP4V-u3AAxD3kPDRIzHjMNWpr-VdBQ2Js="
-            alt="Image tirée de google image"
-          />
+          { ListGalleria(event) }
         </Galleria>
         <ScrollPanel>
           <ActivityInfo>
             <ActivityCard
-              title={"Journée au Spa"}
-              distance={23}
-              description={"Integer tincidunt ligula vel libero dictum egestas. Aenean eget diam a turpis tincidunt dictum. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra."}
-              review={4.3}
-              commentNumber={243}
+              title={event.name}
+              distance={event.address.city}
+              description={event.description}
+              review={event.average_mark}
+              commentNumber={event.reviews_count}
             />
 
             <Card
@@ -65,7 +70,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
               color={colors.grey}
               title={
                 <>
-                  <h4>{"Spa & coton"}</h4>
+                  <h4>{event.merchant.name}</h4>
                 </>
               }
               children={
@@ -77,11 +82,13 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
               }
             />
             <CommentWrapper>
+              {/*c'est pour moi ici*/}
             </CommentWrapper>
           </ActivityInfo>
           <ScrollTop target="parent" icon="pi pi-arrow-up" />
         </ScrollPanel>
       </ActivityContentWrapper>
+      }
     </ActivityWrapper>
   );
 }
