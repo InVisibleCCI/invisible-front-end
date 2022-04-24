@@ -37,7 +37,7 @@ const Search = () => {
     // InstantSearch and Searchbox are AlgoliaComponents
     return <InstantSearch searchClient={searchClient} indexName="dev">
         <SearchBarWrapper>
-            <div>
+            <div id="icon-search">
                 <SearchBox
                     className={"algolia-searchBox"}
                     translations={{ placeholder: t('search.input.main') }}
@@ -52,7 +52,6 @@ const Search = () => {
                 <SearchIcon />
             </div>
         </SearchBarWrapper>
-
         <DesktopResults />
     </InstantSearch>
 }

@@ -1,56 +1,107 @@
 import styled from 'styled-components';
 
 export const DesktopResultWrapper = styled.div`
-    max-width: 1300px;
+    min-width: 1200px;
+    max-width: 1200px;
     margin: auto;
-    position: relative;
-        
-    .ais-InfiniteHits-list {
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        padding-left: 0;
-        
-        .ais-InfiniteHits-item {
-            width: 292px;
-            height: 350px;
-            margin-bottom: 25px;
-            margin-right: 25px;
-        }
+    .ais-InfiniteHits-loadMore{
+        display:none;
     }
+    h3{
+        margin-top:0;
+    }
+    @media (max-width : 1200px){
+        min-width: 100%;
+        max-width: 100%; 
+        padding : 0 40px;
+    }
+    @media (max-width : 500px){
+        min-width: 100%;
+        max-width: 100%; 
+        padding : 0;
+    }
+        
 `;
 
 export const ResultWrapper = styled.div`
-   display: flex;
-   flex-direction: row-reverse;
+   margin-bottom : 150px;
+   display:flex;
+   justify-content: space-between;
+   width:100%;
+
+   @media (max-width : 1200px){
+    flex-direction : column-reverse; 
+    }
+}
 `;
 
 export const MapDivider = styled.div`
    width: 2px;
    height: 540px;
    background-color: rgba(0,0,0,0.5);
-   margin: auto 39px auto 0;
-   position: absolute;
-   top: 0px;
-   right: 500px;
+   margin-right: 70px;
+   margin-left: 50px;
+   @media (max-width : 1200px){
+    display:none;
+}
 `;
 
 export const MapWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
+    width:50%;
+    position:sticky; 
+    top: 80px;
+    height:fit-content;
+    display : flex;
     align-items: center;
-    flex-wrap: nowrap;
-    width: 450px;
-    height: 500px;
-    
-    position: absolute;
-    top: 0;
-    right: 0;
+
+    @media (max-width : 1200px){
+        position:relative;
+        top:0; 
+        margin-left:0;
+        width: 100%;
+        margin: 40px 0;
+
+    }
+
 `;
 
 export const EventResultWrapper = styled.div`
-    margin-right: 600px;
-    margin-left: 20px; 
+
+width:50%; 
+
+@media (max-width : 1200px){
+    width:100%;
+    .ais-InfiniteHits{
+        margin-top:60px;
+    }
+    #results-container .ais-InfiniteHits-list{
+        justify-content: space-around;
+    }
+}
+   
+.ais-InfiniteHits-list {
+ list-style-type: none;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ padding-left: 0;
+ width:100%;
+ 
+ .ais-InfiniteHits-item {
+    max-width : 280px;
+    min-width : 280px;
+    margin-right:20px;
+    margin-bottom:20px;
+    border-radius:16px;
+
+
+ }
+
+ @media (max-width : 500px){
+    padding: 0 20px;
+}
+
+
+
 `;

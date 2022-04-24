@@ -29,4 +29,15 @@ span{
     } 
 }
 
+@media (max-width : 500px){
+    #user-management div{
+        width: 100px; 
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        font-size: 12px;
+        align-items:center;
+    }
+}
+
 `

@@ -1,15 +1,21 @@
 import styled from 'styled-components';
 
 export const LeafletMapWrapper = styled.div`
+@media (max-width : 1200px){
+    width:100%
+}
     .leaflet-container {
         height: 500px;
         width: 419px;
         border-radius: 16px;
         filter: drop-shadow(-4px 4px 12px rgba(0, 0, 0, 0.25));
-        
-        position: absolute;
-        top: 20px;
-        right: 80px;
+        @media (max-width : 1200px){
+            width:100%;
+        }
+
+        @media (max-width : 500px){
+            border-radius : 0;
+        }
     }
     
     .marker-cluster-small div {

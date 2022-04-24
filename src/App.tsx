@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { User } from 'classes/User'
-import Footer from 'components/Footer'
 import { GenericToast } from 'components/Generics/GenericToast'
 import Layout from 'components/Layout'
 import { ProgressSpinner } from 'primereact/progressspinner'
@@ -21,7 +20,7 @@ const App: React.FunctionComponent = () => {
     // Read the doc : https://codinaaranxa.atlassian.net/wiki/spaces/IW/pages/2392065/Faire+des+appels+API#Comment-axios-est-il-configur%C3%A9-?
     const setupAxios = () => {
         axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
-        GenericApiService.setupAxios$.next(true); 
+        GenericApiService.setupAxios$.next(true);
     }
 
     useEffect(() => {
@@ -46,7 +45,7 @@ const App: React.FunctionComponent = () => {
             </Layout>
             <GenericToast />
         </SessionContext.Provider>
-        <Footer/>
+
     </React.Suspense>
 }
 

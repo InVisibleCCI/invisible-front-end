@@ -63,4 +63,42 @@ export const SearchBarWrapper = styled.div`
             padding: 15px;
         }
     }
+    @media (max-width : 1200px){
+        margin: 0;
+        margin-top:20px;
+        padding:10px;
+        #icon-search{
+            position:relative;
+            max-width: 800px;
+            width: 100%;
+            margin:auto; 
+        }
+        
+        .algolia-searchBox {
+            max-width: 800px;
+            width: 100%;
+            padding: 2px;
+            min-width:auto;
+            margin:auto; 
+            
+            .ais-SearchBox-input {
+                padding-left: 20px;
+            }
+        }
+    }
+
+    @media (max-width : 500px){
+        margin: 0;
+        margin-top:20px;
+        padding:10px;
+        .algolia-searchBox {
+            max-width: 100%;
+            min-width: 100%;
+            padding: 2px;
+            
+            .ais-SearchBox-input {
+                padding-left: 10px;
+            }
+        }
+    }
 `;
