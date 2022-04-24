@@ -9,9 +9,10 @@ export const GenericToast = () => {
         ToastService.showToast$?.subscribe(newToast => {
             if (newToast !== null) {
                 toast.current.show(newToast)
+                setTimeout(() => toast.current.clear(), ToastService.toastLife);
             }
         })
-    })
+    }, [])
 
     return <Toast ref={toast} />
 }

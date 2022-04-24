@@ -8,14 +8,14 @@ interface IToastInvisible{
 }
 export class ToastService{
     static showToast$?: BehaviorSubject<IToastInvisible|null> = new BehaviorSubject<IToastInvisible|null>(null);
-    static toastLife : 5000; 
+    static toastLife=5000; 
 
     static displayToast(severity:any,title:string, detail:string){
         ToastService.showToast$?.next({
             severity:severity, 
             summary: title, 
             detail:detail, 
-            life: this.toastLife
+            life: ToastService.toastLife,
         })
     }
 

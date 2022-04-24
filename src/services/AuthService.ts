@@ -48,6 +48,7 @@ export class AuthService extends GenericApiService {
 
     // This method get refresh token in local storage. If we have it we try to get token to authentify user. After we set up axios authorization header with new token
     initUser() {
+        console.log('init user')
         const refreshToken = sessionStorage.getItem('refreshToken') ?
             sessionStorage.getItem('refreshToken') : localStorage.getItem('refreshToken');
         if (refreshToken) {
