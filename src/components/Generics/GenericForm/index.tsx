@@ -8,6 +8,7 @@ import { classNames } from 'primereact/utils';
 import React, { useState } from 'react';
 import { GenericButton } from '../GenericButton';
 import { GenericFormWrapper } from './style';
+import {Rating} from "primereact/rating";
 
 interface Props {
     service: any;
@@ -66,8 +67,17 @@ export const GenericForm: React.FunctionComponent<Props> = ({ service, registerM
                                         id={field.payloadName}
                                         name={field.payloadName}
                                         value={formik.values[field.payloadName]}
-                                        onChange={formik.handleChange} autoFocus
+                                        onChange={formik.handleChange}
                                         className={classNames({ 'p-invalid': isFormFieldValid(field.payloadName) })}
+                                    />}
+
+                                {field.type === "rating" &&
+
+                                    <Rating
+                                        id={field.payloadName}
+                                        value={formik.values[field.payloadName]}
+                                        onChange={formik.handleChange}
+                                        cancel={false}
                                     />}
 
                                 {field.type === "password" &&
