@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import {Review} from "../../../../classes/Review";
-import { AvatarWrapper, CommentHeadWrapper, CommentBodyWrapper, CommentWrapper, ReviewMarkWrapper, CommentSectionWrapper } from "./styles"
-import { StarReviewBlack } from "../../../../components/Svg/Star";
-import {GenericButton} from "../../../../components/Generics/GenericButton";
-import {GenericModal} from "../../../../components/Generics/GenericModal";
-import AddCommentForm from "../AddCommentForm";
-import {useSessionContext} from "../../../../utils/types/contexts/SessionContext";
-import {ToastService} from "../../../../components/Generics/GenericToast/ToastService";
+import { Review } from '../../../../classes/Review';
+import {
+  AvatarWrapper,
+  CommentBodyWrapper,
+  CommentHeadWrapper,
+  CommentSectionWrapper,
+  CommentWrapper,
+  ReviewMarkWrapper
+} from './styles'
+import { StarReviewBlack } from '../../../../components/Svg/Star';
+import { GenericButton } from '../../../../components/Generics/GenericButton';
+import { GenericModal } from '../../../../components/Generics/GenericModal';
+import AddCommentForm from '../AddCommentForm';
+import { useSessionContext } from '../../../../utils/types/contexts/SessionContext';
+import { ToastService } from '../../../../components/Generics/GenericToast/ToastService';
 
 interface Props {
   reviews: Review[];
@@ -19,7 +26,7 @@ const CommentsCard: React.FunctionComponent<Props> = ({ reviews }) => {
 
   const onClickAddComment = (e) => {
     if (!currentUser) {
-      ToastService.displayToast("error", "Connexion demandée", "Vous devez être connécté pour laisser un avis")
+      ToastService.displayToast("error", "Connexion demandée", "Vous devez être connecté pour laisser un avis")
       return;
     }
     setIsVisible(true)
