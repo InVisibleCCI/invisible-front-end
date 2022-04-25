@@ -56,5 +56,21 @@ h3{
 
  @media (max-width : 500px){
     padding: 0 20px;
+
+    .events-band-container{
+        display:flex;
+        justify-content:center;
+        margin-bottom:40px;
+        margin-left:0px;
+    
+        .ais-InfiniteHits-item{
+            max-width: ${props => props.eventCardSize == "large" ? "100%" : "" };
+            min-width: ${props => props.eventCardSize == "large" ? "100%" : "" };;
+            margin-right: 0px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+        
+        }
+    }
 }
 }`

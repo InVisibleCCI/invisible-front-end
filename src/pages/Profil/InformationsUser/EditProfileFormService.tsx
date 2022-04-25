@@ -9,7 +9,7 @@ export interface EditProfileFormValues {
     id:number; 
     first_name: string;
     last_name: string;
-    avatar_url: string; 
+    avatar_url: string | null; 
 }
 export class EditProfileFormService {
     static labelButton = "Editer mon profil";
@@ -20,7 +20,7 @@ export class EditProfileFormService {
             id:values.id, 
             first_name: values.first_name,
             last_name: values.last_name,
-            avatar_url: values.avatar.src
+            avatar_url: values.avatar ? values.avatar.src : null
         }
     }
 

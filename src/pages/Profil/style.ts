@@ -2,6 +2,14 @@ import styled from 'styled-components';
 import { colors } from 'utils/styles';
 
 export const ProfilWrapper = styled.main`
+
+@media (max-width : 500px){
+    #head-profile {
+        min-width:100%; 
+        max-width:100%;
+    }
+}
+
 .user-management-container {
     display:flex;
     justify-content:center;
@@ -31,5 +39,7 @@ export const ProfilWrapper = styled.main`
         border-color:#000000;
         border-bottom:1px solid black;
     }
+
+    
 
 `;

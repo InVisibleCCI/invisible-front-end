@@ -11,6 +11,10 @@ export const InformationsUserWrapper = styled.section`
     .button-profile{
       margin-top: 20px;
     }
+    @media (max-width : 500px){
+      max-width:100%; 
+      min-width:100%;
+  }
 `;
 
 interface ProfilImageWrapperProps {
@@ -33,5 +37,6 @@ export const ProfilImageWrapper = styled.div.attrs((props: ProfilImageWrapperPro
       width:${props => props.size == "small" ? "40px" : "190px"}; ;  
       filter: drop-shadow(-3px 6px 12px rgba(0, 0, 0, 0.25));
       margin-bottom: 20px;
+
      
   `;

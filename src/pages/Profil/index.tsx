@@ -22,7 +22,7 @@ export const Profil = () => {
 
 
     return <ProfilWrapper>
-        <div className="user-management-container">
+        <div id="head-profile" className="user-management-container">
             <a href="/information" onClick={(e) => onClickTab(e, 'informations')}> <div className={activeTab === "informations" ? "active" : ""}> Coordonnées </div> </a>
             <a href="/favorites" onClick={(e) => onClickTab(e, 'favorites')}> <div className={activeTab === "favorites" ? "active" : ""}> Favoris </div></a>
         </div>

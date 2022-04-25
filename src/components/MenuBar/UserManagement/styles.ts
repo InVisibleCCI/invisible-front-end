@@ -25,12 +25,23 @@ span{
 
 @media (max-width : 500px){
     #user-management div{
-        width: 100px; 
         display: flex;
         flex-direction: column-reverse;
-        justify-content: flex-end;
         font-size: 12px;
         align-items:center;
+        justify-content:space-around;
+    }
+    #user-management{
+        height:80px;
+    }
+    #profil-link{
+        height:40px;
+        width:40px;
+        margin-left:0px;
+        margin-top:10px;
+    }
+    span{
+        margin-left : 0px;
     }
 }
 
