@@ -1,5 +1,6 @@
 import { Address } from "./Address";
 import { Image } from "./Image";
+import { RegularOpening } from "./RegularOpening";
 
 export class Merchant {
   name: string;
@@ -10,4 +11,5 @@ export class Merchant {
   twitter_url: string;
   email: string;
   address: Address;
+  regular_openings : RegularOpening[]
 }
