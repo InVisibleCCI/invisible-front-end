@@ -13,6 +13,7 @@ import { EventApiService } from '../../services/EventApiService';
 import { Event } from '../../classes/Event'
 import CommentsCard from './component/CommentsCard';
 import MerchantCard from 'pages/Activity/component/MerchantCard';
+import { GenericApiService } from 'services/GenericApiService';
 
 
 interface Props {
@@ -33,8 +34,10 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
     if (!id) {
       return;
     }
-    eventService.read(id).then(event => setEvent(event))
-    trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
+    GenericApiService.setupAxios$.subscribe(res => {
+      eventService.read(id).then(event => setEvent(event))
+      trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
+    })
   }, [])
 
   const ListGalleria = (event):ReactElement<GalleriaItemProps, string | JSXElementConstructor<any>>[] => {
