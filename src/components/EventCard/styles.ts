@@ -6,6 +6,15 @@ interface EventCardWrapperProps{
 }
 
 export const EventCardWrapper = styled.section<EventCardWrapperProps>`
+.description{
+  color: ${colors.white};
+  .read-more-button{
+    cursor:pointer; 
+    font-weight:bold;
+    margin-top: 10px;
+  }
+
+}
 `;
 
 interface EventImageWrapperProps {
@@ -17,6 +26,7 @@ export const EventImageWrapper = styled.div.attrs((props: EventImageWrapperProps
   role: "img",
   'aria-label': `Image: ${props.alt}. Prochaine activité;`,
 }))<EventImageWrapperProps>`
+  cursor:pointer;
 
     // image
     background-image: url(${props => props.url});
@@ -26,7 +36,7 @@ export const EventImageWrapper = styled.div.attrs((props: EventImageWrapperProps
     filter: drop-shadow(-3px 6px 12px rgba(0, 0, 0, 0.25));
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    min-height:195px;
+    min-height:${props => props.cardSize == "small" ? "195px" : "400px"};
 `;
 
 interface EventTextWrapperProps {
@@ -34,6 +44,7 @@ interface EventTextWrapperProps {
   cardSize: "small"|"large";
 }
 export const EventTextWrapper = styled.div<EventTextWrapperProps>`
+  position: relative;
   background-color : ${props => props.color};
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
@@ -48,11 +59,13 @@ export const EventTextWrapper = styled.div<EventTextWrapperProps>`
       display: flex; 
       justify-content: space-between; 
       width:100%; 
-  }
-    
+  }    
 `;
 
 export const EventInfosWrapper = styled.div`    
+    a {
+      text-decoration:none;
+    }
     .card-title {
         font-family: Montserrat Alternates;
         font-size: 20px;
@@ -60,6 +73,7 @@ export const EventInfosWrapper = styled.div`
         color: #FFF;
         margin-bottom: 11px;
         margin-top: 0px;
+        text-decoration:none;
     }
     
     .distance {

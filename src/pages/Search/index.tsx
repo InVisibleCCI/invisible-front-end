@@ -1,5 +1,5 @@
 import algoliasearch from 'algoliasearch/lite';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +14,7 @@ const Search = () => {
 
     // searchClient defines client with env params
     const searchClient = algoliasearch(`${process.env.REACT_APP_ALGOLIA_APP_ID}`, `${process.env.REACT_APP_ALGOLIA_API_KEY}`);
+    const urlParams = new URLSearchParams(window.location.search);
 
     const navigate = useNavigate();
 
@@ -34,6 +35,14 @@ const Search = () => {
             navigate(`/search?term=${value}`);
         }
     }
+
+    useEffect(() => {
+        let term = urlParams.get('term'); 
+        if (!lastSearch && term) {
+            setLastSearch(term);
+        }
+    }, [])
+
     // InstantSearch and Searchbox are AlgoliaComponents
     return <InstantSearch searchClient={searchClient} indexName="dev">
         <SearchBarWrapper>

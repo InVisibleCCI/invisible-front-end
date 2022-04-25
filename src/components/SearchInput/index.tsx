@@ -32,7 +32,7 @@ const SearchInput: React.FunctionComponent = () => {
     }
 
     return <SearchInputWrapper>
-        <div>
+        <div id="search-input">
             <span className="p-input-icon-right">
                 <i className="pi pi-search" />
                 <InputText
