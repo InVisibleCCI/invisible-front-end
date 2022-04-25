@@ -9,10 +9,15 @@ import { Route, Routes as DOMRoutes } from 'react-router-dom';
 import Activity from 'pages/Activity';
 import { LegalNotice } from "pages/Legal/LegalNotices";
 import { PrivacyPolicy } from "pages/Legal/PrivacyPolicy";
+import { useSessionContext } from "utils/types/contexts/SessionContext";
+import { Profil } from "pages/Profil";
 
 const Routes: React.FunctionComponent = () => {
 
+  const {currentUser} = useSessionContext(); 
+
   return <DOMRoutes>
+    {currentUser && <Route path="/profile" element={<Profil />} /> }
    <Route path="/activity/:id" element={<Activity />} />
     <Route path="/reset-password/:temporaryPassword/:securityMailToken" element={<ResetPassword />}></Route>
     <Route path="/connection" element={<Connection />}></Route>

@@ -1,13 +1,14 @@
 import { IFieldType } from "components/Generics/GenericForm/interfaces/IFormType";
+import _ from "lodash";
 import { AuthService } from "services/AuthService";
 
 export interface IResetPasswordFormValues {
     new_password: string;
     new_password_bis: string;
 }
-export class ResetPasswordFormService {
+export class ChangePasswordFormService {
     static labelButton = "Modifier mon mot de passe";
-    static formName = "ResetPassword"
+    static formName = "ChangePassword"
 
     static getInitialValue(): IResetPasswordFormValues {
         return {
@@ -30,6 +31,12 @@ export class ResetPasswordFormService {
         return [
             {
 
+                payloadName: "old_password",
+                type: "password",
+                label: "Ancien mot de passe*"
+            },
+            {
+
                 payloadName: "new_password",
                 type: "password",
                 label: "Nouveau mot de passe*"
@@ -46,15 +53,7 @@ export class ResetPasswordFormService {
     }
 
     static onSubmit(data) {
-        const currentUrlParams = window.location.pathname.split('/');
-        const temporaryPassword = currentUrlParams[2];
-        const securityMailPassword = currentUrlParams[3];
         const userApiService = new AuthService();
-        let payload = {
-            old_password: temporaryPassword,
-            security_email_token: securityMailPassword,
-            new_password: data.new_password
-        }
-        userApiService.resetPassword(payload, ResetPasswordFormService.formName)
+        userApiService.resetPassword(_.omit(data,'new_password_bis'), ChangePasswordFormService.formName)
     }
 }

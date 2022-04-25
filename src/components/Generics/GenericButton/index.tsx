@@ -10,10 +10,12 @@ interface Props {
     backgroundColorHover?:string; 
     borderColor?:string; 
     borderColorHover?:string
+    className?:string; 
+    onClick?:any
 }
 
 
-export const GenericButton: React.FunctionComponent<Props> = ({ type, label, color, borderColor, backgroundColor, borderColorHover, backgroundColorHover }) => {
+export const GenericButton: React.FunctionComponent<Props> = ({ type, label, color, borderColor, backgroundColor, borderColorHover, backgroundColorHover, className, onClick }) => {
 
     return <GenericButtonWrapper
     borderColor={borderColor}
@@ -23,6 +25,6 @@ export const GenericButton: React.FunctionComponent<Props> = ({ type, label, col
     color={color}
     
     >
-        <Button type={type}> {label} </Button>
+        <Button className={className} type={type} onClick={onClick}> {label} </Button>
     </GenericButtonWrapper>
 }
