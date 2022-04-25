@@ -9,11 +9,13 @@ import { Route, Routes as DOMRoutes } from 'react-router-dom';
 import Activity from 'pages/Activity';
 import { LegalNotice } from "pages/Legal/LegalNotices";
 import { PrivacyPolicy } from "pages/Legal/PrivacyPolicy";
+import { MerchantPage } from "pages/Merchant";
 
 const Routes: React.FunctionComponent = () => {
 
   return <DOMRoutes>
-   <Route path="/activity/:id" element={<Activity />} />
+    <Route path="/merchant/:id" element={<MerchantPage />} />
+    <Route path="/activity/:id" element={<Activity />} />
     <Route path="/reset-password/:temporaryPassword/:securityMailToken" element={<ResetPassword />}></Route>
     <Route path="/connection" element={<Connection />}></Route>
     <Route path="/register" element={<Register />}></Route>
