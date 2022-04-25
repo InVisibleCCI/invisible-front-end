@@ -1,6 +1,5 @@
-import { IFieldType } from "components/Generics/GenericForm/interfaces/IFormType";
-import { AuthService } from "services/AuthService";
-import {ReviewApiService} from "../../../../services/ReviewApiService";
+import { IFieldType } from 'components/Generics/GenericForm/interfaces/IFormType';
+import { ReviewApiService } from '../../../../services/ReviewApiService';
 
 export interface IAddCommentFormValues {
   title: string;

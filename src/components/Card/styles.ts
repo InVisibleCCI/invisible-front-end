@@ -17,7 +17,8 @@ const cardColors = [
 export const CardWrapper = styled.div<CardProps>`
   width: ${(props) => props.size === 'small' ? '40': '100'}%;
   height: ${(props) => props.size === 'small' ? '40': '100'}%;
-  
+
+
   & > .p-card {
     padding: 0 20px;
     border-radius: 20px;

@@ -1,17 +1,27 @@
 import React from 'react';
-import { MerchantCardWrapper } from './styles';
+import {
+  AccordionWrapper,
+  BodyWrapper,
+  FooterWrapper,
+  MerchantCardWrapper,
+  SocialNetwork,
+  SocialNetworkWrapper,
+  TitleWrapper
+} from './styles';
 import Card from 'components/Card';
-import { CommentNumberWrapper, Description, ReviewWrapper } from 'pages/Activity/component/ActivityCard/styles';
-import { AiFillStar } from '@react-icons/all-files/ai/AiFillStar';
 import { useTranslation } from 'react-i18next';
+import { colors } from 'utils/styles';
+import { FiInstagram } from '@react-icons/all-files/fi/FiInstagram';
+import { RiTwitterFill } from '@react-icons/all-files/ri/RiTwitterFill';
+import { RiFacebookBoxFill } from '@react-icons/all-files/ri/RiFacebookBoxFill';
+import Accordion from 'components/Accordion';
 
 interface Props {
   title: string,
   picture: string,
   address: string,
   phone: string,
-  openingHours: JSON,
-  socialNetwork: string[],
+  openingHours?: JSON,
 }
 
 const MerchantCard: React.FunctionComponent<Props> = ({
@@ -19,40 +29,50 @@ const MerchantCard: React.FunctionComponent<Props> = ({
   address,
   phone,
   openingHours,
-  socialNetwork
 }) => {
-  const { t } = useTranslation();
   return (
     <MerchantCardWrapper>
       <Card
+        color={colors.grey}
         size={"medium"}
 
         title={
-          <>
+          <TitleWrapper>
             <h4>{title}</h4>
-          </>
+          </TitleWrapper>
         }
 
         children={
-          <>
-            <p><b>{t('card.address')}</b> {address} </p>
-            <p><b>{t('card.phone')}</b> {phone} </p>
-            <p><b>{t('card.openingHours')}</b> {openingHours} </p>
-          </>
+          <BodyWrapper>
+            <p><b>Adresse :</b> {address} </p>
+            <p><b>Telephone :</b> {phone} </p>
+            <AccordionWrapper>
+              <b>Horaires :</b>
+              <Accordion header={"Ouvert jusqu'à 18h30"} >
+                {'openingHours'}
+              </Accordion>
+            </AccordionWrapper>
+          </BodyWrapper>
         }
 
         footer={
           <>
-            <ReviewWrapper>
-              <AiFillStar/>
-              {/*{review}*/}
-            </ReviewWrapper>
-            <CommentNumberWrapper>
-              {/*{t('card.comment', {commentNumber: commentNumber})}*/}
-            </CommentNumberWrapper>
+          <FooterWrapper>
+            <SocialNetworkWrapper>
+              <SocialNetwork>
+                {<FiInstagram />}
+              </SocialNetwork>
+              <SocialNetwork>
+                {<RiTwitterFill />}
+              </SocialNetwork>
+              <SocialNetwork>
+                {<RiFacebookBoxFill />}
+              </SocialNetwork>
+            </SocialNetworkWrapper>
+          </FooterWrapper>
           </>
         }
-      />
+        />
     </MerchantCardWrapper>
 );
 }
