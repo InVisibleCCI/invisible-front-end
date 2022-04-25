@@ -6,7 +6,6 @@ import { HeaderInVisibleWrapper } from './style'
 
 export const HeaderInVisible = () => {
     return <HeaderInVisibleWrapper>
-        <header>
             <h1> Avec <span id="logo-title"><img src={logoWhite} alt="logo"></img> </span> Visible</h1>
             <h2> Trouvez une activité à proximité !</h2>
             <SearchInput />
@@ -16,6 +15,5 @@ export const HeaderInVisible = () => {
                     <GenericButton label='Découvrir les offres' type='button' color='black' backgroundColor='white' borderColor='white' backgroundColorHover='white' borderColorHover='white' />
                 </a>
             </div>
-        </header>
     </HeaderInVisibleWrapper>
 }

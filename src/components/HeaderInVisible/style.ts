@@ -8,6 +8,7 @@ export const HeaderInVisibleWrapper = styled.header`
     flex-direction:column;
     align-items:center;
     text-align:center;
+    
     #logo-title{
       max-width:95px; 
       max-height:58px;
@@ -47,6 +48,9 @@ export const HeaderInVisibleWrapper = styled.header`
     }
     a{
         text-decoration:none;
+    }
+    @media (max-width : 1200px){
+        padding:10px;
     }
 
 `;

@@ -11,4 +11,5 @@ export class Event {
   name: string;
   objectID: string;
   images: Image[];
+  card_color : string;
 }

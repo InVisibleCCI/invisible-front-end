@@ -1,3 +1,4 @@
+import Footer from 'components/Footer';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import NavBar from '../NavBar';
@@ -12,6 +13,7 @@ const Layout: React.FunctionComponent<Props> = ({ children }) =>
       <ContentWrapper>
         <NavBar />
         {children}
+         <Footer/>
       </ContentWrapper>
     </BrowserRouter>
   </LayoutWrapper>
