@@ -1,3 +1,4 @@
+import { ProfilImageWrapper } from 'pages/Profil/InformationsUser/style';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AuthService } from 'services/AuthService';
@@ -20,13 +21,13 @@ const UserManagement: React.FunctionComponent = () => {
         <div id="user-management">
             {currentUser ? <div>
                 <span><a href="/disconnection" onClick={(e) => onClickLogout(e)}> {t('user.signOutLink')} </a> </span>
-                <span className='avatar-user'>
-                    {currentUser.avatar ?
-                        <img alt={currentUser?.avatar.alt_text} src={currentUser?.avatar.src}></img>
-                        :
-                        <img alt={t('user.defaultAvatar')} src="https://i.stack.imgur.com/l60Hf.png"></img>
-                    }
-                </span>
+                <a id="profil-link" href="/profile">
+                    <ProfilImageWrapper
+                        url={currentUser.avatar ? currentUser.avatar.src : "https://i.stack.imgur.com/l60Hf.png"}
+                        alt={currentUser.avatar ? currentUser.avatar.alt_text : "Avatar par défaut de l'utilisateur"}
+                        size="small"
+                    />
+                </a>
             </div> :
                 <div>
                     <span><a href="/register"> {t('user.registerLink')} </a> </span>

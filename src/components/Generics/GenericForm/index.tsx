@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { values } from 'lodash';
 import { Captcha } from 'primereact/captcha';
 import { Checkbox } from 'primereact/checkbox';
 import { Divider } from 'primereact/divider';
@@ -12,17 +13,18 @@ import { GenericFormWrapper } from './style';
 interface Props {
     service: any;
     registerMode?: boolean;
+    initialValues?:any
 }
 
 
-export const GenericForm: React.FunctionComponent<Props> = ({ service, registerMode = false }) => {
+export const GenericForm: React.FunctionComponent<Props> = ({ service, registerMode = false, initialValues=null }) => {
     const [showMessage, setShowMessage] = useState(false);
     const [formData, setFormData] = useState<any>({});
     const [isValidCaptcha, setIsValidCaptcha] = useState<boolean>(false);
 
 
     const formik = useFormik({
-        initialValues: service.getInitialValue(),
+        initialValues: service.getInitialValue(initialValues),
         validate: (data) => service.validateForm(data),
         onSubmit: (data) => {
             setFormData(data);
@@ -88,6 +90,11 @@ export const GenericForm: React.FunctionComponent<Props> = ({ service, registerM
                                     <Checkbox
                                         inputId={field.payloadName} name={field.payloadName} checked={formik.values[field.payloadName]}
                                         onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid(field.payloadName) })} />
+                                }
+                                
+                                {
+                                    field.type === "hidden" &&
+                                    <input type="hidden" name={field.payloadName}/>
                                 }
 
                                 <label htmlFor={field.payloadName} className={classNames({ 'p-error': isFormFieldValid(field.payloadName) })}>{field.label}</label>

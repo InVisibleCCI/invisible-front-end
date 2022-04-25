@@ -12,12 +12,12 @@ export class AuthService extends GenericApiService {
     static currentUser$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
     constructor() {
-        super('users/')
+        super('users')
     }
 
     // Get user from backend
     me(): Promise<User> {
-        const url = `${this.baseUrl}me/`;
+        const url = `${this.baseUrl}/me/`;
         return axios.get(url).then(r => r.data)
     }
 
@@ -33,7 +33,7 @@ export class AuthService extends GenericApiService {
             }
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.access;
             this.me().then(user => {
-                AuthService.currentUser$.next(user);
+                AuthService.currentUser$.next(user)
                 ToastService.displayToast("success", "Connexion réussie", `Bonjour ${user.first_name}`)
             })
         }).catch(error => {
@@ -48,7 +48,6 @@ export class AuthService extends GenericApiService {
 
     // This method get refresh token in local storage. If we have it we try to get token to authentify user. After we set up axios authorization header with new token
     initUser() {
-        console.log('init user')
         const refreshToken = sessionStorage.getItem('refreshToken') ?
             sessionStorage.getItem('refreshToken') : localStorage.getItem('refreshToken');
         if (refreshToken) {
@@ -64,13 +63,20 @@ export class AuthService extends GenericApiService {
         localStorage.removeItem('refreshToken');
         sessionStorage.removeItem('refreshToken');
         AuthService.currentUser$.next(null);
+        window.location.pathname="/"
     }
 
-    resetPassword(payload) {
-        const url = `${this.baseUrl}change-password/`;
+    resetPassword(payload, formName) {
+        const url = `${this.baseUrl}/change-password/`;
         axios.post(url, payload).then(res => {
-            window.location.pathname = "/connection"
+            if(window.location.pathname.includes("reset")){
+                window.location.pathname = "/connection"
+            }
             ToastService.displayToast("success", "Changement de mot de passe réussi", `Votre mot de passe a bien été modifié`)
+            GenericFormService.onSubmit$.next({
+                formServiceName:formName, 
+                IsSubmitted:true
+            })
         }
         ).catch(
             error => ToastService.displayToast("error", "Une erreur est survenue", error.response)
@@ -78,7 +84,7 @@ export class AuthService extends GenericApiService {
     }
 
     sendMailToGetNewPassword(payload) {
-        const url = `${this.baseUrl}send-reset-password-mail/`;
+        const url = `${this.baseUrl}/send-reset-password-mail/`;
         axios.post(url, payload).then(res => {
             ToastService.displayToast("success", "Demande de nouveau mot de passe", `Un email vous a été envoyé afin de renouveller votre mot de passe`)
             GenericFormService.onSubmit$.next({formServiceName:ResetEmailFormService.formName, IsSubmitted:true})
@@ -86,5 +92,10 @@ export class AuthService extends GenericApiService {
         ).catch(
             error => ToastService.displayToast("error", "Une erreur est survenue", "")
         )
+    }
+
+    getUserFavorites(): Promise<Event[]> {
+        const url = `${this.baseUrl}/favorites/`;
+        return axios.get(url).then(r=>r.data)
     }
 }
