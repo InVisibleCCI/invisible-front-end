@@ -93,4 +93,9 @@ export class AuthService extends GenericApiService {
             error => ToastService.displayToast("error", "Une erreur est survenue", "")
         )
     }
+
+    getUserFavorites(): Promise<Event[]> {
+        const url = `${this.baseUrl}/favorites/`;
+        return axios.get(url).then(r=>r.data)
+    }
 }
