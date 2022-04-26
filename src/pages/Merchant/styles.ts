@@ -1,30 +1,29 @@
 import styled from 'styled-components';
 
-interface Zbel { }
+export const MerchantPageWrapper = styled.main`
+#search-input{
+  margin:auto;
+  margin-top:50px;
+  margin-bottom:100px; 
+  width:1200px;
+  display:flex; 
+  justify-content:center;
 
-interface MerchantLogoWrapperProps { }
+  input{
+    box-shadow : 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
 
-export const MerchantLogoWrapper = styled.div<MerchantLogoWrapperProps>`
-width: 112px;
-  height: 112px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 50%;
-`;
-
-export const MerchantLogo = styled.img<MerchantLogoWrapperProps>`
-display: inline;
-  margin: 0 auto;
-  height: 100%;
-  width: auto;
-`;
-
-export const MerchantCardWrapper = styled.div<Zbel>`
+}
+.container{
+  width:1200px; 
+  margin:auto;
   display:flex;
-  flex-grow:2;
-`;
+  margin-bottom:150px;
 
-export const MerchantCardBottomWrapper = styled.div<Zbel>`
-display:flex;
-`;
+  section{
+    width:50%;
+  }
+}
 
+
+`

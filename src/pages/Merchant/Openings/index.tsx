@@ -21,7 +21,7 @@ export const Openings = ({ openings }: Props) => {
 
     const displaySlot = (slots: RegularOpening[]) => {
         return slots.map((slot, index) =>  <span>{slot.start_at}-{slot.end_at} 
-            {index !== slots.length-1 && " / "} </span>)
+            {index !== slots.length-1 && <br/>} </span>)
     }
 
     return <div>

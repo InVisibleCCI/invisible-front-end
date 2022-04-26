@@ -1,5 +1,6 @@
 import { Merchant } from 'classes/Merchant';
 import React from 'react';
+import { SocialButtonWrapper } from './styles';
 
 interface Props{
     link:string,
@@ -9,5 +10,9 @@ interface Props{
 export const SocialButton = ({link,icon}:Props) => {
 
 
-    return <a href={link}>{icon}</a>
+    return <SocialButtonWrapper active={link ? true: false}>
+        <a href={link}>{icon}</a>
+    </SocialButtonWrapper>
+    
+    
 }

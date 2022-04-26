@@ -11,5 +11,6 @@ export class Merchant {
   twitter_url: string;
   email: string;
   address: Address;
-  regular_openings : RegularOpening[]
+  regular_openings : RegularOpening[]; 
+  description?: string;
 }
