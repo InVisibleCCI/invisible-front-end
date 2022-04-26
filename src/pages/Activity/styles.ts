@@ -10,7 +10,10 @@ export const ActivityPageWrapper = styled.div`
 export const SearchBarWrapper = styled.div`
   margin-top: 20px;
   ${window.innerWidth <= screenSize.mobileL ? `
-    width: 400px;
+    width: 390px;
+    position: sticky;
+    top: 10px;
+    z-index: 2;
   ` : `
     width: 915px;
   `}
