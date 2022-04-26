@@ -15,12 +15,16 @@ import { FiInstagram } from '@react-icons/all-files/fi/FiInstagram';
 import { RiTwitterFill } from '@react-icons/all-files/ri/RiTwitterFill';
 import { RiFacebookBoxFill } from '@react-icons/all-files/ri/RiFacebookBoxFill';
 import Accordion from 'components/Accordion';
+import { Image } from 'classes/Image';
 
 interface Props {
   title: string,
-  picture: string,
+  picture: Image,
   address: string,
   phone: string,
+  instagram?: string,
+  twitter?: string,
+  facebook?: string,
   openingHours?: JSON,
 }
 
@@ -28,6 +32,9 @@ const MerchantCard: React.FunctionComponent<Props> = ({
   title,
   address,
   phone,
+  instagram,
+  twitter,
+  facebook,
   openingHours,
 }) => {
   return (
@@ -59,15 +66,24 @@ const MerchantCard: React.FunctionComponent<Props> = ({
           <>
           <FooterWrapper>
             <SocialNetworkWrapper>
-              <SocialNetwork>
-                {<FiInstagram />}
-              </SocialNetwork>
-              <SocialNetwork>
+              {instagram &&
+                <SocialNetwork href={instagram}>
+                  {<FiInstagram />}
+                </SocialNetwork>
+              }
+
+              {twitter &&
+              <SocialNetwork href={twitter}>
                 {<RiTwitterFill />}
               </SocialNetwork>
-              <SocialNetwork>
+              }
+
+              {facebook &&
+              <SocialNetwork href={facebook}>
                 {<RiFacebookBoxFill />}
               </SocialNetwork>
+              }
+
             </SocialNetworkWrapper>
           </FooterWrapper>
           </>

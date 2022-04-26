@@ -21,6 +21,7 @@ export const AccordionWrapper = styled.div`
 `;
 
 export const FooterWrapper = styled.div`
+  height: 50px;
   color: ${colors.textColorWhite};
   display: flex;
   justify-content: end;
@@ -32,7 +33,8 @@ export const SocialNetworkWrapper = styled.div`
   width: 40%;
 `;
 
-export const SocialNetwork = styled.span`
+export const SocialNetwork = styled.a`
+  cursor: pointer;
   width: 40px;
   height: 40px;
   font-size: 28px;

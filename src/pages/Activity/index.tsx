@@ -21,7 +21,7 @@ interface Props {
 
 const Activity: React.FunctionComponent<Props> = ({ }) => {
   const eventService = new EventApiService()
-  const [event, setEvent ] = useState<Event>();
+  const [event, setEvent] = useState<Event>();
 
   const { id } = useParams();
   const trackerService = new NavigationTrackerApiService();
@@ -64,19 +64,26 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
           <ActivityInfo>
             <ActivityCard
               title={event.name}
-              distance={event.address.city}
+              distance={'XX'}
               description={event.description}
               review={roundAverageMark(event.average_mark)}
               commentNumber={event.reviews_count}
+              difficulty={event.difficult}
+              eventId={event.objectID}
             />
             <MerchantCard
-              title={'SPA & Coton'}
-              phone={'07 89 36 98 36'}
-              address={'3 Rue de la Rivière'}
-              picture={'Patate'}
+              title={event.merchant.name}
+              phone={event.merchant.phone_number}
+              address={`
+              ${event.merchant.address.line1}
+              ${event.merchant.address.line2 ?? ''}
+              `}
+              picture={event.merchant.logo}
+              instagram={event.merchant.instagram_url}
+              twitter={event.merchant.twitter_url}
+              facebook={event.merchant.facebook_url}
             />
             <CommentWrapper>
-              {/*c'est pour moi ici*/}
               <CommentsCard reviews={event.reviews ?? []}/>
             </CommentWrapper>
           </ActivityInfo>
