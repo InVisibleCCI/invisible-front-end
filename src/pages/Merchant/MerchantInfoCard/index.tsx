@@ -12,11 +12,13 @@ interface Props {
 export const MerchantInfoCard = ({ merchant }: Props) => {
     return <MerchantInfoCardWrapper>
         <div className="header-info-merchant">
-            <ProfilImageWrapper
+            <div className="merchant-logo">
+            <ProfilImageWrapper 
                 url={merchant.logo ? merchant.logo.src : "https://i.stack.imgur.com/l60Hf.png"}
                 alt={merchant.logo ? merchant.logo.alt_text : "Logo par defaut d'un commerçant"}
                 size="medium"
             />
+            </div>
             <div className="right-info-merchant">
                 <h1> {merchant.name}</h1>
                 <div id="icons-social-container">

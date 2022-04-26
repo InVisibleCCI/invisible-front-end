@@ -41,6 +41,9 @@ export const MerchantPageWrapper = styled.main`
       width:80%;
     }
   }
+  #search-input{
+    width:70%;
+  }
 }
 
 

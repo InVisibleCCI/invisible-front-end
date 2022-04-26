@@ -32,4 +32,25 @@ export const MapAndEventsMerchantWrapper = styled.section`
 
 }
 
+@media (max-width: 800px) {
+    .events-container h3 {
+        margin-left:10vw;
+    }
+    .leaflet-container{
+        width:482px; 
+    }    
+}
+
+
+@media (max-width: 500px) {
+    .events-container{
+        width:111%;
+    }
+    .events-container h3 {
+        margin-left:10vw;
+    }
+    .leaflet-container{
+        width:324px; 
+    }    
+}
 `
