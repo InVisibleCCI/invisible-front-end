@@ -9,13 +9,11 @@ export const ActivityPageWrapper = styled.div`
 
 export const SearchBarWrapper = styled.div`
   margin-top: 20px;
-  ${window.innerWidth <= screenSize.mobileL ? `
-    width: 390px;
+  ${window.innerWidth <= screenSize.mobileL && `
+    width: 85%;
     position: sticky;
     top: 10px;
     z-index: 2;
-  ` : `
-    width: 915px;
   `}
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 20px;

@@ -1,15 +1,13 @@
 import { InputText } from 'primereact/inputtext';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from "react-router-dom";
-import { useSessionContext } from "utils/types/contexts/SessionContext";
+import { useNavigate } from 'react-router-dom';
+import { useSessionContext } from 'utils/types/contexts/SessionContext';
 import { SearchInputWrapper } from './style';
 
 // Component who display static SearchBar (not Algolia) and lauch search
 
 const SearchInput: React.FunctionComponent = () => {
     const navigate = useNavigate();
-    const { t } = useTranslation();
 
     const { lastSearch, setLastSearch } = useSessionContext();
 
@@ -38,7 +36,7 @@ const SearchInput: React.FunctionComponent = () => {
                 <InputText
                     value={lastSearch}
                     onChange={(e) => setLastSearch(e.target.value)}
-                    placeholder={t('search.input.main')}
+                    placeholder={'Avec InVisible trouvez une activité près de chez vous !'}
                     onKeyDown={handleKeyPress}
                 />
             </span>

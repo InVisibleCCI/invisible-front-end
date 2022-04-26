@@ -1,18 +1,16 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { connectInfiniteHits, InfiniteHits, Configure } from 'react-instantsearch-dom';
+import { Configure, connectInfiniteHits, InfiniteHits } from 'react-instantsearch-dom';
 import EventCard from '../../../../components/EventCard';
-import { LeafletMap } from "../../../../components/Leaflet";
+import { LeafletMap } from '../../../../components/Leaflet';
 import NoResult from '../NoResult';
-import { NumberResult } from "./NumberResult";
-import { DesktopResultWrapper, EventResultWrapper, MapDivider, MapWrapper, ResultWrapper } from "./styles";
+import { NumberResult } from './NumberResult';
+import { DesktopResultWrapper, EventResultWrapper, MapDivider, MapWrapper, ResultWrapper } from './styles';
 
 // Display result from Algolia, if no result display NoResult component
 // This component use AlgoliaHooks : connectInfiniteHits
 
 const DesktopResults = (props) => {
     const { hits: events } = props;
-    const { t } = useTranslation();
 
     useEffect(() => {
         let buttonLoadMore: HTMLElement = document.getElementsByClassName('ais-InfiniteHits-loadMore')[0] as HTMLElement;
@@ -36,11 +34,11 @@ const DesktopResults = (props) => {
                     />
                     <div id="results-container">
                     {events && events.length > 0 ?
-                        
+
                         <InfiniteHits
                             hitComponent={EventCard}
                             translations={{
-                                loadMore: t('search.moreResult'),
+                                loadMore: 'Nouvelle recherche ?',
                             }}
                         />
                         :

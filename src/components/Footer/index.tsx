@@ -15,15 +15,9 @@ import { AiFillFacebook } from '@react-icons/all-files/ai/AiFillFacebook';
 import { AiFillInstagram } from '@react-icons/all-files/ai/AiFillInstagram';
 import { AiFillLinkedin } from '@react-icons/all-files/ai/AiFillLinkedin';
 import { AiFillTwitterSquare } from '@react-icons/all-files/ai/AiFillTwitterSquare';
-import { useTranslation } from 'react-i18next';
 import Logo from 'components/Logo';
 
-interface Props {
-}
-
-const Footer: React.FunctionComponent<Props> = ({}) => {
-
-  const { t } = useTranslation();
+const Footer: React.FunctionComponent = () => {
 
   return (
     <FooterWrapper>
@@ -62,27 +56,27 @@ const Footer: React.FunctionComponent<Props> = ({}) => {
 
         <FooterColumn>
           <FooterLink>
-            {t('activity.title')}
+            {'Activités'}
           </FooterLink>
 
           <FooterLink>
-            {t('activity.category.accommodation.title')}
+            {'Hébergements'}
           </FooterLink>
 
           <FooterLink>
-            {t('activity.category.restaurant.title')}
+            {'Restaurants'}
           </FooterLink>
 
           <FooterLink>
-            {t('activity.category.cruise.title')}
+            {'Croisières'}
           </FooterLink>
 
           <FooterLink>
-            {t('activity.category.welfare.title')}
+            {'Bien-être'}
           </FooterLink>
 
           <FooterLink>
-            {t('activity.category.art.title')}
+            {'Arts et culture'}
           </FooterLink>
         </FooterColumn>
 

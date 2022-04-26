@@ -6,7 +6,6 @@ import LogoBlack from './img/logo-noir.png';
 import LogoBlackWithText from './img/logo-texte-noir.png';
 import LogoOrange from './img/logo-orange.png';
 import LogoBlue from './img/logo-bleu.png';
-import { useTranslation } from 'react-i18next';
 
 type LogoColor = 'white' | 'black' | 'blue' | 'orange';
 
@@ -40,12 +39,11 @@ const Logo: React.FunctionComponent<Props> = ({
   withText,
   size
 }) => {
-  const { t } = useTranslation();
   return (
   <LogoWrapper onClick={onClick} size={size}>
     <LogoImg
       src={withText ? imagesFromType[color].logoWithText : imagesFromType[color].logo}
-      alt={t('logo.text', {color})}
+      alt={`Logo du site InVisible en ${color}`}
       size={size}
       withText
     />

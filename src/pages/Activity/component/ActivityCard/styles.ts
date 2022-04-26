@@ -68,7 +68,7 @@ export const ReviewWrapper = styled.div`
     flex-flow: column;
     ` : `    
     flex-flow: row;    
-    width: 40%;
+    width: 50%;
   `}
   
 `;

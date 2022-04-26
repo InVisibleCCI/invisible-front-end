@@ -1,12 +1,11 @@
 import algoliasearch from 'algoliasearch/lite';
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSessionContext } from 'utils/types/contexts/SessionContext';
-import DesktopResults from "./components/DesktopResult";
-import { SearchBarWrapper } from "./styles";
-import { SearchIcon } from "../../components/Svg/Search";
+import DesktopResults from './components/DesktopResult';
+import { SearchBarWrapper } from './styles';
+import { SearchIcon } from '../../components/Svg/Search';
 
 
 // This component display SearchPage it uses AlgoliaComponents
@@ -19,7 +18,6 @@ const Search = () => {
     const navigate = useNavigate();
 
     const { lastSearch, setLastSearch } = useSessionContext();
-    const { t } = useTranslation();
 
     // This method use lastSearch (retrieve in SessionContext) to navigate to search page with search string.
     // This method is called on "onChange" from Searchbox (algolia component)
@@ -37,7 +35,7 @@ const Search = () => {
     }
 
     useEffect(() => {
-        let term = urlParams.get('term'); 
+        let term = urlParams.get('term');
         if (!lastSearch && term) {
             setLastSearch(term);
         }
@@ -49,7 +47,7 @@ const Search = () => {
             <div id="icon-search">
                 <SearchBox
                     className={"algolia-searchBox"}
-                    translations={{ placeholder: t('search.input.main') }}
+                    translations={{ placeholder: 'Avec InVisible trouvez une activité près de chez vous !'}}
                     searchAsYouType
                     onChange={(e) => {
                       e.preventDefault();
