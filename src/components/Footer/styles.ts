@@ -4,11 +4,12 @@ import { LogoWrapper } from 'components/Logo/styles';
 
 export const FooterWrapper = styled.footer`
   width: 100%;
-  height: 474px;
+  display: flex;
+  flex-direction: column;
   color: ${colors.white};
 
   ${LogoWrapper} {
-    margin: -20px 0 0 auto;
+    
     justify-content: center;
   }
 `;
@@ -33,8 +34,9 @@ export const Icon = styled.i`
 `;
 
 export const FooterInfo = styled.div`
-  height:430px;
+  height:200px;
   background-color: black;
+  padding-top: 20px;
 `;
 
 export const FooterSection = styled.section`

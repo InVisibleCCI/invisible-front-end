@@ -39,66 +39,7 @@ const Footer: React.FunctionComponent = () => {
     </TopFooter>
 
     <FooterInfo>
-      <FooterSection>
-        <FooterColumn>
-          <FooterLink>
-            Rechercher une activité
-          </FooterLink>
-
-          <FooterLink>
-            Centre d'aide
-          </FooterLink>
-
-          <FooterLink>
-            Mon compte
-          </FooterLink>
-        </FooterColumn>
-
-        <FooterColumn>
-          <FooterLink>
-            {'Activités'}
-          </FooterLink>
-
-          <FooterLink>
-            {'Hébergements'}
-          </FooterLink>
-
-          <FooterLink>
-            {'Restaurants'}
-          </FooterLink>
-
-          <FooterLink>
-            {'Croisières'}
-          </FooterLink>
-
-          <FooterLink>
-            {'Bien-être'}
-          </FooterLink>
-
-          <FooterLink>
-            {'Arts et culture'}
-          </FooterLink>
-        </FooterColumn>
-
-        <FooterColumn>
-          <FooterLink>
-            A propos
-          </FooterLink>
-
-          <FooterLink>
-            Contact
-          </FooterLink>
-
-          <FooterLink>
-            L' équipe
-          </FooterLink>
-
-          <FooterLink>
-            Blog
-          </FooterLink>
-
-        </FooterColumn>
-      </FooterSection>
+  
 
       <Logo
         color={'white'}
