@@ -1,5 +1,5 @@
-import React from "react";
-import { StarWrapper } from "./styles";
+import React from 'react';
+import { StarWrapper } from './styles';
 
 /** Return the SVG for the rating star
  *

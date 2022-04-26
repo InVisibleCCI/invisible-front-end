@@ -9,7 +9,6 @@ import {
   TitleWrapper
 } from './styles';
 import Card from 'components/Card';
-import { useTranslation } from 'react-i18next';
 import { colors } from 'utils/styles';
 import { FiInstagram } from '@react-icons/all-files/fi/FiInstagram';
 import { RiTwitterFill } from '@react-icons/all-files/ri/RiTwitterFill';
@@ -25,7 +24,6 @@ interface Props {
   instagram?: string,
   twitter?: string,
   facebook?: string,
-  openingHours?: JSON,
 }
 
 const MerchantCard: React.FunctionComponent<Props> = ({
@@ -35,7 +33,6 @@ const MerchantCard: React.FunctionComponent<Props> = ({
   instagram,
   twitter,
   facebook,
-  openingHours,
 }) => {
   return (
     <MerchantCardWrapper>
@@ -83,7 +80,6 @@ const MerchantCard: React.FunctionComponent<Props> = ({
                 {<RiFacebookBoxFill />}
               </SocialNetwork>
               }
-
             </SocialNetworkWrapper>
           </FooterWrapper>
           </>

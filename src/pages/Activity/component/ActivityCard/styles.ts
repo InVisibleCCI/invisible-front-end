@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors, fontSize } from 'utils/styles';
 
 export const ActivityCardWrapper = styled.div`
     .p-card {
