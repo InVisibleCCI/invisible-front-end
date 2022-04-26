@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontSize, screenSize } from 'utils/styles';
+import { colors, fontSize, screenSize } from 'utils/styles';
 
 export const ActivityPageWrapper = styled.div`
   display: flex;
@@ -53,6 +53,7 @@ export const ActivityContentWrapper = styled.section`
   }
   
   .p-scrollpanel.p-component {
+    height: 1000px;
     ${window.innerWidth <= screenSize.mobileL ? `
     margin: auto;
     width: 80%;
@@ -67,6 +68,7 @@ export const ActivityContentWrapper = styled.section`
     border-left: 1px solid rgba(0, 0, 0, 0.2);
   `}
   }
+  
 `;
 
 export const ActivityInfo = styled.article`

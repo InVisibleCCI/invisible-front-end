@@ -43,9 +43,9 @@ const ActivityCard: React.FunctionComponent<Props> = ({
             <p>{`A ${distance} km`}</p>
             <Description>
               <ReadMoreReact
-                text={description} readMoreText={"Lire plus"} min={200}
-                ideal={220}
-                max={250}
+                text={description} readMoreText={"Lire plus"} min={160}
+                ideal={170}
+                max={180}
               />
             </Description>
           </>

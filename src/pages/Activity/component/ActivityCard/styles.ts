@@ -67,7 +67,7 @@ export const ReviewWrapper = styled.div`
   ${window.innerWidth <= screenSize.mobileL ? `
     flex-flow: column;
     ` : `    
-    flex-flow: row;    
+    flex-flow: row wrap;    
     width: 50%;
   `}
   

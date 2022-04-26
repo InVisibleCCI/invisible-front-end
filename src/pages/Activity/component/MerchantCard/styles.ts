@@ -27,12 +27,14 @@ export const Img = styled.img`
     width: 80px;
     height: 80px;
   ` : `
-    width: 140px;
-    height: 140px;
+    margin-top: -10px;
+    width: 120px;
+    height: 120px;
   `}
 `;
 
 export const BodyWrapper = styled.div`
+  margin-top: -40px;
   min-height: 60px;
 `
 
