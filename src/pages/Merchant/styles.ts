@@ -21,4 +21,10 @@ display: inline;
 
 export const MerchantCardWrapper = styled.div<Zbel>`
   display:flex;
+  flex-grow:2;
 `;
+
+export const MerchantCardBottomWrapper = styled.div<Zbel>`
+display:flex;
+`;
+
