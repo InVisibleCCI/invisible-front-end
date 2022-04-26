@@ -1,13 +1,19 @@
 import styled from 'styled-components';
-import { colors } from 'utils/styles';
+import { colors, screenSize } from 'utils/styles';
 
 export const GalleriaWrapper = styled.figure`
   
   .p-galleria {
     
     .p-galleria-content .p-galleria-item-wrapper .p-galleria-item-container .p-galleria-item > img {
-      height: 400px;
-      width: 600px;
+      ${window.innerWidth <= screenSize.mobileL ? `
+        height: 200px;
+      ` : `
+        min-height: 150px;
+        min-width: 320px;
+        max-height: 400px;
+        max-width: 600px;
+      `}
     }
 
     .p-galleria-indicators .p-galleria-indicator {
@@ -25,7 +31,7 @@ export const GalleriaWrapper = styled.figure`
 `;
 
 export const Image = styled.img`
-  border-radius: 24px;
+  border-radius: 20px;
   width: 100%;
   display: block;
 `;

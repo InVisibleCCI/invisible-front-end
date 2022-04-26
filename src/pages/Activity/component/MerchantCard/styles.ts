@@ -1,27 +1,52 @@
 import styled from 'styled-components';
-import { colors } from 'utils/styles';
+import { colors, fontSize, screenSize } from 'utils/styles';
 
 export const MerchantCardWrapper = styled.div`
-  padding-top: 50px;
+  margin-top: 10%;
   color: ${colors.textColor}
 `;
 
-export const TitleWrapper = styled.div`
-  height: 10px;
+export const TitleWrapper = styled.span`
+  min-height: 10px;
   padding: 0;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const PictureWrapper = styled.figure`
+  width: 15%;
+`;
+
+export const Img = styled.img`
+  position: absolute;
+  border-radius: 100%;
+  flex-flow: column;
+
+  ${window.innerWidth <= screenSize.mobileL ? `
+    margin-top: -15px;
+    width: 80px;
+    height: 80px;
+  ` : `
+    width: 140px;
+    height: 140px;
+  `}
 `;
 
 export const BodyWrapper = styled.div`
-  height: 60px;
+  min-height: 60px;
 `
 
 export const AccordionWrapper = styled.div`
   display: flex;
   align-items: baseline;
+
+  ${window.innerWidth <= screenSize.mobileL ? `
+    flex-flow: column;
+  ` : `
+  `}
 `;
 
 export const FooterWrapper = styled.div`
-  height: 50px;
   color: ${colors.textColorWhite};
   display: flex;
   justify-content: end;
@@ -37,7 +62,7 @@ export const SocialNetwork = styled.a`
   cursor: pointer;
   width: 40px;
   height: 40px;
-  font-size: 28px;
+  font-size: ${fontSize.mediumTitle};
   display: flex;
   justify-content: center;
   align-items: center;

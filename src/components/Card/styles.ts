@@ -21,7 +21,7 @@ export const CardWrapper = styled.div<CardProps>`
 
   & > .p-card {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 0 20px;
+    padding: 0 5%;
     border-radius: 20px;
     color: ${(props) => props.color ? colors.black : colors.textColorWhite};
     background-color: ${(props) => props.color ?? cardColors[Math.floor(Math.random()* cardColors.length)]};

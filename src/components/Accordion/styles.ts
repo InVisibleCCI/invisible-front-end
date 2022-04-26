@@ -45,8 +45,8 @@ export const AccordionWrapper = styled.div`
     }
     
     .p-accordion-content {
-      border: 1px solid ${colors.black};
-      background: ${colors.grey};
+      border: none;
+      background: none;
     }
   }
 `;

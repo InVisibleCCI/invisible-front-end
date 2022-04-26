@@ -3,7 +3,9 @@ import {
   AccordionWrapper,
   BodyWrapper,
   FooterWrapper,
+  Img,
   MerchantCardWrapper,
+  PictureWrapper,
   SocialNetwork,
   SocialNetworkWrapper,
   TitleWrapper
@@ -28,6 +30,7 @@ interface Props {
 
 const MerchantCard: React.FunctionComponent<Props> = ({
   title,
+  picture,
   address,
   phone,
   instagram,
@@ -43,6 +46,9 @@ const MerchantCard: React.FunctionComponent<Props> = ({
         title={
           <TitleWrapper>
             <h4>{title}</h4>
+            <PictureWrapper>
+              <Img alt={picture.alt_text} src={picture.src} />
+            </PictureWrapper>
           </TitleWrapper>
         }
 
