@@ -23,19 +23,19 @@ const Main: React.FunctionComponent<Props> = () => {
   useEffect(() => {
     GenericApiService.setupAxios$.subscribe(state => {
       if (state) {
-        eventService.getEventForHomePage(currentGeolocation).then(res => setEventsHomePage(res))
+        eventService.getEventForHomePage().then(res => setEventsHomePage(res))
       }
     })
   }, [currentGeolocation])
 
   return <MainWrapper>
-    <div>
       <HeaderInVisible />
       <section id="section-tags-container" className='container'>
         <div id="button-tags-container">
           {tagsNameIcon.map(tag => <ButtonTag name={tag.name} icon={tag.icon} />)}
         </div>
       </section>
+
       {eventsHomePage && <section className='container'>
         {currentUser && eventsHomePage.user_favorites.length > 0 && <EventBand title='Vous avez mis en favori' events={eventsHomePage.user_favorites} />}
         {eventsHomePage.near_location.length > 0 && <EventBand title='Les mieux notés près de chez vous' events={eventsHomePage.near_location} />}
@@ -46,8 +46,6 @@ const Main: React.FunctionComponent<Props> = () => {
 
       <GenericDivider />
       <Partners />
-
-    </div>
   </MainWrapper>
 
 }

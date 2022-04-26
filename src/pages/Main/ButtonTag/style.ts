@@ -16,4 +16,10 @@ a{
             margin-right:10px;
         }
     }
-}`
+
+}
+@media (max-width : 1200px){
+    margin-right: 15px;
+}
+
+`

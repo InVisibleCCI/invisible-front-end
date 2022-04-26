@@ -22,7 +22,7 @@ export class GenericApiService implements IApiService {
     }
 
     read(id: string): Promise<any> {
-        return axios.get(`${this.baseUrl}/${id}`).then(r => r.data);
+        return axios.get(`${this.baseUrl}/${id}/`).then(r => r.data);
     }
 
     list(pagination: any = null, filters: any = null, sorter: any = null): Promise<any> {
@@ -33,9 +33,9 @@ export class GenericApiService implements IApiService {
         return axios.post(`${this.baseUrl}`, data).then(r => r.data);
     }
     update(id: string, data: any): Promise<any> {
-        return axios.patch(`${this.baseUrl}/${id}`, data).then(r => r.data);
+        return axios.patch(`${this.baseUrl}/${id}/`, data).then(r => r.data);
     }
     delete(id: string): Promise<any> {
-        return axios.delete(`${this.baseUrl}/${id}`).then(r => r.data);
+        return axios.delete(`${this.baseUrl}/${id}/`).then(r => r.data);
     }
 }

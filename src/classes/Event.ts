@@ -14,4 +14,6 @@ export class Event {
   images: Image[];
   average_mar: number;
   reviews?: Review[];
+  card_color : string;
+  distance:number;  
 }

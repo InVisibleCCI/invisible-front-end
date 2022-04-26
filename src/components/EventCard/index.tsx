@@ -1,58 +1,75 @@
 import React from "react";
-import { cardColor } from "../../utils/styles";
+import { useNavigate } from "react-router-dom";
+import ReadMoreReact from 'read-more-react';
+import { MapService } from "../Leaflet/MapService";
 import { StarReview } from "../Svg/Star";
 import Difficulty from './Difficulty';
 import LikeButton from './LikeButton';
 import { EventCardWrapper, EventImageWrapper, EventInfosWrapper, EventTextWrapper } from "./styles";
 
 interface Props {
-    hit: any;
-    eventCardSize: "small" | "large";
+  hit: any;
+  eventCardSize: "small" | "large";
 }
 /** Template to display the search result as cards
  *
  * @param event
  * @constructor
  */
-const EventCard: React.FunctionComponent<Props> = ({ hit, eventCardSize='small' }) => {
+const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize = "small" }) => {
+  const navigate = useNavigate();
 
-    /** Pick the value of a random key of the object, excluding the first one
-     *
-     * @param obj
-     * @constructor
-     */
-    const randomColor = (obj) => {
-        const keys = Object.keys(obj);
-        return obj[keys[Math.floor((keys.length - 2) * Math.random()) + 2]];
-    }
+  /** Pick the value of a random key of the object, excluding the first one
+   *
+   * @param obj
+   * @constructor
+   */
 
-    let color = randomColor(cardColor);
 
-    return <EventCardWrapper cardSize={eventCardSize}>
-        <span role="img" aria-label={hit.images[0].alt}>
-            <EventImageWrapper cardSize={eventCardSize} url={hit.images[0].src} />
-        </span>
+  return (
+    <div onMouseEnter={() => MapService.currentEventHoverSubject$.next(event.objectID)}>
+      <EventCardWrapper aria-label={"Nouvelle activitée"} cardSize={eventCardSize}>
+        <EventImageWrapper onClick={() => navigate(`/activity/${event.objectID}`)} cardSize={eventCardSize} url={event.images[0].src} alt={event.images[0].alt_text} />
+        <EventTextWrapper haveMark={event.average_mark !== 0} color={event.card_color} cardSize={eventCardSize}>
+          <EventInfosWrapper>
+            <a href={`/activity/${event.objectID}`}><h4 className={"card-title"}>{event.name}</h4> </a>
+            <p className={"distance"} >{event.address.city}
+              {
+                event.distance && <span> à {event.distance.toFixed(1)} km</span>
+              }
+            </p>
+          </EventInfosWrapper>
+          {eventCardSize == 'small' ?
+            <div className="icons-infos-event">
+              {event.average_mark !== 0 &&
+                <div className={"reviews"}>
+                  <StarReview />
+                  {event.average_mark}
+                </div>
+              }
+              <div>
+                <Difficulty difficulty={event.difficulty} />
+              </div>
+            </div>
 
-        <EventTextWrapper cardSize={eventCardSize} color={color}>
-            <LikeButton eventId={hit.objectID} />
-            <EventInfosWrapper>
-                <h3 className={"card-title"}>{hit.name}</h3>
-                {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
-                <p className={"distance"}>{hit.address.city} à XX km</p>
-            </EventInfosWrapper>
+            :
+            <div className="description">
+              <ReadMoreReact text={event.description} readMoreText={"Lire plus"} min={80}
+                ideal={100}
+                max={120} />
+            </div>
 
-            {eventCardSize == "small" ? <React.Fragment>
-                <Difficulty difficulty={hit.difficulty} />
+          }
 
-                <span className={"reviews"}>
-                    <StarReview />
-                    4.5
-                </span>
-            </React.Fragment> :
-                <p className="description">{hit.description}</p>
-            }
+          <LikeButton eventId={event.objectID} />
+
+
+
+
         </EventTextWrapper>
-    </EventCardWrapper>
+      </EventCardWrapper>
+    </div>
+  );
 }
 
 export default EventCard

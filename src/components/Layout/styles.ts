@@ -13,4 +13,12 @@ export const ContentWrapper = styled.div`
   order: 1;
   flex-direction: column;
   align-content: flex-start;
+
+  @media (max-width : 500px){
+    width: 100%;
+}
+@media (max-width : 1200px){
+    width: 100%;
+}
+
 `

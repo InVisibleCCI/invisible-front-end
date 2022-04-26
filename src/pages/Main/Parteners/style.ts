@@ -8,5 +8,11 @@ text-align:center;
     width:100%;
     margin:80px 0;
 }
-
-}`
+@media (max-width : 800px){
+    #partners-container {
+        flex-wrap : wrap;
+        .logo-container{
+            margin-bottom:20px;
+        }
+    }
+}}`

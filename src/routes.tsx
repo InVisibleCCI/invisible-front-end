@@ -10,12 +10,17 @@ import Activity from 'pages/Activity';
 import { LegalNotice } from "pages/Legal/LegalNotices";
 import { PrivacyPolicy } from "pages/Legal/PrivacyPolicy";
 import { MerchantPage } from "pages/Merchant";
+import { useSessionContext } from "utils/types/contexts/SessionContext";
+import { Profil } from "pages/Profil";
 
 const Routes: React.FunctionComponent = () => {
+
+  const {currentUser} = useSessionContext(); 
 
   return <DOMRoutes>
     <Route path="/merchant/:id" element={<MerchantPage />} />
     <Route path="/activity/:id" element={<Activity />} />
+    {currentUser && <Route path="/profile" element={<Profil />} /> }
     <Route path="/reset-password/:temporaryPassword/:securityMailToken" element={<ResetPassword />}></Route>
     <Route path="/connection" element={<Connection />}></Route>
     <Route path="/register" element={<Register />}></Route>
