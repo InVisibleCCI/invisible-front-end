@@ -30,7 +30,7 @@ export const MapAndEventsMerchant = ({ merchant }: Props) => {
 
     return <MapAndEventsMerchantWrapper>
         {events && <React.Fragment>
-            <div>
+            <div className="events-container">
             <h3> Activités proposées : </h3>
             <Carousel value={events} numVisible={2} itemTemplate={eventTemplate}></Carousel>
             </div>
