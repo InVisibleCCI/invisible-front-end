@@ -1,14 +1,28 @@
 import styled from 'styled-components';
 import { fontSize, screenSize } from 'utils/styles';
 
+export const ActivityPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SearchBarWrapper = styled.div`
+  margin-top: 20px;
+  ${window.innerWidth <= screenSize.mobileL ? `
+    width: 400px;
+  ` : `
+    width: 915px;
+  `}
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+`;
+
 export const ActivityWrapper = styled.div`
+  
   ${window.innerWidth <= screenSize.mobileL ? `
   ` : `
-    input {
-    margin-left: 7%;
-  }
-  
-  margin-left: -5%;
+    margin-left: -5%;
   `}
   
 `;
@@ -41,6 +55,9 @@ export const ActivityContentWrapper = styled.section`
     ${window.innerWidth <= screenSize.mobileL ? `
     margin: auto;
     width: 80%;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+    padding-top: 3rem;
+
   ` : `
     padding-top: 5.5%;
     width: 40%;

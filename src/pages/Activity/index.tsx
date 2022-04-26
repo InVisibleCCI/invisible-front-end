@@ -8,7 +8,7 @@ import { ScrollTop } from 'primereact/scrolltop';
 import React, { JSXElementConstructor, ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { NavigationTrackerApiService } from 'services/NavigationTrackerApiService';
-import { ActivityContentWrapper, ActivityInfo, ActivityWrapper, CommentWrapper } from './styles';
+import { ActivityContentWrapper, ActivityInfo, ActivityPageWrapper, ActivityWrapper, CommentWrapper, SearchBarWrapper } from './styles';
 import { EventApiService } from '../../services/EventApiService';
 import { Event } from '../../classes/Event'
 import CommentsCard from './component/CommentsCard';
@@ -53,8 +53,11 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
   }
 
   return (
-    <ActivityWrapper>
-      <SearchInput />
+    <ActivityPageWrapper>
+      <SearchBarWrapper>
+        <SearchInput />
+      </SearchBarWrapper>
+      <ActivityWrapper>
       { event &&
       <ActivityContentWrapper>
         <Galleria>
@@ -92,6 +95,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
       </ActivityContentWrapper>
       }
     </ActivityWrapper>
+    </ActivityPageWrapper>
   );
 }
 
