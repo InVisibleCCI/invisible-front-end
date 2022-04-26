@@ -1,80 +1,124 @@
-import { AiFillStar } from '@react-icons/all-files/ai/AiFillStar';
 import { NavigationTrackerTypeEnum } from 'classes/enums/NavigationTrackerTypeEnum';
-import Card from 'components/Card';
 import SearchInput from 'components/SearchInput';
 import ActivityCard from 'pages/Activity/component/ActivityCard';
 import Galleria from 'pages/Activity/component/Galleria';
-import GalleriaItem from 'pages/Activity/component/GalleriaItem';
+import GalleriaItem, { GalleriaItemProps } from 'pages/Activity/component/GalleriaItem';
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { ScrollTop } from 'primereact/scrolltop';
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { JSXElementConstructor, ReactElement, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { NavigationTrackerApiService } from 'services/NavigationTrackerApiService';
-import { colors } from 'utils/styles';
-import { ActivityContentWrapper, ActivityInfo, ActivityWrapper, CommentWrapper } from './styles';
+import {
+  ActivityContentWrapper,
+  ActivityInfo,
+  ActivityPageWrapper,
+  ActivityWrapper,
+  CommentWrapper,
+  SearchBarWrapper
+} from './styles';
+import { EventApiService } from '../../services/EventApiService';
+import { Event } from '../../classes/Event'
+import CommentsCard from './component/CommentsCard';
+import MerchantCard from 'pages/Activity/component/MerchantCard';
+import { GenericApiService } from 'services/GenericApiService';
+import { GenericFormService } from 'components/Generics/GenericForm/GenericFormService';
+
 
 interface Props {
 }
 
 const Activity: React.FunctionComponent<Props> = ({ }) => {
+  const eventService = new EventApiService()
+  const [event, setEvent] = useState<Event>();
 
-  const { t } = useTranslation();
   const { id } = useParams();
   const trackerService = new NavigationTrackerApiService();
 
+  const roundAverageMark = (mark) => {
+    return mark.toFixed(2)
+  }
+  const reverseReviews = (event) => {
+    if(event?.reviews){
+      event.reviews = event?.reviews?.reverse()
+    }  
+    return event
+  }
+
+
   useEffect(() => {
-    trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
+    if (!id) {
+      return;
+    }
+    GenericApiService.setupAxios$.subscribe(setupOk => {
+      if(setupOk){
+        trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})      
+        eventService.read(id).then(event => setEvent(reverseReviews(event)))
+      }
+    })
+
+    GenericFormService.onSubmit$.subscribe(form => {
+      if(form && form.IsSubmitted && form?.formServiceName == "addComment"){
+        eventService.read(id).then(event => setEvent(reverseReviews(event)))
+      }
+    })
   }, [])
 
+  const ListGalleria = (event):ReactElement<GalleriaItemProps, string | JSXElementConstructor<any>>[] => {
+      return event.images.map(image => {
+        return (
+          <GalleriaItem
+            src={image.src}
+            alt={image.alt_text}
+          />
+        )
+      })
+
+  }
+
   return (
-    <ActivityWrapper>
-      <SearchInput />
+    <ActivityPageWrapper>
+      <SearchBarWrapper>
+        <SearchInput />
+      </SearchBarWrapper>
+      <ActivityWrapper>
+      { event &&
       <ActivityContentWrapper>
         <Galleria>
-          <GalleriaItem
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
-            alt="Image tirée de wikipédia"
-          />
-
-          <GalleriaItem
-            src="https://media.istockphoto.com/photos/colorful-background-of-pastel-powder-explosionrainbow-color-dust-on-picture-id1180542165?k=20&m=1180542165&s=612x612&w=0&h=43hlhk8qdGYP4V-u3AAxD3kPDRIzHjMNWpr-VdBQ2Js="
-            alt="Image tirée de google image"
-          />
+          { ListGalleria(event) }
         </Galleria>
         <ScrollPanel>
           <ActivityInfo>
             <ActivityCard
-              title={"Journée au Spa"}
-              distance={23}
-              description={"Integer tincidunt ligula vel libero dictum egestas. Aenean eget diam a turpis tincidunt dictum. Nulla facilisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra."}
-              review={4.3}
-              commentNumber={243}
+              title={event.name}
+              distance={'XX'}
+              description={event.description}
+              review={roundAverageMark(event.average_mark)}
+              commentNumber={event.reviews_count}
+              difficulty={event.difficult}
+              eventId={event.objectID}
             />
-
-            <Card
-              size={'medium'}
-              color={colors.grey}
-              title={
-                <>
-                  <h4>{"Spa & coton"}</h4>
-                </>
-              }
-              children={
-                <>
-                </>
-              }
-              footer={
-                <AiFillStar />
-              }
+            <MerchantCard
+              title={event.merchant.name}
+              phone={event.merchant.phone_number}
+              address={`
+              ${event.merchant.address.line1}
+              ${event.merchant.address.line2 ?? ''}
+              `}
+              picture={event.merchant.logo}
+              instagram={event.merchant.instagram_url}
+              twitter={event.merchant.twitter_url}
+              facebook={event.merchant.facebook_url}
             />
             <CommentWrapper>
+              <CommentsCard reviews={event.reviews ?? []}/>
             </CommentWrapper>
           </ActivityInfo>
           <ScrollTop target="parent" icon="pi pi-arrow-up" />
         </ScrollPanel>
       </ActivityContentWrapper>
+      }
     </ActivityWrapper>
+    </ActivityPageWrapper>
   );
 }
 

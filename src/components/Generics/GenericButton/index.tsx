@@ -4,18 +4,17 @@ import { GenericButtonWrapper } from "./styles";
 
 interface Props {
     type?: 'submit' | 'reset' | 'button' | undefined;
-    label: string, 
+    label: string,
     color?:string;
-    backgroundColor?:string; 
-    backgroundColorHover?:string; 
-    borderColor?:string; 
+    backgroundColor?:string;
+    backgroundColorHover?:string;
+    borderColor?:string;
     borderColorHover?:string
-    className?:string; 
+    className?:string;
     onClick?:any
 }
 
-
-export const GenericButton: React.FunctionComponent<Props> = ({ type, label, color, borderColor, backgroundColor, borderColorHover, backgroundColorHover, className, onClick }) => {
+export const  GenericButton: React.FunctionComponent<Props> = ({ type, label, color, borderColor, backgroundColor, borderColorHover, backgroundColorHover, onClick }) => {
 
     return <GenericButtonWrapper
     borderColor={borderColor}
@@ -23,8 +22,7 @@ export const GenericButton: React.FunctionComponent<Props> = ({ type, label, col
     backgroundColor={backgroundColor}
     backgroundColorHover={backgroundColorHover}
     color={color}
-    
     >
-        <Button className={className} type={type} onClick={onClick}> {label} </Button>
+        <Button type={type} onClick={onClick}> {label} </Button>
     </GenericButtonWrapper>
 }

@@ -2,30 +2,28 @@ import React from 'react';
 import { NavWrapper } from './styles';
 import MenuBar from 'components/MenuBar';
 import MenuItem from 'components/MenuItem';
-import { useTranslation } from 'react-i18next';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const NavBar: React.FunctionComponent = () => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   return (
     <NavWrapper>
       <MenuBar>
         <MenuItem
-          label={t('activity.title')}
+          label={'Activités'}
           onClick={() => navigate('/activities')}
           active={useLocation().pathname === '/activities'}
         />
 
         <MenuItem
-          label={t('activity.category.hotel.title')}
+          label={'Hôtels'}
           onClick={() => navigate('/hotels')}
           active={useLocation().pathname === '/hotels'}
         />
 
         <MenuItem
-          label={t('activity.category.restaurant.title')}
+          label={'Restaurants'}
           onClick={() => navigate('/restaurants')}
           active={useLocation().pathname === '/restaurants'}
         />

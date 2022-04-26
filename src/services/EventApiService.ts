@@ -12,7 +12,7 @@ export interface IHomePageEvent{
 export class EventApiService extends GenericApiService {
 
     constructor() {
-        super('events/')
+        super('events')
     }
     getEventForHomePage():Promise<IHomePageEvent>{
         let url = `${this.baseUrl}?page=homepage`

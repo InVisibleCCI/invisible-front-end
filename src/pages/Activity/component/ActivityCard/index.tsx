@@ -1,16 +1,19 @@
 import React from 'react';
 import Card from 'components/Card';
-import { AiOutlineHeart } from '@react-icons/all-files/ai/AiOutlineHeart';
 import { AiFillStar } from '@react-icons/all-files/ai/AiFillStar';
-import { useTranslation } from 'react-i18next';
-import { ActivityCardWrapper, CommentNumberWrapper, Description, ReviewWrapper } from './styles';
+import { ActivityCardWrapper, CommentNumberWrapper, Description, FooterWrapper, Review, ReviewWrapper } from './styles';
+import Difficulty from 'components/EventCard/Difficulty';
+import LikeButton from 'components/EventCard/LikeButton';
+import ReadMoreReact from 'read-more-react';
 
 interface Props {
   title: string,
-  distance: number,
+  distance: string,
   description: string,
   review: number,
   commentNumber: number,
+  difficulty: number
+  eventId: string
 }
 
 const ActivityCard: React.FunctionComponent<Props> = ({
@@ -18,9 +21,10 @@ const ActivityCard: React.FunctionComponent<Props> = ({
   distance,
   description,
   review,
-  commentNumber
+  commentNumber,
+  difficulty,
+  eventId
 }) => {
-  const { t } = useTranslation();
 
   return (
     <ActivityCardWrapper>
@@ -30,29 +34,36 @@ const ActivityCard: React.FunctionComponent<Props> = ({
         title={
           <>
             <h4>{title}</h4>
-            <AiOutlineHeart />
+            <LikeButton eventId={eventId} />
           </>
         }
 
         children={
           <>
-            <p>{t('card.distance', {distance: distance})}</p>
+            <p>{`A ${distance} km`}</p>
             <Description>
-              {description}
+              <ReadMoreReact
+                text={description} readMoreText={"Lire plus"} min={160}
+                ideal={170}
+                max={180}
+              />
             </Description>
           </>
         }
 
         footer={
-          <>
+          <FooterWrapper>
+            <Difficulty difficulty={difficulty} />
             <ReviewWrapper>
-              <AiFillStar/>
-              {review}
+              <Review>
+                <AiFillStar/>
+                {review}
+              </Review>
+              <CommentNumberWrapper>
+                {`(${commentNumber} commentaires)`}
+              </CommentNumberWrapper>
             </ReviewWrapper>
-            <CommentNumberWrapper>
-              {t('card.comment', {commentNumber: commentNumber})}
-            </CommentNumberWrapper>
-          </>
+          </FooterWrapper>
         }
       />
     </ActivityCardWrapper>

@@ -1,38 +1,86 @@
 import styled from 'styled-components';
-import { colors } from 'utils/styles';
+import { colors, fontSize, screenSize } from 'utils/styles';
+
+export const ActivityPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SearchBarWrapper = styled.div`
+  margin-top: 20px;
+  ${window.innerWidth <= screenSize.mobileL && `
+    width: 85%;
+    position: sticky;
+    top: 10px;
+    z-index: 2;
+  `}
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+`;
 
 export const ActivityWrapper = styled.div`
-  display: flex;
-  flex-flow: column;
-  max-height: 100vh;
+  
+  ${window.innerWidth <= screenSize.mobileL ? `
+  ` : `
+    margin-left: -5%;
+  `}
+  
 `;
 
 export const ActivityContentWrapper = styled.section`
-  margin-top: 20px;
+  ${window.innerWidth <= screenSize.mobileL ? `
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+  ` : `
+    display: flex;
+    flex-flow: row wrap;
+  `}
+  margin-top: 2%;
+  margin-bottom: 4%;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-flow: row wrap;
   justify-content: center;
 
   & > figure {
-    padding-top: 80px;
+    padding-top: 5.5%;
     margin-top: 0;
+    ${window.innerWidth <= screenSize.mobileL ? `
+    width: 80%;
+  ` : `
     width: 40%;
+  `}
   }
   
   .p-scrollpanel.p-component {
-    padding-top: 80px;
+    height: 1000px;
+    ${window.innerWidth <= screenSize.mobileL ? `
+    margin: auto;
+    width: 80%;
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
+    padding-top: 3rem;
+
+  ` : `
+    padding-top: 5.5%;
     width: 40%;
-    padding-left: 2.5rem;
+    padding-left: 3rem;
+    
     border-left: 1px solid rgba(0, 0, 0, 0.2);
+  `}
   }
+  
 `;
 
 export const ActivityInfo = styled.article`
 `;
 
-export const CommentWrapper = styled.article`
+export const CommentWrapper = styled.section`
+  margin-top: 15%;
+  height: 200px;
+  
+  h3 {
+    font-size: ${fontSize.tinyTitle}
+  }
 `;
 
 

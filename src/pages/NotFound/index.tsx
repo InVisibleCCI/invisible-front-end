@@ -1,15 +1,7 @@
 import React from 'react';
 import { NotFoundText, NotFoundTextWrapper, NotFoundTitle, NotFoundWrapper } from './styles';
 
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-
-interface Props {
-}
-
-const NotFound: React.FunctionComponent<Props> = ({}) => {
-  const { t } = useTranslation();
-  const navigate = useNavigate();
+const NotFound: React.FunctionComponent = () => {
 
   return (
     <NotFoundWrapper>
@@ -19,7 +11,7 @@ const NotFound: React.FunctionComponent<Props> = ({}) => {
         </NotFoundTitle>
 
         <NotFoundText>
-          {t('notFound.title')}
+          {'La page que vous cherchez n\'existe pas.'}
         </NotFoundText>
       </NotFoundTextWrapper>
     </NotFoundWrapper>
