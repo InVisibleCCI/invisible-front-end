@@ -14,11 +14,8 @@ export class EventApiService extends GenericApiService {
     constructor() {
         super('events/')
     }
-    getEventForHomePage(geolocation:IGeolocation|null=null):Promise<IHomePageEvent>{
+    getEventForHomePage():Promise<IHomePageEvent>{
         let url = `${this.baseUrl}?page=homepage`
-        if(geolocation){
-            url+= `&latitude=${geolocation.latitude}&longitude=${geolocation.longitude}`
-        }
         return axios.get(url).then(r=>r.data)
     }
 

@@ -12,4 +12,5 @@ export class Event {
   objectID: string;
   images: Image[];
   card_color : string;
+  distance:number;  
 }

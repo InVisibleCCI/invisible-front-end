@@ -22,6 +22,10 @@ const App: React.FunctionComponent = () => {
         axios.defaults.baseURL = process.env.REACT_APP_API_ENDPOINT;
         GenericApiService.setupAxios$.next(true);
     }
+    const setupAxiosForLocation = (location: IGeolocation) => {
+        axios.defaults.headers.common['LATITUDE'] = location.latitude
+        axios.defaults.headers.common['LONGITUDE'] = location.longitude
+    }
 
     useEffect(() => {
         setupAxios();
@@ -29,7 +33,12 @@ const App: React.FunctionComponent = () => {
         AuthService.currentUser$.subscribe(user => {
             setCurrentUser(user)
         })
-        navigator.geolocation.getCurrentPosition(e => setCurrentGeolocation({ latitude: e.coords.latitude, longitude: e.coords.longitude }));
+
+        navigator.geolocation.getCurrentPosition(e => {
+            let location = { latitude: e.coords.latitude, longitude: e.coords.longitude }
+            setupAxiosForLocation(location);
+            setCurrentGeolocation(location)
+        });
 
     }, [])
 

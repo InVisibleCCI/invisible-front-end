@@ -23,7 +23,7 @@ const Main: React.FunctionComponent<Props> = () => {
   useEffect(() => {
     GenericApiService.setupAxios$.subscribe(state => {
       if (state) {
-        eventService.getEventForHomePage(currentGeolocation).then(res => setEventsHomePage(res))
+        eventService.getEventForHomePage().then(res => setEventsHomePage(res))
       }
     })
   }, [currentGeolocation])

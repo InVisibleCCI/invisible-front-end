@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ReadMoreReact from 'read-more-react';
 import { MapService } from "../Leaflet/MapService";
 import { StarReview } from "../Svg/Star";
 import Difficulty from './Difficulty';
 import LikeButton from './LikeButton';
 import { EventCardWrapper, EventImageWrapper, EventInfosWrapper, EventTextWrapper } from "./styles";
-import ReadMoreReact from 'read-more-react';
 
 interface Props {
   hit: any;
@@ -30,15 +30,18 @@ const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize =
     <div onMouseEnter={() => MapService.currentEventHoverSubject$.next(event.objectID)}>
       <EventCardWrapper aria-label={"Nouvelle activitée"} cardSize={eventCardSize}>
         <EventImageWrapper onClick={() => navigate(`/activity/${event.objectID}`)} cardSize={eventCardSize} url={event.images[0].src} alt={event.images[0].alt_text} />
-        <EventTextWrapper color={event.card_color} cardSize={eventCardSize}>
+        <EventTextWrapper haveMark={event.average_mark !== 0} color={event.card_color} cardSize={eventCardSize}>
           <EventInfosWrapper>
-            <a href={`/activity/${event.objectID}`}><h4 className={"card-title"}>{event.name}</h4> </a>            
-            {/* TODO replace with <p>{event.address.city} à {event.distance}Km</p> when ok in DB*/}
-            <p className={"distance"}>{event.address.city} à XX km</p>
+            <a href={`/activity/${event.objectID}`}><h4 className={"card-title"}>{event.name}</h4> </a>
+            <p className={"distance"} >{event.address.city}
+              {
+                event.distance && <span> à {event.distance.toFixed(1)} km</span>
+              }
+            </p>
           </EventInfosWrapper>
           {eventCardSize == 'small' ?
             <div className="icons-infos-event">
-              {event.avergae_mark !== 0 &&
+              {event.average_mark !== 0 &&
                 <div className={"reviews"}>
                   <StarReview />
                   {event.average_mark}
@@ -49,14 +52,14 @@ const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize =
               </div>
             </div>
 
-            : 
+            :
             <div className="description">
               <ReadMoreReact text={event.description} readMoreText={"Lire plus"} min={80}
                 ideal={100}
                 max={120} />
-            </div>           
-            
-            }
+            </div>
+
+          }
 
           <LikeButton eventId={event.objectID} />
 

@@ -42,6 +42,7 @@ export const EventImageWrapper = styled.div.attrs((props: EventImageWrapperProps
 interface EventTextWrapperProps {
   color: string; 
   cardSize: "small"|"large";
+  haveMark:boolean; 
 }
 export const EventTextWrapper = styled.div<EventTextWrapperProps>`
   position: relative;
@@ -57,7 +58,7 @@ export const EventTextWrapper = styled.div<EventTextWrapperProps>`
   }
   .icons-infos-event{
       display: flex; 
-      justify-content: space-between; 
+      justify-content:${props => props.haveMark ? "space-between" : "flex-end"} ; 
       width:100%; 
   }    
 `;
