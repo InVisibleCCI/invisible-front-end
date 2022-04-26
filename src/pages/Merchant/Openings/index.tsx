@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { RegularOpening } from '../../../classes/RegularOpening';
+import { OpeningsWrapper } from "./style";
 
 interface Props {
     openings: RegularOpening[]
@@ -20,21 +21,28 @@ export const Openings = ({ openings }: Props) => {
     }, [])
 
     const displaySlot = (slots: RegularOpening[]) => {
-        return slots.map((slot, index) =>  <span>{slot.start_at}-{slot.end_at} 
-            {index !== slots.length-1 && <br/>} </span>)
+        return slots.map((slot, index) => <span>{slot.start_at}-{slot.end_at}
+            {index !== slots.length - 1 && <br />} </span>)
     }
 
-    return <div>
+    return <OpeningsWrapper>
         {
             sortedOpenings && sortedOpenings.map(openings => {
                 let day = Object.keys(openings)[0]
-                return <p> <b> {day} : </b> {openings[day].length !== 0 ? 
-                    displaySlot(openings[day])
-                : "Fermé "
-                } </p>
+                return <div className="slots-container">
+                    <p>
+                        <b> {day} : </b>
+                    </p>
+                    <p>
+                    {openings[day].length !== 0 ?
+                        displaySlot(openings[day])
+                        : "Fermé "
+                    }
+                    </p>
+                     </div>
             })
         }
 
-    </div>
+    </OpeningsWrapper>
 
 }

@@ -24,6 +24,24 @@ export const MerchantPageWrapper = styled.main`
     width:50%;
   }
 }
+@media (max-width : 1200px){
+  .container{
+    width:100%;
+    padding:20px;
+    flex-direction: column;
+    section{
+      margin:auto;
+    }
+  }
+}
+@media (max-width : 800px){
+  .container{
+    section{
+      margin:auto;
+      width:80%;
+    }
+  }
+}
 
 
 `

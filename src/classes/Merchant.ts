@@ -13,4 +13,5 @@ export class Merchant {
   address: Address;
   regular_openings : RegularOpening[]; 
   description?: string;
+  id:string;
 }

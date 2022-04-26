@@ -19,4 +19,16 @@ export const MerchantInfoCardWrapper = styled.section`
     margin-top:40px; 
     display:flex; 
 }
+.openings-container{
+    width:50%;
+}
+
+@media (max-width : 600px){
+    .merchant-bottom-card{
+        flex-direction:column
+    }
+    .openings-container{
+        width:100%;
+    }
+  }
 `

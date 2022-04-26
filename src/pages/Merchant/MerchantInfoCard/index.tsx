@@ -31,7 +31,7 @@ export const MerchantInfoCard = ({ merchant }: Props) => {
 
         </div>
         <div className="merchant-bottom-card">
-            <div>
+            <div className="openings-container">
                 <h4> Horaires : </h4>
                 <Openings openings={merchant.regular_openings}/>
             </div>
