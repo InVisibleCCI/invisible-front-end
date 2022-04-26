@@ -26,11 +26,11 @@ export class GenericApiService implements IApiService {
     }
 
     list(pagination: any = null, filters: any = null, sorter: any = null): Promise<any> {
-        return this.listBase(`${this.baseUrl}`, pagination, filters, sorter);
+        return this.listBase(`${this.baseUrl}/`, pagination, filters, sorter);
     }
 
     create(data: any): Promise<any> {
-        return axios.post(`${this.baseUrl}`, data).then(r => r.data);
+        return axios.post(`${this.baseUrl}/`, data).then(r => r.data);
     }
     update(id: string, data: any): Promise<any> {
         return axios.patch(`${this.baseUrl}/${id}/`, data).then(r => r.data);

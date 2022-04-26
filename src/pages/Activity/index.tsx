@@ -41,9 +41,11 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
     if (!id) {
       return;
     }
-    GenericApiService.setupAxios$.subscribe(res => {
-      eventService.read(id).then(event => setEvent(event))
-      trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
+    GenericApiService.setupAxios$.subscribe(setupOk => {
+      if(setupOk){
+        trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
+        eventService.read(id).then(event => setEvent(event))
+      }
     })
   }, [])
 
