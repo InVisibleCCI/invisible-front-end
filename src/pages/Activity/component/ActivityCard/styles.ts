@@ -41,7 +41,7 @@ export const ActivityCardWrapper = styled.div`
     }
 `;
 
-export const Description = styled.p`
+export const Description = styled.div`
   
   .read-more-button {
     font-weight: bolder;
