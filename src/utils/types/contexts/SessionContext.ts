@@ -13,6 +13,8 @@ export type SessionContextType = {
    setCurrentUser:(c:User) => void;
    currentGeolocation?:IGeolocation; 
    setCurrentGeolocation:(c:IGeolocation) =>void; 
+   lastLocation:string; 
+   setLastLocation:(c:string) =>void;
 }
 
 export const SessionContext = createContext<SessionContextType>({
@@ -21,7 +23,9 @@ export const SessionContext = createContext<SessionContextType>({
     currentUser:undefined,
     setCurrentUser: () => {}, 
     currentGeolocation:undefined, 
-    setCurrentGeolocation: () =>{}
+    setCurrentGeolocation: () =>{},
+    lastLocation:"", 
+    setLastLocation: () => {}
 })
 
 export const useSessionContext = () => useContext(SessionContext); 

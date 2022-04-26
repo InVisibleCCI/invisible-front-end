@@ -14,6 +14,7 @@ const App: React.FunctionComponent = () => {
     const [lastSearch, setLastSearch] = useState<string>('');
     const [currentUser, setCurrentUser] = useState<User>();
     const [currentGeolocation, setCurrentGeolocation] = useState<IGeolocation>()
+    const [lastLocation, setLastLocation] = useState<string>('');
 
     const authService = new AuthService();
 
@@ -33,7 +34,6 @@ const App: React.FunctionComponent = () => {
         AuthService.currentUser$.subscribe(user => {
             setCurrentUser(user)
         })
-
         navigator.geolocation.getCurrentPosition(e => {
             let location = { latitude: e.coords.latitude, longitude: e.coords.longitude }
             setupAxiosForLocation(location);
@@ -46,7 +46,8 @@ const App: React.FunctionComponent = () => {
         <SessionContext.Provider value={{
             lastSearch, setLastSearch,
             currentUser, setCurrentUser,
-            currentGeolocation, setCurrentGeolocation
+            currentGeolocation, setCurrentGeolocation,
+            lastLocation, setLastLocation
         }}>
             <GlobalStyles />
             <Layout>

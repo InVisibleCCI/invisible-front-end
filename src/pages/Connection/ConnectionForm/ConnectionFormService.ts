@@ -1,5 +1,6 @@
 
 import { IFieldType } from "components/Generics/GenericForm/interfaces/IFormType";
+import { BehaviorSubject } from "rxjs";
 import { AuthService } from "services/AuthService";
 
 export interface IConnectionFormValues {
@@ -9,6 +10,7 @@ export interface IConnectionFormValues {
 }
 export class ConnectionFormService {
     static labelButton = "Se connecter";
+    static redirectTo$: BehaviorSubject<any> = new BehaviorSubject<any>(false);
 
     static getInitialValue(): IConnectionFormValues {
         return {
@@ -62,5 +64,6 @@ export class ConnectionFormService {
     static onSubmit(data) {
         const userApiService = new AuthService();
         userApiService.login(data);
+        ConnectionFormService.redirectTo$.next(true);
     }
 }
