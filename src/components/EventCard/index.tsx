@@ -19,6 +19,10 @@ interface Props {
 const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize = "small" }) => {
   const navigate = useNavigate();
 
+  const roundAverageMark = (mark) => {
+    return mark.toFixed(2)
+  }
+
   return (
     <div onMouseEnter={() => MapService.currentEventHoverSubject$.next(event.objectID)}>
       <EventCardWrapper aria-label={"Nouvelle activitée"} cardSize={eventCardSize}>
@@ -36,7 +40,7 @@ const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize =
               {event.average_mark !== 0 &&
                 <div className={"reviews"}>
                   <StarReview />
-                  {event.average_mark}
+                  {roundAverageMark(event.average_mark)}
                 </div>
               }
               <div>
