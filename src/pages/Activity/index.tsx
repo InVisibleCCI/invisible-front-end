@@ -91,7 +91,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
           <ActivityInfo>
             <ActivityCard
               title={event.name}
-              distance={'XX'}
+              distance={event.distance}
               description={event.description}
               review={roundAverageMark(event.average_mark)}
               commentNumber={event.reviews_count}

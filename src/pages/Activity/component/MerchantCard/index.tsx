@@ -4,19 +4,16 @@ import {
   BodyWrapper,
   FooterWrapper,
   MerchantCardWrapper,
-  SocialNetwork,
   SocialNetworkWrapper,
   TitleWrapper
 } from './styles';
 import Card from 'components/Card';
 import { colors } from 'utils/styles';
-import { FiInstagram } from '@react-icons/all-files/fi/FiInstagram';
-import { RiTwitterFill } from '@react-icons/all-files/ri/RiTwitterFill';
-import { RiFacebookBoxFill } from '@react-icons/all-files/ri/RiFacebookBoxFill';
 import { Image } from 'classes/Image';
 import { RegularOpening } from 'classes/RegularOpening';
 import { Openings } from 'pages/Merchant/Openings';
 import { ProfilImageWrapper } from 'pages/Profil/InformationsUser/style';
+import { SocialButton } from 'pages/Merchant/SocialButton';
 
 interface Props {
   title: string,
@@ -24,9 +21,9 @@ interface Props {
   address: string,
   phone: string,
   openingHours?: RegularOpening[],
-  instagram?: string,
-  twitter?: string,
-  facebook?: string,
+  instagram: string,
+  twitter: string,
+  facebook: string,
   onClick?: (event: any) => void
 }
 
@@ -75,23 +72,9 @@ const MerchantCard: React.FunctionComponent<Props> = ({
           <>
           <FooterWrapper>
             <SocialNetworkWrapper>
-              {instagram &&
-                <SocialNetwork href={instagram}>
-                  {<FiInstagram />}
-                </SocialNetwork>
-              }
-
-              {twitter &&
-              <SocialNetwork href={twitter}>
-                {<RiTwitterFill />}
-              </SocialNetwork>
-              }
-
-              {facebook &&
-              <SocialNetwork href={facebook}>
-                {<RiFacebookBoxFill />}
-              </SocialNetwork>
-              }
+              <SocialButton link={instagram} icon={<i className="pi pi-instagram"></i>} />
+              <SocialButton link={twitter} icon={<i className="pi pi-twitter"></i>} />
+              <SocialButton link={facebook} icon={<i className="pi pi-facebook"></i>} />
             </SocialNetworkWrapper>
           </FooterWrapper>
           </>

@@ -14,12 +14,8 @@ export const TitleWrapper = styled.span`
   justify-content: space-between;
 `;
 
-export const PictureWrapper = styled.figure`
-  height: 120px;
-`;
-
 export const BodyWrapper = styled.div`
-  margin-top: -40px;
+  margin-top: -80px;
   min-height: 60px;
 `
 
@@ -41,18 +37,8 @@ export const FooterWrapper = styled.div`
 
 export const SocialNetworkWrapper = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  width: 40%;
-`;
-
-export const SocialNetwork = styled.a`
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  font-size: ${fontSize.mediumTitle};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: ${colors.pink};
-  border-radius: 80%;
+  margin-right: -20px;
+  width: 30%;
 `;

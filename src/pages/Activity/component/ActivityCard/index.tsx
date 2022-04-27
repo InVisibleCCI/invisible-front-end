@@ -8,7 +8,7 @@ import ReadMoreReact from 'read-more-react';
 
 interface Props {
   title: string,
-  distance: string,
+  distance?: number,
   description: string,
   review: number,
   commentNumber: number,
@@ -40,7 +40,9 @@ const ActivityCard: React.FunctionComponent<Props> = ({
 
         children={
           <>
-            <p>{`A ${distance} km`}</p>
+            {
+              distance && <span> à {distance.toFixed(1)} km</span>
+            }
             <Description>
               <ReadMoreReact
                 text={description} readMoreText={"Lire plus"} min={160}
