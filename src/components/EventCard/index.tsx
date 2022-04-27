@@ -31,7 +31,6 @@ const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize =
                 event.distance && <span> à {event.distance.toFixed(1)} km</span>
               }
             </p>
-          </EventInfosWrapper>
           {eventCardSize == 'small' ?
             <div className="icons-infos-event">
               {event.average_mark !== 0 &&
@@ -53,6 +52,7 @@ const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize =
             </div>
 
           }
+          </EventInfosWrapper>
 
           <LikeButton eventId={event.objectID} />
 
