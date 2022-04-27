@@ -19,13 +19,6 @@ interface Props {
 const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize = "small" }) => {
   const navigate = useNavigate();
 
-  /** Pick the value of a random key of the object, excluding the first one
-   *
-   * @param obj
-   * @constructor
-   */
-
-
   return (
     <div onMouseEnter={() => MapService.currentEventHoverSubject$.next(event.objectID)}>
       <EventCardWrapper aria-label={"Nouvelle activitée"} cardSize={eventCardSize}>
