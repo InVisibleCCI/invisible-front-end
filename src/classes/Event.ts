@@ -14,10 +14,10 @@ export class Event {
   name: string;
   objectID: string;
   images: Image[];
+  average_mark: number;
+  reviews?: Review[];
   card_color : string;
   distance:number;  
-  average_mark: number;
   reviews_count: number;
-  reviews?: Review[];
   merchant: Merchant
 }

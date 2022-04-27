@@ -9,9 +9,11 @@ import { Profil } from "pages/Profil";
 import Register from "pages/Register";
 import ResetPassword from "pages/ResetPassword";
 import Search from 'pages/Search';
-import React, { useEffect } from 'react';
-import { Route, Routes as DOMRoutes, useNavigate } from 'react-router-dom';
+import { MerchantPage } from "pages/Merchant";
 import { useSessionContext } from "utils/types/contexts/SessionContext";
+import { Route, Routes as DOMRoutes, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import React from 'react';
 
 const Routes: React.FunctionComponent = () => {
 
@@ -29,6 +31,7 @@ const Routes: React.FunctionComponent = () => {
 
 
   return <DOMRoutes>
+    <Route path="/merchant/:id" element={<MerchantPage />} />
     {currentUser && <Route path="/profile" element={<Profil />} />}
     <Route path="/activity/:id" element={<Activity />} />
     <Route path="/reset-password/:temporaryPassword/:securityMailToken" element={<ResetPassword />}></Route>

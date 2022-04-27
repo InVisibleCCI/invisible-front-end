@@ -1,13 +1,17 @@
-import {Image} from "./Image";
-import {Address} from "./Address";
+import { Address } from "./Address";
+import { Image } from "./Image";
+import { RegularOpening } from "./RegularOpening";
 
 export class Merchant {
   name: string;
+  logo: Image;
+  phone_number: string;
   facebook_url: string;
   instagram_url: string;
   twitter_url: string;
-  logo: Image;
-  address: Address;
   email: string;
-  phone_number: string;
+  address: Address;
+  regular_openings : RegularOpening[]; 
+  description?: string;
+  id:string;
 }
