@@ -26,7 +26,7 @@ const Main: React.FunctionComponent<Props> = () => {
         eventService.getEventForHomePage().then(res => setEventsHomePage(res))
       }
     })
-  }, [currentGeolocation])
+  }, [currentGeolocation, currentUser])
 
   return <MainWrapper>
       <HeaderInVisible />
