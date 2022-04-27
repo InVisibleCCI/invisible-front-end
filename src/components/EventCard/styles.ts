@@ -73,7 +73,7 @@ export const EventInfosWrapper = styled.div`
         font-weight: semi-bold;
         color: #FFF;
         margin-bottom: 11px;
-        margin-top: 0px;
+        margin-top: 20px;
         text-decoration:none;
     }
     
