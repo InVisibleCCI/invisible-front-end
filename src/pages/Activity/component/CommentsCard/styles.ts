@@ -7,6 +7,8 @@ export const CommentSectionWrapper = styled.div`
     justify-content: flex-end;
     margin-right: 10px;
   }
+  
+  padding: 10px;
 `;
 
 export const AvatarWrapper = styled.div`
@@ -46,7 +48,7 @@ export const CommentBodyWrapper = styled.div`
 
 export const CommentWrapper = styled.div`
   position: relative;
-  padding: 10px 50px
+  padding-left: 15px;
   
   hr {
     margin: 0;
