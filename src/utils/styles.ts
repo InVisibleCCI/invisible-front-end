@@ -87,22 +87,22 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const screenSize = {
-  mobileS: 320,
-  mobileM: 375,
-  mobileL: 425,
-  tablet: 768,
-  laptop: 1024,
-  laptopL: 1440,
-  desktop: 2560
+  mobileS: 321,
+  mobileM: 376,
+  mobileL: 426,
+  tablet: 769,
+  laptop: 1025,
+  laptopL: 1441,
+  desktop: 2561
 }
 
 export const device = {
-  mobileS: `(min-width: ${screenSize.mobileS})`,
-  mobileM: `(min-width: ${screenSize.mobileM})`,
-  mobileL: `(min-width: ${screenSize.mobileL})`,
-  tablet: `(min-width: ${screenSize.tablet})`,
-  laptop: `(min-width: ${screenSize.laptop})`,
-  laptopL: `(min-width: ${screenSize.laptopL})`,
-  desktop: `(min-width: ${screenSize.desktop})`,
-  desktopL: `(min-width: ${screenSize.desktop})`
+  mobileS: `(max-width: ${screenSize.mobileS}px)`,
+  mobileM: `(max-width: ${screenSize.mobileM}px)`,
+  mobileL: `(max-width: ${screenSize.mobileL}px)`,
+  tablet: `(max-width: ${screenSize.tablet}px)`,
+  laptop: `(max-width: ${screenSize.laptop}px)`,
+  laptopL: `(max-width: ${screenSize.laptopL}px)`,
+  desktop: `(max-width: ${screenSize.desktop}px)`,
+  desktopL: `(max-width: ${screenSize.desktop}px)`
 };

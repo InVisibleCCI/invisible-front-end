@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, fontSize, screenSize } from 'utils/styles';
+import { device, fontSize } from 'utils/styles';
 
 export const ActivityPageWrapper = styled.div`
   display: flex;
@@ -9,66 +9,68 @@ export const ActivityPageWrapper = styled.div`
 
 export const SearchBarWrapper = styled.div`
   margin-top: 20px;
-  ${window.innerWidth <= screenSize.mobileL && `
-    width: 85%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
+
+  @media only screen and ${device.mobileL} {
+    width: 80%;
     position: sticky;
     top: 10px;
     z-index: 2;
-  `}
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 20px;
+    
+    input {
+      width: 100%;
+    }
+  }
 `;
 
 export const ActivityWrapper = styled.div`
+  margin-left: -5%;
   
-  ${window.innerWidth <= screenSize.mobileL ? `
-  ` : `
-    margin-left: -5%;
-  `}
-  
+  @media only screen and ${device.mobileL} {
+    margin-left: 0;
+  }
 `;
 
 export const ActivityContentWrapper = styled.section`
-  ${window.innerWidth <= screenSize.mobileL ? `
-    display: flex;
-    flex-flow: column;
-    width: 80%;
-  ` : `
-    display: flex;
-    flex-flow: row wrap;
-  `}
+  display: flex;
+  flex-flow: row wrap;
   margin-top: 2%;
   margin-bottom: 4%;
   width: 100%;
   justify-content: center;
 
+  @media only screen and ${device.mobileL} {
+    flex-flow: column;
+    width: 100%;
+  }
+
   & > figure {
     padding-top: 5.5%;
     margin-top: 0;
-    ${window.innerWidth <= screenSize.mobileL ? `
-    width: 80%;
-  ` : `
     width: 40%;
-  `}
+    
+    @media only screen and ${device.mobileL} {
+    width: 80%;
+    }
   }
   
   .p-scrollpanel.p-component {
     height: 1000px;
-    ${window.innerWidth <= screenSize.mobileL ? `
-    margin: auto;
-    width: 80%;
-    border-top: 2px solid rgba(0, 0, 0, 0.2);
-    padding-top: 3rem;
-
-  ` : `
     padding-top: 5.5%;
     width: 40%;
     padding-left: 3rem;
-    
     border-left: 1px solid rgba(0, 0, 0, 0.2);
-  `}
+    
+    @media only screen and ${device.mobileL} {
+      margin: auto;
+      width: 80%;
+      border-left: 0;
+      padding-left: 0;
+      border-top: 2px solid rgba(0, 0, 0, 0.2);
+      padding-top: 3rem;
+    }
   }
-  
 `;
 
 export const ActivityInfo = styled.article`

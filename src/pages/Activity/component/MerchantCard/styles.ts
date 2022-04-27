@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { colors, fontSize, screenSize } from 'utils/styles';
+import { colors, device, fontSize, screenSize } from 'utils/styles';
 
 export const MerchantCardWrapper = styled.div`
+  cursor: pointer;
   margin-top: 10%;
   color: ${colors.textColor}
 `;
@@ -14,23 +15,7 @@ export const TitleWrapper = styled.span`
 `;
 
 export const PictureWrapper = styled.figure`
-  width: 15%;
-`;
-
-export const Img = styled.img`
-  position: absolute;
-  border-radius: 100%;
-  flex-flow: column;
-
-  ${window.innerWidth <= screenSize.mobileL ? `
-    margin-top: -15px;
-    width: 80px;
-    height: 80px;
-  ` : `
-    margin-top: -10px;
-    width: 120px;
-    height: 120px;
-  `}
+  height: 120px;
 `;
 
 export const BodyWrapper = styled.div`
@@ -42,10 +27,10 @@ export const AccordionWrapper = styled.div`
   display: flex;
   align-items: baseline;
 
-  ${window.innerWidth <= screenSize.mobileL ? `
+  @media only screen and ${device.mobileL} {
     flex-flow: column;
-  ` : `
-  `}
+
+  }
 `;
 
 export const FooterWrapper = styled.div`

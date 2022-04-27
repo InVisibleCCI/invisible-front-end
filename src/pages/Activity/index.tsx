@@ -6,7 +6,7 @@ import GalleriaItem, { GalleriaItemProps } from 'pages/Activity/component/Galler
 import { ScrollPanel } from 'primereact/scrollpanel';
 import { ScrollTop } from 'primereact/scrolltop';
 import React, { JSXElementConstructor, ReactElement, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { NavigationTrackerApiService } from 'services/NavigationTrackerApiService';
 import {
   ActivityContentWrapper,
@@ -30,6 +30,7 @@ interface Props {
 const Activity: React.FunctionComponent<Props> = ({ }) => {
   const eventService = new EventApiService()
   const [event, setEvent] = useState<Event>();
+  const navigate = useNavigate();
 
   const { id } = useParams();
   const trackerService = new NavigationTrackerApiService();
@@ -40,7 +41,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
   const reverseReviews = (event) => {
     if(event?.reviews){
       event.reviews = event?.reviews?.reverse()
-    }  
+    }
     return event
   }
 
@@ -51,7 +52,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
     }
     GenericApiService.setupAxios$.subscribe(setupOk => {
       if(setupOk){
-        trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})      
+        trackerService.create({ type: NavigationTrackerTypeEnum.Event, event: id, merchant:null})
         eventService.read(id).then(event => setEvent(reverseReviews(event)))
       }
     })
@@ -108,6 +109,8 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
               instagram={event.merchant.instagram_url}
               twitter={event.merchant.twitter_url}
               facebook={event.merchant.facebook_url}
+              openingHours={event.merchant.regular_openings}
+              onClick={() => navigate(`/merchant/${event.merchant.id}`)}
             />
             <CommentWrapper>
               <CommentsCard reviews={event.reviews ?? []}/>

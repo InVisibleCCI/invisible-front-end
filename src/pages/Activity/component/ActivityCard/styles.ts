@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontSize, screenSize } from 'utils/styles';
+import { device, fontSize, screenSize } from 'utils/styles';
 
 export const ActivityCardWrapper = styled.div`
     .p-card {
@@ -64,13 +64,13 @@ export const FooterWrapper = styled.div`
 export const ReviewWrapper = styled.div`
   display: flex;
   align-items: center;
-  ${window.innerWidth <= screenSize.mobileL ? `
+
+  flex-flow: row wrap;
+  width: 50%;
+
+  @media only screen and ${device.mobileL} {
     flex-flow: column;
-    ` : `    
-    flex-flow: row wrap;    
-    width: 50%;
-  `}
-  
+  }
 `;
 
 export const Review = styled.p`
@@ -79,8 +79,7 @@ export const Review = styled.p`
 `;
 
 export const CommentNumberWrapper = styled.p`
-  ${window.innerWidth <= screenSize.mobileL && `
-    margin-top:0;
-    `
-  };
+  @media only screen and ${device.mobileL} {
+    margin-top: 0;
+  }
 `;
