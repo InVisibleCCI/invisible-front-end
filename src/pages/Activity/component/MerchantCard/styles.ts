@@ -42,3 +42,16 @@ export const SocialNetworkWrapper = styled.div`
   margin-right: -20px;
   width: 30%;
 `;
+
+export const SocialNetwork = styled.a`
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: ${fontSize.mediumTitle};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${colors.pink};
+  border-radius: 80%;
+  color:white;
+`;

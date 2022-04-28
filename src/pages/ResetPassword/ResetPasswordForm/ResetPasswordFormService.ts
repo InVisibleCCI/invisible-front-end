@@ -22,7 +22,7 @@ export class ResetPasswordFormService {
         if (dataFromForm.new_password !== dataFromForm.new_password_bis) {
             errors.new_password = "Les mots de passe ne correspondent pas";
         }
-        if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i.test(dataFromForm.new_password)){
+        if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\w~@#$%^&*+=`|{}:;!.?\"()\[\]-]{8,25}$/i.test(dataFromForm.new_password)){
             errors.password = "Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et minimum 8 caractères"
         }
         return errors;

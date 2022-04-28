@@ -10,7 +10,7 @@ export class Event {
   description: string;
   address: Address;
   categories: Category[];
-  difficult: number;
+  difficulty: number;
   name: string;
   objectID: string;
   images: Image[];

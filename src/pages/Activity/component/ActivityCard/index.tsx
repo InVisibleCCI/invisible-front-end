@@ -5,6 +5,8 @@ import { ActivityCardWrapper, CommentNumberWrapper, Description, FooterWrapper, 
 import Difficulty from 'components/EventCard/Difficulty';
 import LikeButton from 'components/EventCard/LikeButton';
 import ReadMoreReact from 'read-more-react';
+import { AccessIconContainer } from 'components/EventCard/AccessIconContainer';
+import { AccessibilityCategory } from 'classes/AccessibilityCategory';
 
 interface Props {
   title: string,
@@ -13,7 +15,8 @@ interface Props {
   review: number,
   commentNumber: number,
   difficulty: number
-  eventId: string
+  eventId: string, 
+  accessCategories : AccessibilityCategory[]
 }
 
 const ActivityCard: React.FunctionComponent<Props> = ({
@@ -23,7 +26,8 @@ const ActivityCard: React.FunctionComponent<Props> = ({
   review,
   commentNumber,
   difficulty,
-  eventId
+  eventId, 
+  accessCategories
 }) => {
 
   return (
@@ -40,9 +44,7 @@ const ActivityCard: React.FunctionComponent<Props> = ({
 
         children={
           <>
-            {
-              distance && <span> à {distance.toFixed(1)} km</span>
-            }
+            <p>{`A ${distance}`}</p>
             <Description>
               <ReadMoreReact
                 text={description} readMoreText={"Lire plus"} min={160}
@@ -56,11 +58,12 @@ const ActivityCard: React.FunctionComponent<Props> = ({
         footer={
           <FooterWrapper>
             <Difficulty difficulty={difficulty} />
+            <AccessIconContainer categories={accessCategories}/>
             <ReviewWrapper>
               <Review>
                 <AiFillStar/>
                 {review}
-              </Review>
+              </Review>              
               <CommentNumberWrapper>
                 {`(${commentNumber} commentaires)`}
               </CommentNumberWrapper>

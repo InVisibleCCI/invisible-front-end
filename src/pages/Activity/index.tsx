@@ -22,6 +22,7 @@ import CommentsCard from './component/CommentsCard';
 import MerchantCard from 'pages/Activity/component/MerchantCard';
 import { GenericApiService } from 'services/GenericApiService';
 import { GenericFormService } from 'components/Generics/GenericForm/GenericFormService';
+import { useSessionContext } from 'utils/types/contexts/SessionContext';
 
 
 interface Props {
@@ -31,6 +32,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
   const eventService = new EventApiService()
   const [event, setEvent] = useState<Event>();
   const navigate = useNavigate();
+  const {currentGeolocation} = useSessionContext();
 
   const { id } = useParams();
   const trackerService = new NavigationTrackerApiService();
@@ -62,7 +64,7 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
         eventService.read(id).then(event => setEvent(reverseReviews(event)))
       }
     })
-  }, [])
+  }, [currentGeolocation])
 
   const ListGalleria = (event):ReactElement<GalleriaItemProps, string | JSXElementConstructor<any>>[] => {
       return event.images.map(image => {
@@ -86,17 +88,19 @@ const Activity: React.FunctionComponent<Props> = ({ }) => {
       <ActivityContentWrapper>
         <Galleria>
           { ListGalleria(event) }
+          
         </Galleria>
         <ScrollPanel>
           <ActivityInfo>
             <ActivityCard
               title={event.name}
-              distance={event.distance}
+              distance={`${event.address.city} ${event.distance ? `à ${event.distance.toFixed(1)} km` : "" }`}
               description={event.description}
               review={roundAverageMark(event.average_mark)}
               commentNumber={event.reviews_count}
-              difficulty={event.difficult}
+              difficulty={event.difficulty}
               eventId={event.objectID}
+              accessCategories={event.accessibility_categories}
             />
             <MerchantCard
               title={event.merchant.name}

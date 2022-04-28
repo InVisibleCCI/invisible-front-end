@@ -44,7 +44,7 @@ export class RegisterFormService {
 
         if (!dataFromForm.password) {
             errors.password = 'Le mot de passe est obligatoire';
-        }else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i.test(dataFromForm.password)){
+        }else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\w~@#$%^&*+=`|{}:;!.?\"()\[\]-]{8,25}$/i.test(dataFromForm.password)){
             errors.password = "Le mot de passe doit contenir une majuscule, une minuscule, un chiffre et minimum 8 caractères"
         }
 

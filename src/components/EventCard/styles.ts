@@ -86,5 +86,12 @@ export const EventInfosWrapper = styled.div`
         line-height: 21px;        
         color: #FFF;
     }
+    .access-icon{
+      margin-right: 10px;
+      display:flex;
+    }
+    .wrapper-difficulty{
+      display:flex;
+    }
 
 `;

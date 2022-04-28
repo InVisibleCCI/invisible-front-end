@@ -1,3 +1,4 @@
+import { AccessibilityIcon } from "components/AccessibilityIcon";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ReadMoreReact from 'read-more-react';
@@ -43,7 +44,11 @@ const EventCard: React.FunctionComponent<Props> = ({ hit: event, eventCardSize =
                   {roundAverageMark(event.average_mark)}
                 </div>
               }
-              <div>
+              <div className="wrapper-difficulty">
+              {event.accessibility_categories.length > 0 && <div className="access-icon">
+                {event.accessibility_categories.map(category => <AccessibilityIcon category={category.name} /> )}
+                
+                 </div> }
                 <Difficulty difficulty={event.difficulty} />
               </div>
             </div>

@@ -34,6 +34,7 @@ export class AuthService extends GenericApiService {
             axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.access;
             this.me().then(user => {
                 ToastService.displayToast("success", "Connexion réussie", `Bonjour ${user.first_name}`)
+                AuthService.currentUser$.next(user)
             })
         }).catch(error => {
             if (error.response.status === 401) {

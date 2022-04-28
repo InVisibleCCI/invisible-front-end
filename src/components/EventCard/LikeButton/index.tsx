@@ -18,13 +18,18 @@ export const LikeButton: React.FunctionComponent<LikeButtonProps> = ({ eventId }
 
     const [isLiked, setIsLiked] = useState<boolean>(false);
     const userFavoritesService = new UserFavoritesService();
-    const { currentUser } = useSessionContext();
+    const { currentUser, setCurrentUser } = useSessionContext();
 
 
     const onClickLikeButton = () => {
         if (currentUser) {
             if (!isLiked) {
-                userFavoritesService.create({ eventId }).then(e => setIsLiked(true)).catch(e => ToastService.displayToast("error", "Une erreur est survenue", ""))
+                userFavoritesService.create({ eventId }).then(e => {
+                    setIsLiked(true); 
+                    let user = currentUser;
+                    user.favorites.push({id:eventId});
+                    setCurrentUser(user)
+                }).catch(e => ToastService.displayToast("error", "Une erreur est survenue", ""))
                 return
             }
             userFavoritesService.delete({ eventId }).then(e => setIsLiked(false)).catch(e => ToastService.displayToast("error", "Une erreur est survenue", ""))
