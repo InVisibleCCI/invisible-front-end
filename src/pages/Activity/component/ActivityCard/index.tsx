@@ -10,7 +10,7 @@ import { AccessibilityCategory } from 'classes/AccessibilityCategory';
 
 interface Props {
   title: string,
-  distance?: number,
+  distance?: string,
   description: string,
   review: number,
   commentNumber: number,
