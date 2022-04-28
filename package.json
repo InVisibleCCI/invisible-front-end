@@ -3,24 +3,42 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.1",
+    "@types/lodash": "^4.14.165",
     "@types/node": "^16.11.26",
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-transition-group": "^4.4.1",
     "@types/styled-components": "^5.1.24",
+    "algoliasearch": "^4.13.0",
+    "axios": "^0.26.1",
+    "formik": "^2.2.9",
     "i18next": "^21.6.14",
-    "i18next-xhr-backend": "^3.2.2",
     "i18next-browser-languagedetector": "^6.1.3",
-    "moment": "^2.29.1",
+    "i18next-xhr-backend": "^3.2.2",
+    "leaflet": "^1.7.1",
     "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "primeicons": "^5.0.0",
     "primereact": "^7.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-i18next": "^11.15.7",
+    "react-i18next": "^11.16.1",
+    "react-icons": "^4.3.1",
+    "react-instantsearch-dom": "^6.22.0",
+    "react-is": "^18.0.0",
+    "react-leaflet": "^2.8.0",
+    "react-leaflet-markercluster": "^2.0.0-rc1",
+    "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "react-transition-group": "^4.4.2",
+    "read-more-react": "^1.0.10",
+    "rxjs": "^7.5.5",
     "styled-components": "^5.3.3",
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
@@ -29,7 +47,8 @@
     "start": "set PORT=3000 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -48,5 +67,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.7.0",
+    "cypress": "^9.5.4"
   }
 }

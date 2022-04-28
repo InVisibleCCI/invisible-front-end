@@ -1,19 +1,18 @@
+import App from 'App';
+import 'primeicons/primeicons.css';
+import PrimeReact from 'primereact/api';
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/fluent-light/theme.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import './i18n';
+import reportWebVitals from './reportWebVitals';
 
+PrimeReact.ripple = true;
 
 ReactDOM.render(
-  <React.Suspense fallback={<div>Loading...</div>}>
-    <App />
-  </React.Suspense>,
+  <App />,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
